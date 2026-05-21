@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copa do Mundo 2026</title>
+<title>COPA 2026 - ESCALAÇÕES</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -17,7 +17,7 @@
 }
 
 body{
-    background:#101820;
+    background:#0b1520;
     color:white;
 }
 
@@ -26,7 +26,7 @@ body{
 header{
     text-align:center;
     padding:30px;
-    background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+    background:linear-gradient(90deg,#02111f,#0f3057,#00587a);
 }
 
 header h1{
@@ -36,7 +36,7 @@ header h1{
 
 header p{
     margin-top:10px;
-    font-size:1.3rem;
+    font-size:1.2rem;
 }
 
 /* MENU */
@@ -52,7 +52,7 @@ header p{
 .team-btn{
     padding:14px 22px;
     border:none;
-    border-radius:14px;
+    border-radius:15px;
     color:white;
     font-size:1rem;
     font-weight:700;
@@ -68,14 +68,14 @@ header p{
 
 .brasil{background:#009c3b;}
 .argentina{background:#3ea6ff;}
-.franca{background:#003cff;}
+.franca{background:#002fff;}
 .portugal{background:#c40000;}
-.inglaterra{background:#777;}
+.inglaterra{background:#666;}
 .espanha{background:#ff8800;}
 .alemanha{background:#222;}
-.italia{background:#0066ff;}
+.italia{background:#0055ff;}
 
-/* ATIVO */
+/* ABA ATIVA */
 
 .team-btn.active{
     background:white !important;
@@ -89,9 +89,9 @@ header p{
     position:relative;
     width:95%;
     max-width:1100px;
-    height:1500px;
+    height:1450px;
     margin:20px auto 50px;
-    background:#1f8b3d;
+    background:#1d8b3f;
     border-radius:25px;
     overflow:hidden;
     border:8px solid white;
@@ -131,8 +131,8 @@ header p{
 .player{
     position:absolute;
     transform:translate(-50%,-50%);
-    width:120px;
-    height:120px;
+    width:115px;
+    height:115px;
     border-radius:50%;
     background:white;
     color:black;
@@ -141,7 +141,7 @@ header p{
     justify-content:center;
     text-align:center;
     padding:10px;
-    font-size:0.9rem;
+    font-size:0.85rem;
     font-weight:700;
     box-shadow:0 5px 15px rgba(0,0,0,0.4);
     transition:0.3s;
@@ -157,13 +157,13 @@ header p{
 @media(max-width:900px){
 
 .field{
-    height:1800px;
+    height:1700px;
 }
 
 .player{
-    width:85px;
-    height:85px;
-    font-size:0.65rem;
+    width:80px;
+    height:80px;
+    font-size:0.6rem;
 }
 
 header h1{
@@ -180,7 +180,7 @@ header h1{
 
 <h1 id="teamTitle">BRASIL</h1>
 
-<p>ESCALAÇÃO COMPLETA • COPA DO MUNDO 2026</p>
+<p>ESCALAÇÕES DA TEMPORADA 2026</p>
 
 </header>
 
@@ -244,6 +244,8 @@ Itália
 
 <script>
 
+/* TIMES 2026 */
+
 const teams = {
 
 /* BRASIL */
@@ -251,20 +253,22 @@ const teams = {
 brasil:[
 
 {name:"ALISSON",top:"88%",left:"50%"},
-{name:"MARQUINHOS",top:"72%",left:"25%"},
-{name:"MILITÃO",top:"72%",left:"50%"},
+
+{name:"MILITÃO",top:"72%",left:"25%"},
+{name:"MARQUINHOS",top:"72%",left:"50%"},
 {name:"BERALDO",top:"72%",left:"75%"},
-{name:"ARANA",top:"58%",left:"15%"},
-{name:"CASEMIRO",top:"58%",left:"35%"},
-{name:"BRUNO G.",top:"58%",left:"50%"},
-{name:"PAQUETÁ",top:"58%",left:"65%"},
-{name:"DANILO",top:"58%",left:"85%"},
+
+{name:"ARANA",top:"55%",left:"15%"},
+{name:"CASEMIRO",top:"55%",left:"35%"},
+{name:"BRUNO G.",top:"55%",left:"50%"},
+{name:"PAQUETÁ",top:"55%",left:"65%"},
+{name:"DANILO",top:"55%",left:"85%"},
+
 {name:"VINI JR",top:"30%",left:"20%"},
 {name:"RODRYGO",top:"30%",left:"50%"},
 {name:"RAPHINHA",top:"30%",left:"80%"},
-{name:"ENDRICK",top:"15%",left:"50%"},
-{name:"JOÃO PEDRO",top:"44%",left:"30%"},
-{name:"MATHEUS CUNHA",top:"44%",left:"70%"}
+
+{name:"ENDRICK",top:"15%",left:"50%"}
 
 ],
 
@@ -273,13 +277,17 @@ brasil:[
 argentina:[
 
 {name:"MARTINEZ",top:"88%",left:"50%"},
-{name:"OTAMENDI",top:"72%",left:"30%"},
-{name:"ROMERO",top:"72%",left:"70%"},
+
+{name:"ROMERO",top:"72%",left:"30%"},
+{name:"OTAMENDI",top:"72%",left:"70%"},
+
 {name:"ENZO",top:"55%",left:"35%"},
 {name:"MAC ALLISTER",top:"55%",left:"65%"},
-{name:"MESSI",top:"25%",left:"50%"},
-{name:"DI MARIA",top:"35%",left:"20%"},
-{name:"JULIAN",top:"35%",left:"80%"},
+
+{name:"MESSI",top:"30%",left:"50%"},
+{name:"DI MARIA",top:"30%",left:"20%"},
+{name:"JULIAN",top:"30%",left:"80%"},
+
 {name:"LAUTARO",top:"15%",left:"50%"}
 
 ],
@@ -289,15 +297,19 @@ argentina:[
 franca:[
 
 {name:"MAIGNAN",top:"88%",left:"50%"},
-{name:"KOUNDE",top:"70%",left:"25%"},
-{name:"SALIBA",top:"70%",left:"50%"},
-{name:"UPAMECANO",top:"70%",left:"75%"},
-{name:"TCHOUAMENI",top:"55%",left:"35%"},
-{name:"CAMAVINGA",top:"55%",left:"65%"},
+
+{name:"SALIBA",top:"72%",left:"30%"},
+{name:"KOUNDE",top:"72%",left:"70%"},
+
+{name:"CAMAVINGA",top:"55%",left:"35%"},
+{name:"TCHOUAMENI",top:"55%",left:"65%"},
+
 {name:"GRIEZMANN",top:"40%",left:"50%"},
-{name:"MBAPPÉ",top:"20%",left:"50%"},
-{name:"DEMBÉLÉ",top:"30%",left:"80%"},
-{name:"GIROUD",top:"30%",left:"20%"}
+
+{name:"MBAPPÉ",top:"25%",left:"20%"},
+{name:"DEMBÉLÉ",top:"25%",left:"80%"},
+
+{name:"GIROUD",top:"15%",left:"50%"}
 
 ],
 
@@ -306,10 +318,13 @@ franca:[
 portugal:[
 
 {name:"DIOGO COSTA",top:"88%",left:"50%"},
-{name:"PEPE",top:"70%",left:"30%"},
-{name:"DIAS",top:"70%",left:"70%"},
-{name:"BERNARDO",top:"50%",left:"35%"},
-{name:"BRUNO F.",top:"50%",left:"65%"},
+
+{name:"RUBEN DIAS",top:"72%",left:"30%"},
+{name:"PEPE",top:"72%",left:"70%"},
+
+{name:"BERNARDO",top:"55%",left:"35%"},
+{name:"BRUNO F.",top:"55%",left:"65%"},
+
 {name:"LEÃO",top:"30%",left:"20%"},
 {name:"CRISTIANO",top:"15%",left:"50%"},
 {name:"JOÃO FÉLIX",top:"30%",left:"80%"}
@@ -321,10 +336,13 @@ portugal:[
 inglaterra:[
 
 {name:"PICKFORD",top:"88%",left:"50%"},
-{name:"STONES",top:"70%",left:"30%"},
-{name:"WALKER",top:"70%",left:"70%"},
-{name:"BELLINGHAM",top:"50%",left:"35%"},
-{name:"RICE",top:"50%",left:"65%"},
+
+{name:"STONES",top:"72%",left:"30%"},
+{name:"WALKER",top:"72%",left:"70%"},
+
+{name:"RICE",top:"55%",left:"35%"},
+{name:"BELLINGHAM",top:"55%",left:"65%"},
+
 {name:"FODEN",top:"30%",left:"20%"},
 {name:"KANE",top:"15%",left:"50%"},
 {name:"SAKA",top:"30%",left:"80%"}
@@ -336,13 +354,16 @@ inglaterra:[
 espanha:[
 
 {name:"SIMON",top:"88%",left:"50%"},
-{name:"LAPORTE",top:"70%",left:"30%"},
-{name:"CARVAJAL",top:"70%",left:"70%"},
-{name:"PEDRI",top:"50%",left:"35%"},
-{name:"GAVI",top:"50%",left:"65%"},
+
+{name:"LAPORTE",top:"72%",left:"30%"},
+{name:"CARVAJAL",top:"72%",left:"70%"},
+
+{name:"PEDRI",top:"55%",left:"35%"},
+{name:"GAVI",top:"55%",left:"65%"},
+
 {name:"YAMAL",top:"30%",left:"20%"},
 {name:"MORATA",top:"15%",left:"50%"},
-{name:"NICO WILLIAMS",top:"30%",left:"80%"}
+{name:"NICO W.",top:"30%",left:"80%"}
 
 ],
 
@@ -351,13 +372,16 @@ espanha:[
 alemanha:[
 
 {name:"TER STEGEN",top:"88%",left:"50%"},
-{name:"RUDIGER",top:"70%",left:"30%"},
-{name:"KIMMICH",top:"70%",left:"70%"},
-{name:"MUSIALA",top:"50%",left:"35%"},
-{name:"GUNDOGAN",top:"50%",left:"65%"},
+
+{name:"RUDIGER",top:"72%",left:"30%"},
+{name:"KIMMICH",top:"72%",left:"70%"},
+
+{name:"GUNDOGAN",top:"55%",left:"35%"},
+{name:"MUSIALA",top:"55%",left:"65%"},
+
 {name:"WIRTZ",top:"30%",left:"20%"},
 {name:"HAVERTZ",top:"15%",left:"50%"},
-{name:"SANE",top:"30%",left:"80%"}
+{name:"SANÉ",top:"30%",left:"80%"}
 
 ],
 
@@ -366,10 +390,13 @@ alemanha:[
 italia:[
 
 {name:"DONNARUMMA",top:"88%",left:"50%"},
-{name:"BASTONI",top:"70%",left:"30%"},
-{name:"DI LORENZO",top:"70%",left:"70%"},
-{name:"JORGINHO",top:"50%",left:"35%"},
-{name:"BARELLA",top:"50%",left:"65%"},
+
+{name:"BASTONI",top:"72%",left:"30%"},
+{name:"DI LORENZO",top:"72%",left:"70%"},
+
+{name:"JORGINHO",top:"55%",left:"35%"},
+{name:"BARELLA",top:"55%",left:"65%"},
+
 {name:"CHIESA",top:"30%",left:"20%"},
 {name:"SCAMACCA",top:"15%",left:"50%"},
 {name:"BERARDI",top:"30%",left:"80%"}
