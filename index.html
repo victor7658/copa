@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copa do Mundo 2026</title>
+<title>Escalação Brasil</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -17,139 +18,86 @@
 }
 
 body{
-    background:#0b3d0b;
-    color:white;
+    background:#ffd500;
+    overflow-x:hidden;
 }
 
-/* HEADER */
-
 header{
-    background:linear-gradient(90deg,#006400,#00aa44);
-    padding:25px;
     text-align:center;
+    padding:30px 20px;
 }
 
 header h1{
-    font-size:3rem;
-    color:#ffdf00;
+    font-size:5rem;
+    color:#009c3b;
+    font-weight:700;
 }
 
 header p{
-    margin-top:10px;
-}
-
-/* MENU */
-
-.menu{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    padding:20px;
-}
-
-.team-btn{
-    padding:14px 25px;
-    border:none;
-    border-radius:15px;
-    cursor:pointer;
-    font-size:1rem;
+    font-size:2rem;
+    color:#1d4fa3;
     font-weight:700;
-    transition:0.3s;
-    color:white;
 }
-
-/* CORES */
-
-.brasil{background:#009933;}
-.argentina{background:#4bb3ff;}
-.franca{background:#0044ff;}
-.portugal{background:#c70000;}
-.inglaterra{background:#666;}
-
-/* BOTÃO ATIVO */
-
-.team-btn.active{
-    background:white !important;
-    color:black !important;
-    transform:scale(1.1);
-    border:3px solid #ffdf00;
-}
-
-/* CAMPO */
 
 .field{
-    width:95%;
-    max-width:1300px;
-    height:850px;
-    margin:20px auto;
     position:relative;
-    border:6px solid white;
-    border-radius:25px;
-    overflow:hidden;
-    background:url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1400&auto=format&fit=crop') center/cover;
+    width:95%;
+    max-width:900px;
+    height:1200px;
+    margin:30px auto;
+    background:url('https://i.imgur.com/F7DhI8T.png') center/cover no-repeat;
 }
-
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.35);
-}
-
-/* JOGADORES */
 
 .player{
     position:absolute;
     transform:translate(-50%,-50%);
     text-align:center;
-    transition:0.3s;
 }
 
-.player:hover{
-    transform:translate(-50%,-50%) scale(1.08);
-}
-
-.shirt{
-    width:90px;
-    height:90px;
+.player img{
+    width:120px;
+    height:120px;
     border-radius:50%;
-    background:#ffdf00;
-    border:4px solid white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.3rem;
-    font-weight:700;
-    color:#006400;
-    margin:auto;
+    border:6px solid #00b140;
+    object-fit:cover;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
 }
 
-.player h3{
+.player h2{
     margin-top:8px;
-    font-size:1rem;
+    color:#1d4fa3;
+    font-size:1.4rem;
 }
 
-.player p{
-    font-size:0.8rem;
-    color:#ddd;
+.coach{
+    text-align:center;
+    font-size:2rem;
+    color:#1d4fa3;
+    font-weight:700;
+    margin-bottom:40px;
 }
-
-/* RESPONSIVO */
 
 @media(max-width:900px){
 
 .field{
-    height:1200px;
+    height:900px;
 }
 
-.shirt{
-    width:70px;
-    height:70px;
+.player img{
+    width:80px;
+    height:80px;
+}
+
+.player h2{
     font-size:1rem;
 }
 
 header h1{
-    font-size:2rem;
+    font-size:3rem;
+}
+
+header p{
+    font-size:1.3rem;
 }
 
 }
@@ -159,206 +107,79 @@ header h1{
 <body>
 
 <header>
-    <h1>COPA DO MUNDO 2026</h1>
-    <p>Escalações completas das seleções</p>
+    <h1>BRASIL</h1>
+    <p>PROVÁVEL ESCALAÇÃO CONTRA CROÁCIA</p>
 </header>
-
-<!-- MENU -->
-
-<div class="menu">
-
-<button class="team-btn brasil active"
-onclick="showTeam('brasil', this)">
-Brasil
-</button>
-
-<button class="team-btn argentina"
-onclick="showTeam('argentina', this)">
-Argentina
-</button>
-
-<button class="team-btn franca"
-onclick="showTeam('franca', this)">
-França
-</button>
-
-<button class="team-btn portugal"
-onclick="showTeam('portugal', this)">
-Portugal
-</button>
-
-<button class="team-btn inglaterra"
-onclick="showTeam('inglaterra', this)">
-Inglaterra
-</button>
-
-</div>
-
-<!-- CAMPO -->
 
 <div class="field">
 
-<div class="overlay"></div>
+<!-- GOLEIRO -->
+<div class="player" style="top:85%; left:50%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/bento-brasilien-2024-1722449382-143504.jpg" alt="Bento">
+<h2>BENTO</h2>
+</div>
 
-<div id="players"></div>
+<!-- ZAGA -->
+<div class="player" style="top:68%; left:35%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/leo-pereira-flamengo-2023-1696356458-118381.jpg" alt="Leo Pereira">
+<h2>LÉO PEREIRA</h2>
+</div>
+
+<div class="player" style="top:68%; left:65%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/marquinhos-psg-2024-1722450322-143507.jpg" alt="Marquinhos">
+<h2>MARQUINHOS</h2>
+</div>
+
+<!-- LATERAIS -->
+<div class="player" style="top:55%; left:15%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/douglas-santos-zenit-2023-1696355235-118377.jpg" alt="Douglas Santos">
+<h2>DOUGLAS SANTOS</h2>
+</div>
+
+<div class="player" style="top:55%; left:85%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/ibanez-al-ahli-2024-1722451208-143512.jpg" alt="Ibanez">
+<h2>IBAÑEZ</h2>
+</div>
+
+<!-- MEIO -->
+<div class="player" style="top:45%; left:35%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/danilo-nottingham-forest-2024-1722450652-143509.jpg" alt="Danilo">
+<h2>DANILO</h2>
+</div>
+
+<div class="player" style="top:45%; left:65%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/casemiro-manchester-united-2024-1722450980-143511.jpg" alt="Casemiro">
+<h2>CASEMIRO</h2>
+</div>
+
+<!-- ATAQUE -->
+<div class="player" style="top:25%; left:20%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/vinicius-junior-real-madrid-2024-1722451924-143517.jpg" alt="Vini Jr">
+<h2>VINI JR</h2>
+</div>
+
+<div class="player" style="top:20%; left:50%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/joao-pedro-brighton-2024-1722452194-143518.jpg" alt="Joao Pedro">
+<h2>JOÃO PEDRO</h2>
+</div>
+
+<div class="player" style="top:25%; left:80%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/luiz-henrique-botafogo-2024-1722452508-143520.jpg" alt="Luiz Henrique">
+<h2>LUIZ HENRIQUE</h2>
+</div>
+
+<!-- CENTRO -->
+<div class="player" style="top:35%; left:50%;">
+<img src="https://tmssl.akamaized.net/images/foto/galerie/matheus-cunha-wolverhampton-2024-1722452801-143522.jpg" alt="Matheus Cunha">
+<h2>MATHEUS CUNHA</h2>
+</div>
 
 </div>
 
-<script>
-
-const teams = {
-
-/* BRASIL */
-
-brasil:[
-
-{num:1,name:"Alisson",pos:"Goleiro",top:"90%",left:"50%"},
-
-{num:6,name:"Arana",pos:"Lateral",top:"68%",left:"15%"},
-{num:4,name:"Marquinhos",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:3,name:"Militão",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:2,name:"Danilo",pos:"Lateral",top:"68%",left:"85%"},
-
-{num:5,name:"Casemiro",pos:"Volante",top:"50%",left:"30%"},
-{num:8,name:"Paquetá",pos:"Meia",top:"45%",left:"50%"},
-{num:10,name:"Rodrygo",pos:"Meia",top:"50%",left:"70%"},
-
-{num:11,name:"Vini Jr",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Endrick",pos:"Atacante",top:"18%",left:"50%"},
-{num:7,name:"Raphinha",pos:"Ponta",top:"25%",left:"80%"}
-
-],
-
-/* ARGENTINA */
-
-argentina:[
-
-{num:1,name:"Martinez",pos:"Goleiro",top:"90%",left:"50%"},
-
-{num:3,name:"Tagliafico",pos:"Lateral",top:"68%",left:"15%"},
-{num:13,name:"Romero",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:19,name:"Otamendi",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:26,name:"Molina",pos:"Lateral",top:"68%",left:"85%"},
-
-{num:5,name:"Paredes",pos:"Volante",top:"50%",left:"30%"},
-{num:7,name:"De Paul",pos:"Meia",top:"45%",left:"50%"},
-{num:20,name:"Mac Allister",pos:"Meia",top:"50%",left:"70%"},
-
-{num:11,name:"Di Maria",pos:"Ponta",top:"25%",left:"20%"},
-{num:10,name:"Messi",pos:"Atacante",top:"18%",left:"50%"},
-{num:9,name:"Julian Alvarez",pos:"Ponta",top:"25%",left:"80%"}
-
-],
-
-/* FRANÇA */
-
-franca:[
-
-{num:1,name:"Maignan",pos:"Goleiro",top:"90%",left:"50%"},
-
-{num:22,name:"Theo",pos:"Lateral",top:"68%",left:"15%"},
-{num:4,name:"Upamecano",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:5,name:"Kounde",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:2,name:"Pavard",pos:"Lateral",top:"68%",left:"85%"},
-
-{num:13,name:"Camavinga",pos:"Volante",top:"50%",left:"30%"},
-{num:8,name:"Tchouameni",pos:"Meia",top:"45%",left:"50%"},
-{num:7,name:"Griezmann",pos:"Meia",top:"50%",left:"70%"},
-
-{num:10,name:"Mbappe",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Giroud",pos:"Atacante",top:"18%",left:"50%"},
-{num:11,name:"Dembele",pos:"Ponta",top:"25%",left:"80%"}
-
-],
-
-/* PORTUGAL */
-
-portugal:[
-
-{num:1,name:"Diogo Costa",pos:"Goleiro",top:"90%",left:"50%"},
-
-{num:5,name:"Mendes",pos:"Lateral",top:"68%",left:"15%"},
-{num:3,name:"Pepe",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:4,name:"Dias",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:2,name:"Cancelo",pos:"Lateral",top:"68%",left:"85%"},
-
-{num:8,name:"Bruno Fernandes",pos:"Meia",top:"50%",left:"30%"},
-{num:10,name:"Bernardo Silva",pos:"Meia",top:"45%",left:"50%"},
-{num:6,name:"Palhinha",pos:"Volante",top:"50%",left:"70%"},
-
-{num:7,name:"Cristiano Ronaldo",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Ramos",pos:"Atacante",top:"18%",left:"50%"},
-{num:11,name:"Leao",pos:"Ponta",top:"25%",left:"80%"}
-
-],
-
-/* INGLATERRA */
-
-inglaterra:[
-
-{num:1,name:"Pickford",pos:"Goleiro",top:"90%",left:"50%"},
-
-{num:3,name:"Shaw",pos:"Lateral",top:"68%",left:"15%"},
-{num:5,name:"Stones",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:6,name:"Maguire",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:2,name:"Walker",pos:"Lateral",top:"68%",left:"85%"},
-
-{num:4,name:"Rice",pos:"Volante",top:"50%",left:"30%"},
-{num:8,name:"Bellingham",pos:"Meia",top:"45%",left:"50%"},
-{num:10,name:"Foden",pos:"Meia",top:"50%",left:"70%"},
-
-{num:11,name:"Saka",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Kane",pos:"Atacante",top:"18%",left:"50%"},
-{num:7,name:"Grealish",pos:"Ponta",top:"25%",left:"80%"}
-
-]
-
-};
-
-function showTeam(team,element){
-
-const playersDiv = document.getElementById("players");
-
-playersDiv.innerHTML = "";
-
-/* REMOVE ACTIVE */
-
-document.querySelectorAll(".team-btn").forEach(btn=>{
-btn.classList.remove("active");
-});
-
-/* ADD ACTIVE */
-
-element.classList.add("active");
-
-/* MOSTRA JOGADORES */
-
-teams[team].forEach(player=>{
-
-playersDiv.innerHTML += `
-
-<div class="player"
-style="top:${player.top}; left:${player.left};">
-
-<div class="shirt">${player.num}</div>
-
-<h3>${player.name}</h3>
-
-<p>${player.pos}</p>
-
+<div class="coach">
+TÉC: CARLO ANCELOTTI
 </div>
-
-`;
-
-});
-
-}
-
-/* ABRIR BRASIL */
-
-showTeam('brasil',document.querySelector('.brasil'));
-
-</script>
 
 </body>
 </html>
+```
