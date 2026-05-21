@@ -1,10 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escalação Brasil</title>
+<title>Copa do Mundo 2026</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -22,6 +21,8 @@ body{
     overflow-x:hidden;
 }
 
+/* TOPO */
+
 header{
     text-align:center;
     padding:30px 20px;
@@ -30,7 +31,6 @@ header{
 header h1{
     font-size:5rem;
     color:#009c3b;
-    font-weight:700;
 }
 
 header p{
@@ -39,19 +39,70 @@ header p{
     font-weight:700;
 }
 
+/* MENU */
+
+.menu{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    padding:20px;
+}
+
+.team-btn{
+    padding:14px 25px;
+    border:none;
+    border-radius:15px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    color:white;
+}
+
+.team-btn:hover{
+    transform:scale(1.08);
+}
+
+/* CORES */
+
+.brasil{background:#009c3b;}
+.argentina{background:#3ea6ff;}
+.franca{background:#003cff;}
+.portugal{background:#c40000;}
+.inglaterra{background:#555;}
+
+/* BOTÃO ATIVO */
+
+.team-btn.active{
+    background:white !important;
+    color:black !important;
+    border:3px solid #ffdf00;
+    transform:scale(1.08);
+}
+
+/* CAMPO */
+
 .field{
     position:relative;
     width:95%;
     max-width:900px;
     height:1200px;
-    margin:30px auto;
+    margin:20px auto;
     background:url('https://i.imgur.com/F7DhI8T.png') center/cover no-repeat;
 }
+
+/* JOGADORES */
 
 .player{
     position:absolute;
     transform:translate(-50%,-50%);
     text-align:center;
+    transition:0.3s;
+}
+
+.player:hover{
+    transform:translate(-50%,-50%) scale(1.08);
 }
 
 .player img{
@@ -66,16 +117,10 @@ header p{
 .player h2{
     margin-top:8px;
     color:#1d4fa3;
-    font-size:1.4rem;
+    font-size:1.2rem;
 }
 
-.coach{
-    text-align:center;
-    font-size:2rem;
-    color:#1d4fa3;
-    font-weight:700;
-    margin-bottom:40px;
-}
+/* RESPONSIVO */
 
 @media(max-width:900px){
 
@@ -89,7 +134,7 @@ header p{
 }
 
 .player h2{
-    font-size:1rem;
+    font-size:0.8rem;
 }
 
 header h1{
@@ -97,7 +142,7 @@ header h1{
 }
 
 header p{
-    font-size:1.3rem;
+    font-size:1.2rem;
 }
 
 }
@@ -107,79 +152,168 @@ header p{
 <body>
 
 <header>
-    <h1>BRASIL</h1>
-    <p>PROVÁVEL ESCALAÇÃO CONTRA CROÁCIA</p>
+
+<h1 id="teamTitle">BRASIL</h1>
+
+<p>ESCALAÇÃO OFICIAL DA COPA 2026</p>
+
 </header>
+
+<!-- MENU -->
+
+<div class="menu">
+
+<button class="team-btn brasil active"
+onclick="showTeam('brasil',this)">
+Brasil
+</button>
+
+<button class="team-btn argentina"
+onclick="showTeam('argentina',this)">
+Argentina
+</button>
+
+<button class="team-btn franca"
+onclick="showTeam('franca',this)">
+França
+</button>
+
+<button class="team-btn portugal"
+onclick="showTeam('portugal',this)">
+Portugal
+</button>
+
+<button class="team-btn inglaterra"
+onclick="showTeam('inglaterra',this)">
+Inglaterra
+</button>
+
+</div>
+
+<!-- CAMPO -->
 
 <div class="field">
 
-<!-- GOLEIRO -->
-<div class="player" style="top:85%; left:50%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/bento-brasilien-2024-1722449382-143504.jpg" alt="Bento">
-<h2>BENTO</h2>
-</div>
-
-<!-- ZAGA -->
-<div class="player" style="top:68%; left:35%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/leo-pereira-flamengo-2023-1696356458-118381.jpg" alt="Leo Pereira">
-<h2>LÉO PEREIRA</h2>
-</div>
-
-<div class="player" style="top:68%; left:65%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/marquinhos-psg-2024-1722450322-143507.jpg" alt="Marquinhos">
-<h2>MARQUINHOS</h2>
-</div>
-
-<!-- LATERAIS -->
-<div class="player" style="top:55%; left:15%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/douglas-santos-zenit-2023-1696355235-118377.jpg" alt="Douglas Santos">
-<h2>DOUGLAS SANTOS</h2>
-</div>
-
-<div class="player" style="top:55%; left:85%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/ibanez-al-ahli-2024-1722451208-143512.jpg" alt="Ibanez">
-<h2>IBAÑEZ</h2>
-</div>
-
-<!-- MEIO -->
-<div class="player" style="top:45%; left:35%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/danilo-nottingham-forest-2024-1722450652-143509.jpg" alt="Danilo">
-<h2>DANILO</h2>
-</div>
-
-<div class="player" style="top:45%; left:65%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/casemiro-manchester-united-2024-1722450980-143511.jpg" alt="Casemiro">
-<h2>CASEMIRO</h2>
-</div>
-
-<!-- ATAQUE -->
-<div class="player" style="top:25%; left:20%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/vinicius-junior-real-madrid-2024-1722451924-143517.jpg" alt="Vini Jr">
-<h2>VINI JR</h2>
-</div>
-
-<div class="player" style="top:20%; left:50%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/joao-pedro-brighton-2024-1722452194-143518.jpg" alt="Joao Pedro">
-<h2>JOÃO PEDRO</h2>
-</div>
-
-<div class="player" style="top:25%; left:80%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/luiz-henrique-botafogo-2024-1722452508-143520.jpg" alt="Luiz Henrique">
-<h2>LUIZ HENRIQUE</h2>
-</div>
-
-<!-- CENTRO -->
-<div class="player" style="top:35%; left:50%;">
-<img src="https://tmssl.akamaized.net/images/foto/galerie/matheus-cunha-wolverhampton-2024-1722452801-143522.jpg" alt="Matheus Cunha">
-<h2>MATHEUS CUNHA</h2>
-</div>
+<div id="players"></div>
 
 </div>
 
-<div class="coach">
-TÉC: CARLO ANCELOTTI
+<script>
+
+/* TIMES */
+
+const teams = {
+
+/* BRASIL */
+
+brasil:[
+
+{img:"https://randomuser.me/api/portraits/men/1.jpg",name:"BENTO",top:"85%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/2.jpg",name:"LÉO PEREIRA",top:"68%",left:"35%"},
+{img:"https://randomuser.me/api/portraits/men/3.jpg",name:"MARQUINHOS",top:"68%",left:"65%"},
+{img:"https://randomuser.me/api/portraits/men/4.jpg",name:"DOUGLAS SANTOS",top:"55%",left:"15%"},
+{img:"https://randomuser.me/api/portraits/men/5.jpg",name:"IBAÑEZ",top:"55%",left:"85%"},
+{img:"https://randomuser.me/api/portraits/men/6.jpg",name:"DANILO",top:"45%",left:"35%"},
+{img:"https://randomuser.me/api/portraits/men/7.jpg",name:"CASEMIRO",top:"45%",left:"65%"},
+{img:"https://randomuser.me/api/portraits/men/8.jpg",name:"VINI JR",top:"25%",left:"20%"},
+{img:"https://randomuser.me/api/portraits/men/9.jpg",name:"JOÃO PEDRO",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/10.jpg",name:"LUIZ HENRIQUE",top:"25%",left:"80%"},
+{img:"https://randomuser.me/api/portraits/men/11.jpg",name:"MATHEUS CUNHA",top:"35%",left:"50%"}
+
+],
+
+/* ARGENTINA */
+
+argentina:[
+
+{img:"https://randomuser.me/api/portraits/men/12.jpg",name:"MARTINEZ",top:"85%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/13.jpg",name:"OTAMENDI",top:"68%",left:"35%"},
+{img:"https://randomuser.me/api/portraits/men/14.jpg",name:"ROMERO",top:"68%",left:"65%"},
+{img:"https://randomuser.me/api/portraits/men/15.jpg",name:"MESSI",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/16.jpg",name:"DI MARIA",top:"25%",left:"20%"},
+{img:"https://randomuser.me/api/portraits/men/17.jpg",name:"JULIAN ALVAREZ",top:"25%",left:"80%"}
+
+],
+
+/* FRANÇA */
+
+franca:[
+
+{img:"https://randomuser.me/api/portraits/men/18.jpg",name:"MAIGNAN",top:"85%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/19.jpg",name:"MBAPPÉ",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/20.jpg",name:"GIROUD",top:"35%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/21.jpg",name:"DEMBÉLÉ",top:"25%",left:"80%"}
+
+],
+
+/* PORTUGAL */
+
+portugal:[
+
+{img:"https://randomuser.me/api/portraits/men/22.jpg",name:"DIOGO COSTA",top:"85%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/23.jpg",name:"CRISTIANO",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/24.jpg",name:"BERNARDO SILVA",top:"35%",left:"35%"},
+{img:"https://randomuser.me/api/portraits/men/25.jpg",name:"LEÃO",top:"25%",left:"80%"}
+
+],
+
+/* INGLATERRA */
+
+inglaterra:[
+
+{img:"https://randomuser.me/api/portraits/men/26.jpg",name:"PICKFORD",top:"85%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/27.jpg",name:"KANE",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/28.jpg",name:"BELLINGHAM",top:"35%",left:"35%"},
+{img:"https://randomuser.me/api/portraits/men/29.jpg",name:"SAKA",top:"25%",left:"80%"}
+
+]
+
+};
+
+/* MOSTRAR TIME */
+
+function showTeam(team,button){
+
+document.querySelectorAll(".team-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+document.getElementById("teamTitle").innerHTML =
+team.toUpperCase();
+
+const playersDiv = document.getElementById("players");
+
+playersDiv.innerHTML = "";
+
+teams[team].forEach(player=>{
+
+playersDiv.innerHTML += `
+
+<div class="player"
+style="top:${player.top}; left:${player.left};">
+
+<img src="${player.img}">
+
+<h2>${player.name}</h2>
+
 </div>
+
+`;
+
+});
+
+}
+
+/* INICIAR */
+
+showTeam(
+'brasil',
+document.querySelector('.brasil')
+);
+
+</script>
 
 </body>
 </html>
-```
