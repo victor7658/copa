@@ -95,7 +95,7 @@ header p{
     overflow:hidden;
 }
 
-/* LINHAS DO CAMPO */
+/* LINHAS */
 
 .field::before{
     content:'';
@@ -103,8 +103,6 @@ header p{
     inset:20px;
     border:4px solid white;
 }
-
-/* LINHA MEIO */
 
 .middle-line{
     position:absolute;
@@ -114,8 +112,6 @@ header p{
     height:4px;
     background:white;
 }
-
-/* CÍRCULO */
 
 .center-circle{
     position:absolute;
@@ -128,8 +124,6 @@ header p{
     border-radius:50%;
 }
 
-/* ÁREA GOL CIMA */
-
 .goal-top{
     position:absolute;
     top:20px;
@@ -139,8 +133,6 @@ header p{
     height:140px;
     border:4px solid white;
 }
-
-/* ÁREA GOL BAIXO */
 
 .goal-bottom{
     position:absolute;
@@ -177,7 +169,8 @@ header p{
 .player h2{
     margin-top:8px;
     color:#1d4fa3;
-    font-size:1.1rem;
+    font-size:1rem;
+    font-weight:700;
 }
 
 /* RESPONSIVO */
@@ -194,7 +187,7 @@ header p{
 }
 
 .player h2{
-    font-size:0.8rem;
+    font-size:0.7rem;
 }
 
 header h1{
@@ -274,49 +267,190 @@ const teams = {
 
 brasil:[
 
-{img:"https://randomuser.me/api/portraits/men/1.jpg",name:"BENTO",top:"85%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/2.jpg",name:"LÉO PEREIRA",top:"68%",left:"35%"},
-{img:"https://randomuser.me/api/portraits/men/3.jpg",name:"MARQUINHOS",top:"68%",left:"65%"},
-{img:"https://randomuser.me/api/portraits/men/4.jpg",name:"DOUGLAS SANTOS",top:"55%",left:"15%"},
-{img:"https://randomuser.me/api/portraits/men/5.jpg",name:"IBAÑEZ",top:"55%",left:"85%"},
-{img:"https://randomuser.me/api/portraits/men/6.jpg",name:"DANILO",top:"45%",left:"35%"},
-{img:"https://randomuser.me/api/portraits/men/7.jpg",name:"CASEMIRO",top:"45%",left:"65%"},
-{img:"https://randomuser.me/api/portraits/men/8.jpg",name:"VINI JR",top:"25%",left:"20%"},
-{img:"https://randomuser.me/api/portraits/men/9.jpg",name:"JOÃO PEDRO",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/10.jpg",name:"LUIZ HENRIQUE",top:"25%",left:"80%"},
-{img:"https://randomuser.me/api/portraits/men/11.jpg",name:"MATHEUS CUNHA",top:"35%",left:"50%"}
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/404839-1667833981.jpg",
+name:"BENTO",
+top:"85%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/480762-1669830807.jpg",
+name:"LÉO PEREIRA",
+top:"68%",
+left:"35%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/293641-1667830547.jpg",
+name:"MARQUINHOS",
+top:"68%",
+left:"65%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/143776-1696258570.jpg",
+name:"DOUGLAS SANTOS",
+top:"55%",
+left:"15%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/395681-1696257810.jpg",
+name:"IBAÑEZ",
+top:"55%",
+left:"85%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/476105-1669830322.jpg",
+name:"DANILO",
+top:"45%",
+left:"35%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/16306-1694613876.jpg",
+name:"CASEMIRO",
+top:"45%",
+left:"65%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/371998-1664869583.jpg",
+name:"VINI JR",
+top:"25%",
+left:"20%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/553319-1696259620.jpg",
+name:"JOÃO PEDRO",
+top:"20%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/659509-1701294182.jpg",
+name:"LUIZ HENRIQUE",
+top:"25%",
+left:"80%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/517894-1696259727.jpg",
+name:"MATHEUS CUNHA",
+top:"35%",
+left:"50%"
+}
 
 ],
+
+/* ARGENTINA */
 
 argentina:[
 
-{img:"https://randomuser.me/api/portraits/men/12.jpg",name:"MESSI",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/13.jpg",name:"DI MARIA",top:"25%",left:"20%"},
-{img:"https://randomuser.me/api/portraits/men/14.jpg",name:"MARTINEZ",top:"85%",left:"50%"}
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/28003-1671435885.jpg",
+name:"MESSI",
+top:"20%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/139201-1671435888.jpg",
+name:"DI MARIA",
+top:"25%",
+left:"20%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/111873-1671435887.jpg",
+name:"MARTINEZ",
+top:"85%",
+left:"50%"
+}
 
 ],
+
+/* FRANÇA */
 
 franca:[
 
-{img:"https://randomuser.me/api/portraits/men/15.jpg",name:"MBAPPÉ",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/16.jpg",name:"GIROUD",top:"35%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/17.jpg",name:"DEMBÉLÉ",top:"25%",left:"80%"}
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/342229-1682683695.jpg",
+name:"MBAPPÉ",
+top:"20%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/82442-1682683700.jpg",
+name:"GIROUD",
+top:"35%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/182906-1682683702.jpg",
+name:"DEMBÉLÉ",
+top:"25%",
+left:"80%"
+}
 
 ],
+
+/* PORTUGAL */
 
 portugal:[
 
-{img:"https://randomuser.me/api/portraits/men/18.jpg",name:"CRISTIANO",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/19.jpg",name:"BERNARDO",top:"35%",left:"35%"},
-{img:"https://randomuser.me/api/portraits/men/20.jpg",name:"LEÃO",top:"25%",left:"80%"}
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/8198-1694609670.jpg",
+name:"CRISTIANO",
+top:"20%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/241641-1694609693.jpg",
+name:"BERNARDO",
+top:"35%",
+left:"35%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/357164-1694609698.jpg",
+name:"LEÃO",
+top:"25%",
+left:"80%"
+}
 
 ],
 
+/* INGLATERRA */
+
 inglaterra:[
 
-{img:"https://randomuser.me/api/portraits/men/21.jpg",name:"KANE",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/22.jpg",name:"SAKA",top:"25%",left:"80%"},
-{img:"https://randomuser.me/api/portraits/men/23.jpg",name:"BELLINGHAM",top:"35%",left:"35%"}
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/132098-1700211169.jpg",
+name:"KANE",
+top:"20%",
+left:"50%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/433177-1700211270.jpg",
+name:"SAKA",
+top:"25%",
+left:"80%"
+},
+
+{
+img:"https://img.a.transfermarkt.technology/portrait/big/581678-1700211192.jpg",
+name:"BELLINGHAM",
+top:"35%",
+left:"35%"
+}
 
 ]
 
