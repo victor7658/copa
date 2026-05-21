@@ -39,7 +39,7 @@ header p{
     margin-top:10px;
 }
 
-/* MENU */
+/* MENU DOS TIMES */
 
 .menu{
     display:flex;
@@ -49,21 +49,55 @@ header p{
     padding:25px;
 }
 
-button{
-    padding:12px 20px;
+/* BOTÕES */
+
+.team-btn{
+    padding:14px 24px;
     border:none;
-    border-radius:12px;
-    background:#ffdf00;
-    color:#006400;
+    border-radius:14px;
+    font-size:1rem;
     font-weight:700;
     cursor:pointer;
     transition:0.3s;
-    font-size:1rem;
+    color:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-button:hover{
-    transform:scale(1.05);
-    background:white;
+/* CORES DOS TIMES */
+
+.brasil{
+    background:#009933;
+}
+
+.argentina{
+    background:#3da5ff;
+}
+
+.franca{
+    background:#003cff;
+}
+
+.portugal{
+    background:#c40000;
+}
+
+.inglaterra{
+    background:#777;
+}
+
+/* BOTÃO ATIVO */
+
+.team-btn.active{
+    background:white !important;
+    color:black !important;
+    transform:scale(1.08);
+    border:3px solid #ffdf00;
+}
+
+/* HOVER */
+
+.team-btn:hover{
+    transform:scale(1.06);
 }
 
 /* CAMPO */
@@ -124,30 +158,6 @@ button:hover{
     color:#ddd;
 }
 
-/* CARDS */
-
-.info{
-    width:95%;
-    max-width:1300px;
-    margin:30px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:rgba(255,255,255,0.1);
-    padding:20px;
-    border-radius:20px;
-    border:1px solid rgba(255,255,255,0.2);
-    backdrop-filter:blur(5px);
-}
-
-.card h2{
-    color:#ffdf00;
-    margin-bottom:10px;
-}
-
 /* RESPONSIVO */
 
 @media(max-width:900px){
@@ -174,18 +184,22 @@ button:hover{
 
 <header>
     <h1>COPA DO MUNDO 2026</h1>
-    <p>Escalações das Seleções • Sistema Alterável</p>
+    <p>Escolha um time para ver a escalação</p>
 </header>
 
 <!-- MENU -->
 
 <div class="menu">
 
-<button onclick="showTeam('brasil')">Brasil</button>
-<button onclick="showTeam('argentina')">Argentina</button>
-<button onclick="showTeam('franca')">França</button>
-<button onclick="showTeam('portugal')">Portugal</button>
-<button onclick="showTeam('inglaterra')">Inglaterra</button>
+<button class="team-btn brasil active" onclick="showTeam('brasil', this)">Brasil</button>
+
+<button class="team-btn argentina" onclick="showTeam('argentina', this)">Argentina</button>
+
+<button class="team-btn franca" onclick="showTeam('franca', this)">França</button>
+
+<button class="team-btn portugal" onclick="showTeam('portugal', this)">Portugal</button>
+
+<button class="team-btn inglaterra" onclick="showTeam('inglaterra', this)">Inglaterra</button>
 
 </div>
 
@@ -196,32 +210,6 @@ button:hover{
 <div class="overlay"></div>
 
 <div id="players"></div>
-
-</div>
-
-<!-- CARDS -->
-
-<div class="info">
-
-<div class="card">
-<h2>Modo Alterável</h2>
-<p>Troque as seleções usando os botões acima.</p>
-</div>
-
-<div class="card">
-<h2>Times da Copa 2026</h2>
-<p>Escalações completas das maiores seleções do mundo.</p>
-</div>
-
-<div class="card">
-<h2>Visual FIFA</h2>
-<p>Design moderno com campo realista e animações.</p>
-</div>
-
-<div class="card">
-<h2>GitHub Ready</h2>
-<p>Pronto para subir no GitHub Pages.</p>
-</div>
 
 </div>
 
@@ -245,67 +233,47 @@ brasil:[
 
 argentina:[
 {num:1,name:"Martinez",pos:"Goleiro",top:"90%",left:"50%"},
-{num:13,name:"Romero",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:19,name:"Otamendi",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:3,name:"Tagliafico",pos:"Lateral",top:"65%",left:"15%"},
-{num:26,name:"Molina",pos:"Lateral",top:"65%",left:"85%"},
-{num:5,name:"Paredes",pos:"Volante",top:"50%",left:"30%"},
-{num:7,name:"De Paul",pos:"Meia",top:"45%",left:"50%"},
-{num:20,name:"Mac Allister",pos:"Meia",top:"50%",left:"70%"},
-{num:11,name:"Di Maria",pos:"Ponta",top:"25%",left:"20%"},
 {num:10,name:"Messi",pos:"Atacante",top:"18%",left:"50%"},
 {num:9,name:"Julian Alvarez",pos:"Ponta",top:"25%",left:"80%"}
 ],
 
 franca:[
 {num:1,name:"Maignan",pos:"Goleiro",top:"90%",left:"50%"},
-{num:4,name:"Upamecano",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:5,name:"Koundé",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:22,name:"Theo",pos:"Lateral",top:"65%",left:"15%"},
-{num:2,name:"Pavard",pos:"Lateral",top:"65%",left:"85%"},
-{num:13,name:"Camavinga",pos:"Volante",top:"50%",left:"30%"},
-{num:8,name:"Tchouameni",pos:"Meia",top:"45%",left:"50%"},
-{num:7,name:"Griezmann",pos:"Meia",top:"50%",left:"70%"},
 {num:10,name:"Mbappé",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Giroud",pos:"Atacante",top:"18%",left:"50%"},
-{num:11,name:"Dembélé",pos:"Ponta",top:"25%",left:"80%"}
+{num:9,name:"Giroud",pos:"Atacante",top:"18%",left:"50%"}
 ],
 
 portugal:[
 {num:1,name:"Diogo Costa",pos:"Goleiro",top:"90%",left:"50%"},
-{num:3,name:"Pepe",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:4,name:"Dias",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:5,name:"Mendes",pos:"Lateral",top:"65%",left:"15%"},
-{num:2,name:"Cancelo",pos:"Lateral",top:"65%",left:"85%"},
-{num:8,name:"Bruno Fernandes",pos:"Meia",top:"50%",left:"30%"},
-{num:10,name:"Bernardo Silva",pos:"Meia",top:"45%",left:"50%"},
-{num:6,name:"Palhinha",pos:"Volante",top:"50%",left:"70%"},
 {num:7,name:"Cristiano",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Ramos",pos:"Atacante",top:"18%",left:"50%"},
-{num:11,name:"Leão",pos:"Ponta",top:"25%",left:"80%"}
+{num:9,name:"Ramos",pos:"Atacante",top:"18%",left:"50%"}
 ],
 
 inglaterra:[
 {num:1,name:"Pickford",pos:"Goleiro",top:"90%",left:"50%"},
-{num:5,name:"Stones",pos:"Zagueiro",top:"72%",left:"35%"},
-{num:6,name:"Maguire",pos:"Zagueiro",top:"72%",left:"65%"},
-{num:3,name:"Shaw",pos:"Lateral",top:"65%",left:"15%"},
-{num:2,name:"Walker",pos:"Lateral",top:"65%",left:"85%"},
-{num:4,name:"Rice",pos:"Volante",top:"50%",left:"30%"},
-{num:8,name:"Bellingham",pos:"Meia",top:"45%",left:"50%"},
 {num:10,name:"Foden",pos:"Meia",top:"50%",left:"70%"},
-{num:11,name:"Saka",pos:"Ponta",top:"25%",left:"20%"},
-{num:9,name:"Kane",pos:"Atacante",top:"18%",left:"50%"},
-{num:7,name:"Grealish",pos:"Ponta",top:"25%",left:"80%"}
+{num:9,name:"Kane",pos:"Atacante",top:"18%",left:"50%"}
 ]
 
 };
 
-function showTeam(team){
+function showTeam(team,element){
 
 const playersDiv = document.getElementById("players");
 
 playersDiv.innerHTML = "";
+
+/* REMOVE BOTÃO ATIVO */
+
+document.querySelectorAll(".team-btn").forEach(btn=>{
+    btn.classList.remove("active");
+});
+
+/* ADICIONA BOTÃO ATIVO */
+
+element.classList.add("active");
+
+/* MOSTRA JOGADORES */
 
 teams[team].forEach(player => {
 
@@ -327,7 +295,9 @@ playersDiv.innerHTML += `
 
 }
 
-showTeam('brasil');
+/* ABRE BRASIL AUTOMÁTICO */
+
+showTeam('brasil', document.querySelector('.brasil'));
 
 </script>
 
