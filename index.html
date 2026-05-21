@@ -89,7 +89,67 @@ header p{
     max-width:900px;
     height:1200px;
     margin:20px auto;
-    background:url('https://i.imgur.com/F7DhI8T.png') center/cover no-repeat;
+    background:#f5c400;
+    border:8px solid white;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+/* LINHAS DO CAMPO */
+
+.field::before{
+    content:'';
+    position:absolute;
+    inset:20px;
+    border:4px solid white;
+}
+
+/* LINHA MEIO */
+
+.middle-line{
+    position:absolute;
+    top:50%;
+    left:20px;
+    width:calc(100% - 40px);
+    height:4px;
+    background:white;
+}
+
+/* CÍRCULO */
+
+.center-circle{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:180px;
+    height:180px;
+    border:4px solid white;
+    border-radius:50%;
+}
+
+/* ÁREA GOL CIMA */
+
+.goal-top{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:250px;
+    height:140px;
+    border:4px solid white;
+}
+
+/* ÁREA GOL BAIXO */
+
+.goal-bottom{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:250px;
+    height:140px;
+    border:4px solid white;
 }
 
 /* JOGADORES */
@@ -117,7 +177,7 @@ header p{
 .player h2{
     margin-top:8px;
     color:#1d4fa3;
-    font-size:1.2rem;
+    font-size:1.1rem;
 }
 
 /* RESPONSIVO */
@@ -194,13 +254,19 @@ Inglaterra
 
 <div class="field">
 
+<div class="middle-line"></div>
+
+<div class="center-circle"></div>
+
+<div class="goal-top"></div>
+
+<div class="goal-bottom"></div>
+
 <div id="players"></div>
 
 </div>
 
 <script>
-
-/* TIMES */
 
 const teams = {
 
@@ -222,49 +288,35 @@ brasil:[
 
 ],
 
-/* ARGENTINA */
-
 argentina:[
 
-{img:"https://randomuser.me/api/portraits/men/12.jpg",name:"MARTINEZ",top:"85%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/13.jpg",name:"OTAMENDI",top:"68%",left:"35%"},
-{img:"https://randomuser.me/api/portraits/men/14.jpg",name:"ROMERO",top:"68%",left:"65%"},
-{img:"https://randomuser.me/api/portraits/men/15.jpg",name:"MESSI",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/16.jpg",name:"DI MARIA",top:"25%",left:"20%"},
-{img:"https://randomuser.me/api/portraits/men/17.jpg",name:"JULIAN ALVAREZ",top:"25%",left:"80%"}
+{img:"https://randomuser.me/api/portraits/men/12.jpg",name:"MESSI",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/13.jpg",name:"DI MARIA",top:"25%",left:"20%"},
+{img:"https://randomuser.me/api/portraits/men/14.jpg",name:"MARTINEZ",top:"85%",left:"50%"}
 
 ],
-
-/* FRANÇA */
 
 franca:[
 
-{img:"https://randomuser.me/api/portraits/men/18.jpg",name:"MAIGNAN",top:"85%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/19.jpg",name:"MBAPPÉ",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/20.jpg",name:"GIROUD",top:"35%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/21.jpg",name:"DEMBÉLÉ",top:"25%",left:"80%"}
+{img:"https://randomuser.me/api/portraits/men/15.jpg",name:"MBAPPÉ",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/16.jpg",name:"GIROUD",top:"35%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/17.jpg",name:"DEMBÉLÉ",top:"25%",left:"80%"}
 
 ],
-
-/* PORTUGAL */
 
 portugal:[
 
-{img:"https://randomuser.me/api/portraits/men/22.jpg",name:"DIOGO COSTA",top:"85%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/23.jpg",name:"CRISTIANO",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/24.jpg",name:"BERNARDO SILVA",top:"35%",left:"35%"},
-{img:"https://randomuser.me/api/portraits/men/25.jpg",name:"LEÃO",top:"25%",left:"80%"}
+{img:"https://randomuser.me/api/portraits/men/18.jpg",name:"CRISTIANO",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/19.jpg",name:"BERNARDO",top:"35%",left:"35%"},
+{img:"https://randomuser.me/api/portraits/men/20.jpg",name:"LEÃO",top:"25%",left:"80%"}
 
 ],
 
-/* INGLATERRA */
-
 inglaterra:[
 
-{img:"https://randomuser.me/api/portraits/men/26.jpg",name:"PICKFORD",top:"85%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/27.jpg",name:"KANE",top:"20%",left:"50%"},
-{img:"https://randomuser.me/api/portraits/men/28.jpg",name:"BELLINGHAM",top:"35%",left:"35%"},
-{img:"https://randomuser.me/api/portraits/men/29.jpg",name:"SAKA",top:"25%",left:"80%"}
+{img:"https://randomuser.me/api/portraits/men/21.jpg",name:"KANE",top:"20%",left:"50%"},
+{img:"https://randomuser.me/api/portraits/men/22.jpg",name:"SAKA",top:"25%",left:"80%"},
+{img:"https://randomuser.me/api/portraits/men/23.jpg",name:"BELLINGHAM",top:"35%",left:"35%"}
 
 ]
 
@@ -274,25 +326,27 @@ inglaterra:[
 
 function showTeam(team,button){
 
-document.querySelectorAll(".team-btn").forEach(btn=>{
-btn.classList.remove("active");
+document.querySelectorAll('.team-btn').forEach(btn=>{
+btn.classList.remove('active');
 });
 
-button.classList.add("active");
+button.classList.add('active');
 
-document.getElementById("teamTitle").innerHTML =
+document.getElementById('teamTitle').innerHTML =
 team.toUpperCase();
 
-const playersDiv = document.getElementById("players");
+const playersDiv =
+document.getElementById('players');
 
-playersDiv.innerHTML = "";
+playersDiv.innerHTML = '';
 
 teams[team].forEach(player=>{
 
 playersDiv.innerHTML += `
 
 <div class="player"
-style="top:${player.top}; left:${player.left};">
+style="top:${player.top};
+left:${player.left};">
 
 <img src="${player.img}">
 
