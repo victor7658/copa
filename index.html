@@ -17,26 +17,26 @@
 }
 
 body{
-    background:#ffd500;
-    overflow-x:hidden;
+    background:#101820;
+    color:white;
 }
 
 /* TOPO */
 
 header{
     text-align:center;
-    padding:30px 20px;
+    padding:30px;
+    background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
 }
 
 header h1{
     font-size:4rem;
-    color:#009c3b;
+    color:#ffd700;
 }
 
 header p{
-    font-size:1.5rem;
-    color:#1d4fa3;
-    font-weight:700;
+    margin-top:10px;
+    font-size:1.3rem;
 }
 
 /* MENU */
@@ -50,14 +50,14 @@ header p{
 }
 
 .team-btn{
-    padding:14px 25px;
+    padding:14px 22px;
     border:none;
-    border-radius:15px;
+    border-radius:14px;
+    color:white;
     font-size:1rem;
     font-weight:700;
     cursor:pointer;
     transition:0.3s;
-    color:white;
 }
 
 .team-btn:hover{
@@ -70,14 +70,17 @@ header p{
 .argentina{background:#3ea6ff;}
 .franca{background:#003cff;}
 .portugal{background:#c40000;}
-.inglaterra{background:#666;}
+.inglaterra{background:#777;}
+.espanha{background:#ff8800;}
+.alemanha{background:#222;}
+.italia{background:#0066ff;}
 
 /* ATIVO */
 
 .team-btn.active{
     background:white !important;
     color:black !important;
-    border:3px solid #ffdf00;
+    border:3px solid gold;
 }
 
 /* CAMPO */
@@ -85,13 +88,13 @@ header p{
 .field{
     position:relative;
     width:95%;
-    max-width:1000px;
+    max-width:1100px;
     height:1500px;
-    margin:20px auto;
-    background:#f5c400;
-    border:8px solid white;
-    border-radius:20px;
+    margin:20px auto 50px;
+    background:#1f8b3d;
+    border-radius:25px;
     overflow:hidden;
+    border:8px solid white;
 }
 
 /* LINHAS */
@@ -128,28 +131,25 @@ header p{
 .player{
     position:absolute;
     transform:translate(-50%,-50%);
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:white;
+    color:black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
+    padding:10px;
+    font-size:0.9rem;
+    font-weight:700;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
     transition:0.3s;
 }
 
 .player:hover{
-    transform:translate(-50%,-50%) scale(1.08);
-}
-
-.player img{
-    width:95px;
-    height:95px;
-    border-radius:50%;
-    border:5px solid #00b140;
-    object-fit:cover;
-    box-shadow:0 5px 15px rgba(0,0,0,0.4);
-}
-
-.player h2{
-    margin-top:8px;
-    color:#1d4fa3;
-    font-size:0.9rem;
-    font-weight:700;
+    transform:translate(-50%,-50%) scale(1.1);
+    background:#ffd700;
 }
 
 /* RESPONSIVO */
@@ -157,16 +157,13 @@ header p{
 @media(max-width:900px){
 
 .field{
-    height:1700px;
+    height:1800px;
 }
 
-.player img{
-    width:70px;
-    height:70px;
-}
-
-.player h2{
-    font-size:0.7rem;
+.player{
+    width:85px;
+    height:85px;
+    font-size:0.65rem;
 }
 
 header h1{
@@ -183,7 +180,7 @@ header h1{
 
 <h1 id="teamTitle">BRASIL</h1>
 
-<p>CONVOCAÇÃO COMPLETA • COPA DO MUNDO 2026</p>
+<p>ESCALAÇÃO COMPLETA • COPA DO MUNDO 2026</p>
 
 </header>
 
@@ -216,6 +213,21 @@ onclick="showTeam('inglaterra',this)">
 Inglaterra
 </button>
 
+<button class="team-btn espanha"
+onclick="showTeam('espanha',this)">
+Espanha
+</button>
+
+<button class="team-btn alemanha"
+onclick="showTeam('alemanha',this)">
+Alemanha
+</button>
+
+<button class="team-btn italia"
+onclick="showTeam('italia',this)">
+Itália
+</button>
+
 </div>
 
 <!-- CAMPO -->
@@ -238,28 +250,21 @@ const teams = {
 
 brasil:[
 
-{img:"https://img.a.transfermarkt.technology/portrait/big/404839-1667833981.jpg",name:"BENTO",top:"88%",left:"30%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/16306-1694613876.jpg",name:"ALISSON",top:"88%",left:"50%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/315858-1700218340.jpg",name:"EDERSON",top:"88%",left:"70%"},
-
-{img:"https://img.a.transfermarkt.technology/portrait/big/293641-1667830547.jpg",name:"MARQUINHOS",top:"72%",left:"20%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/476105-1669830322.jpg",name:"DANILO",top:"72%",left:"40%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/395681-1696257810.jpg",name:"IBAÑEZ",top:"72%",left:"60%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/480762-1669830807.jpg",name:"LÉO PEREIRA",top:"72%",left:"80%"},
-
-{img:"https://img.a.transfermarkt.technology/portrait/big/143776-1696258570.jpg",name:"DOUGLAS SANTOS",top:"55%",left:"20%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/16306-1694613876.jpg",name:"CASEMIRO",top:"55%",left:"40%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/476105-1669830322.jpg",name:"DANILO",top:"55%",left:"60%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/581678-1700211192.jpg",name:"ANDRE",top:"55%",left:"80%"},
-
-{img:"https://img.a.transfermarkt.technology/portrait/big/371998-1664869583.jpg",name:"VINI JR",top:"35%",left:"20%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/553319-1696259620.jpg",name:"JOÃO PEDRO",top:"35%",left:"40%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/659509-1701294182.jpg",name:"LUIZ HENRIQUE",top:"35%",left:"60%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/581678-1700211192.jpg",name:"ENDRICK",top:"35%",left:"80%"},
-
-{img:"https://img.a.transfermarkt.technology/portrait/big/517894-1696259727.jpg",name:"MATHEUS CUNHA",top:"18%",left:"30%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/412363-1697058173.jpg",name:"RODRYGO",top:"18%",left:"50%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/431755-1697058610.jpg",name:"RAPHINHA",top:"18%",left:"70%"}
+{name:"ALISSON",top:"88%",left:"50%"},
+{name:"MARQUINHOS",top:"72%",left:"25%"},
+{name:"MILITÃO",top:"72%",left:"50%"},
+{name:"BERALDO",top:"72%",left:"75%"},
+{name:"ARANA",top:"58%",left:"15%"},
+{name:"CASEMIRO",top:"58%",left:"35%"},
+{name:"BRUNO G.",top:"58%",left:"50%"},
+{name:"PAQUETÁ",top:"58%",left:"65%"},
+{name:"DANILO",top:"58%",left:"85%"},
+{name:"VINI JR",top:"30%",left:"20%"},
+{name:"RODRYGO",top:"30%",left:"50%"},
+{name:"RAPHINHA",top:"30%",left:"80%"},
+{name:"ENDRICK",top:"15%",left:"50%"},
+{name:"JOÃO PEDRO",top:"44%",left:"30%"},
+{name:"MATHEUS CUNHA",top:"44%",left:"70%"}
 
 ],
 
@@ -267,10 +272,15 @@ brasil:[
 
 argentina:[
 
-{img:"https://img.a.transfermarkt.technology/portrait/big/28003-1671435885.jpg",name:"MESSI",top:"20%",left:"50%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/139201-1671435888.jpg",name:"DI MARIA",top:"35%",left:"30%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/576024-1671435890.jpg",name:"JULIAN",top:"35%",left:"70%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/111873-1671435887.jpg",name:"MARTINEZ",top:"80%",left:"50%"}
+{name:"MARTINEZ",top:"88%",left:"50%"},
+{name:"OTAMENDI",top:"72%",left:"30%"},
+{name:"ROMERO",top:"72%",left:"70%"},
+{name:"ENZO",top:"55%",left:"35%"},
+{name:"MAC ALLISTER",top:"55%",left:"65%"},
+{name:"MESSI",top:"25%",left:"50%"},
+{name:"DI MARIA",top:"35%",left:"20%"},
+{name:"JULIAN",top:"35%",left:"80%"},
+{name:"LAUTARO",top:"15%",left:"50%"}
 
 ],
 
@@ -278,9 +288,16 @@ argentina:[
 
 franca:[
 
-{img:"https://img.a.transfermarkt.technology/portrait/big/342229-1682683695.jpg",name:"MBAPPÉ",top:"20%",left:"50%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/82442-1682683700.jpg",name:"GIROUD",top:"35%",left:"30%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/182906-1682683702.jpg",name:"DEMBÉLÉ",top:"35%",left:"70%"}
+{name:"MAIGNAN",top:"88%",left:"50%"},
+{name:"KOUNDE",top:"70%",left:"25%"},
+{name:"SALIBA",top:"70%",left:"50%"},
+{name:"UPAMECANO",top:"70%",left:"75%"},
+{name:"TCHOUAMENI",top:"55%",left:"35%"},
+{name:"CAMAVINGA",top:"55%",left:"65%"},
+{name:"GRIEZMANN",top:"40%",left:"50%"},
+{name:"MBAPPÉ",top:"20%",left:"50%"},
+{name:"DEMBÉLÉ",top:"30%",left:"80%"},
+{name:"GIROUD",top:"30%",left:"20%"}
 
 ],
 
@@ -288,9 +305,14 @@ franca:[
 
 portugal:[
 
-{img:"https://img.a.transfermarkt.technology/portrait/big/8198-1694609670.jpg",name:"CRISTIANO",top:"20%",left:"50%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/241641-1694609693.jpg",name:"BERNARDO",top:"35%",left:"30%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/357164-1694609698.jpg",name:"LEÃO",top:"35%",left:"70%"}
+{name:"DIOGO COSTA",top:"88%",left:"50%"},
+{name:"PEPE",top:"70%",left:"30%"},
+{name:"DIAS",top:"70%",left:"70%"},
+{name:"BERNARDO",top:"50%",left:"35%"},
+{name:"BRUNO F.",top:"50%",left:"65%"},
+{name:"LEÃO",top:"30%",left:"20%"},
+{name:"CRISTIANO",top:"15%",left:"50%"},
+{name:"JOÃO FÉLIX",top:"30%",left:"80%"}
 
 ],
 
@@ -298,9 +320,59 @@ portugal:[
 
 inglaterra:[
 
-{img:"https://img.a.transfermarkt.technology/portrait/big/132098-1700211169.jpg",name:"KANE",top:"20%",left:"50%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/433177-1700211270.jpg",name:"SAKA",top:"35%",left:"30%"},
-{img:"https://img.a.transfermarkt.technology/portrait/big/581678-1700211192.jpg",name:"BELLINGHAM",top:"35%",left:"70%"}
+{name:"PICKFORD",top:"88%",left:"50%"},
+{name:"STONES",top:"70%",left:"30%"},
+{name:"WALKER",top:"70%",left:"70%"},
+{name:"BELLINGHAM",top:"50%",left:"35%"},
+{name:"RICE",top:"50%",left:"65%"},
+{name:"FODEN",top:"30%",left:"20%"},
+{name:"KANE",top:"15%",left:"50%"},
+{name:"SAKA",top:"30%",left:"80%"}
+
+],
+
+/* ESPANHA */
+
+espanha:[
+
+{name:"SIMON",top:"88%",left:"50%"},
+{name:"LAPORTE",top:"70%",left:"30%"},
+{name:"CARVAJAL",top:"70%",left:"70%"},
+{name:"PEDRI",top:"50%",left:"35%"},
+{name:"GAVI",top:"50%",left:"65%"},
+{name:"YAMAL",top:"30%",left:"20%"},
+{name:"MORATA",top:"15%",left:"50%"},
+{name:"NICO WILLIAMS",top:"30%",left:"80%"}
+
+],
+
+/* ALEMANHA */
+
+alemanha:[
+
+{name:"TER STEGEN",top:"88%",left:"50%"},
+{name:"RUDIGER",top:"70%",left:"30%"},
+{name:"KIMMICH",top:"70%",left:"70%"},
+{name:"MUSIALA",top:"50%",left:"35%"},
+{name:"GUNDOGAN",top:"50%",left:"65%"},
+{name:"WIRTZ",top:"30%",left:"20%"},
+{name:"HAVERTZ",top:"15%",left:"50%"},
+{name:"SANE",top:"30%",left:"80%"}
+
+],
+
+/* ITÁLIA */
+
+italia:[
+
+{name:"DONNARUMMA",top:"88%",left:"50%"},
+{name:"BASTONI",top:"70%",left:"30%"},
+{name:"DI LORENZO",top:"70%",left:"70%"},
+{name:"JORGINHO",top:"50%",left:"35%"},
+{name:"BARELLA",top:"50%",left:"65%"},
+{name:"CHIESA",top:"30%",left:"20%"},
+{name:"SCAMACCA",top:"15%",left:"50%"},
+{name:"BERARDI",top:"30%",left:"80%"}
 
 ]
 
@@ -332,9 +404,7 @@ playersDiv.innerHTML += `
 style="top:${player.top};
 left:${player.left};">
 
-<img src="${player.img}">
-
-<h2>${player.name}</h2>
+${player.name}
 
 </div>
 
