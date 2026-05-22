@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SIMULADOR DE TIME</title>
+<title>SIMULADOR DE TIME 11 JOGADORES</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
@@ -50,8 +50,8 @@ header h1{
 }
 
 header p{
-    color:#ddd;
     margin-top:10px;
+    color:#ddd;
     font-size:18px;
 }
 
@@ -59,7 +59,7 @@ header p{
 
 .container{
     width:95%;
-    max-width:1400px;
+    max-width:1600px;
     margin:auto;
     padding:40px 0;
 }
@@ -70,7 +70,7 @@ header p{
     gap:30px;
 }
 
-@media(max-width:1000px){
+@media(max-width:1100px){
 
     .grid{
         grid-template-columns:1fr;
@@ -89,15 +89,15 @@ header p{
 }
 
 .card h2{
-    margin-bottom:25px;
     color:#38bdf8;
-    font-size:32px;
+    margin-bottom:25px;
+    font-size:30px;
 }
 
 /* INPUTS */
 
 .input-group{
-    margin-bottom:18px;
+    margin-bottom:16px;
 }
 
 .input-group label{
@@ -108,13 +108,13 @@ header p{
 
 input, select{
     width:100%;
-    padding:15px;
+    padding:14px;
     border:none;
     border-radius:14px;
     background:#0f172a;
     color:white;
     outline:none;
-    font-size:16px;
+    font-size:15px;
 }
 
 button{
@@ -128,6 +128,7 @@ button{
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
+    margin-top:15px;
 }
 
 button:hover{
@@ -140,45 +141,45 @@ button:hover{
 .field{
     position:relative;
     width:100%;
-    min-height:650px;
-    border-radius:25px;
+    height:900px;
     background:linear-gradient(#16a34a,#166534);
-    overflow:hidden;
+    border-radius:25px;
     border:5px solid white;
+    overflow:hidden;
 }
 
 .field::before{
     content:'';
     position:absolute;
-    top:50%;
-    left:0;
     width:100%;
     height:4px;
     background:rgba(255,255,255,0.4);
+    top:50%;
+    left:0;
 }
 
 .circle{
     position:absolute;
-    top:50%;
-    left:50%;
-    width:130px;
-    height:130px;
+    width:150px;
+    height:150px;
     border:4px solid rgba(255,255,255,0.4);
     border-radius:50%;
+    top:50%;
+    left:50%;
     transform:translate(-50%,-50%);
 }
 
-/* POSIÇÕES */
+/* JOGADORES */
 
 .player{
     position:absolute;
     width:120px;
     padding:10px;
-    border-radius:16px;
-    text-align:center;
     background:#0f172a;
     border:2px solid white;
-    font-size:14px;
+    border-radius:16px;
+    text-align:center;
+    font-size:13px;
     transition:0.3s;
 }
 
@@ -186,34 +187,31 @@ button:hover{
     transform:scale(1.05);
 }
 
-.atk{
-    top:50px;
-    left:50%;
-    transform:translateX(-50%);
-}
+/* POSIÇÕES */
 
-.mc1{
-    top:220px;
-    left:15%;
-}
+/* ATAQUE */
 
-.mc2{
-    top:220px;
-    right:15%;
-}
+.p1{top:40px;left:50%;transform:translateX(-50%);}
+.p2{top:130px;left:18%;}
+.p3{top:130px;right:18%;}
 
-.def1{
-    bottom:140px;
-    left:20%;
-}
+/* MEIO */
 
-.def2{
-    bottom:140px;
-    right:20%;
-}
+.p4{top:320px;left:10%;}
+.p5{top:300px;left:50%;transform:translateX(-50%);}
+.p6{top:320px;right:10%;}
 
-.gk{
-    bottom:30px;
+/* DEFESA */
+
+.p7{bottom:240px;left:8%;}
+.p8{bottom:220px;left:32%;}
+.p9{bottom:220px;right:32%;}
+.p10{bottom:240px;right:8%;}
+
+/* GOLEIRO */
+
+.p11{
+    bottom:40px;
     left:50%;
     transform:translateX(-50%);
 }
@@ -230,8 +228,8 @@ button:hover{
 }
 
 .resultado h3{
-    color:#facc15;
     font-size:35px;
+    color:#facc15;
     margin-bottom:15px;
 }
 
@@ -243,7 +241,7 @@ button:hover{
 
 .overall{
     margin-top:20px;
-    font-size:50px;
+    font-size:55px;
     color:#38bdf8;
     font-weight:bold;
 }
@@ -269,7 +267,7 @@ footer{
 <h1>⚽ MONTE SEU TIME</h1>
 
 <p>
-Escolha os jogadores e descubra se seu time seria campeão.
+Crie seu próprio time com 11 jogadores e veja se ele seria campeão.
 </p>
 
 </header>
@@ -282,51 +280,80 @@ Escolha os jogadores e descubra se seu time seria campeão.
 
 <div class="card">
 
-<h2>🏆 Criador de Time</h2>
+<h2>🏆 Escalação</h2>
 
 <div class="input-group">
 <label>Nome do Time</label>
 <input type="text" id="nomeTime" placeholder="Digite o nome do time">
 </div>
 
+<!-- 11 JOGADORES -->
+
 <div class="input-group">
 <label>Atacante</label>
-<input type="text" id="atkInput" placeholder="Nome do atacante">
+<input type="text" id="j1" placeholder="Nome">
+</div>
+
+<div class="input-group">
+<label>Ponta Esquerda</label>
+<input type="text" id="j2" placeholder="Nome">
+</div>
+
+<div class="input-group">
+<label>Ponta Direita</label>
+<input type="text" id="j3" placeholder="Nome">
 </div>
 
 <div class="input-group">
 <label>Meio Campo 1</label>
-<input type="text" id="mc1Input" placeholder="Nome do meio campo">
+<input type="text" id="j4" placeholder="Nome">
 </div>
 
 <div class="input-group">
 <label>Meio Campo 2</label>
-<input type="text" id="mc2Input" placeholder="Nome do meio campo">
+<input type="text" id="j5" placeholder="Nome">
+</div>
+
+<div class="input-group">
+<label>Meio Campo 3</label>
+<input type="text" id="j6" placeholder="Nome">
+</div>
+
+<div class="input-group">
+<label>Lateral Esquerdo</label>
+<input type="text" id="j7" placeholder="Nome">
 </div>
 
 <div class="input-group">
 <label>Zagueiro 1</label>
-<input type="text" id="def1Input" placeholder="Nome do zagueiro">
+<input type="text" id="j8" placeholder="Nome">
 </div>
 
 <div class="input-group">
 <label>Zagueiro 2</label>
-<input type="text" id="def2Input" placeholder="Nome do zagueiro">
+<input type="text" id="j9" placeholder="Nome">
+</div>
+
+<div class="input-group">
+<label>Lateral Direito</label>
+<input type="text" id="j10" placeholder="Nome">
 </div>
 
 <div class="input-group">
 <label>Goleiro</label>
-<input type="text" id="gkInput" placeholder="Nome do goleiro">
+<input type="text" id="j11" placeholder="Nome">
 </div>
 
 <div class="input-group">
 <label>Nível do Time</label>
+
 <select id="nivel">
 <option>Fraco</option>
 <option>Bom</option>
 <option>Craque</option>
 <option>Lendário</option>
 </select>
+
 </div>
 
 <button onclick="criarTime()">
@@ -355,29 +382,20 @@ CRIAR TIME
 
 <div class="circle"></div>
 
-<div class="player atk" id="atk">
-⚽ Atacante
-</div>
+<div class="player p1" id="p1">⚽ ATA</div>
+<div class="player p2" id="p2">⚡ PE</div>
+<div class="player p3" id="p3">⚡ PD</div>
 
-<div class="player mc1" id="mc1">
-🎯 Meio
-</div>
+<div class="player p4" id="p4">🎯 MC</div>
+<div class="player p5" id="p5">🎯 MC</div>
+<div class="player p6" id="p6">🎯 MC</div>
 
-<div class="player mc2" id="mc2">
-🎯 Meio
-</div>
+<div class="player p7" id="p7">🛡 LE</div>
+<div class="player p8" id="p8">🛡 ZAG</div>
+<div class="player p9" id="p9">🛡 ZAG</div>
+<div class="player p10" id="p10">🛡 LD</div>
 
-<div class="player def1" id="def1">
-🛡 Defesa
-</div>
-
-<div class="player def2" id="def2">
-🛡 Defesa
-</div>
-
-<div class="player gk" id="gk">
-🧤 Goleiro
-</div>
+<div class="player p11" id="p11">🧤 GK</div>
 
 </div>
 
@@ -388,72 +406,52 @@ CRIAR TIME
 </div>
 
 <footer>
-⚽ Simulador de Futebol • Monte seu próprio esquadrão
+⚽ Simulador de Futebol • Time dos Sonhos
 </footer>
 
 <script>
 
 function criarTime(){
 
-    let nomeTime = document.getElementById('nomeTime').value;
+    let nomeTime =
+    document.getElementById('nomeTime').value;
 
-    let atk = document.getElementById('atkInput').value;
-    let mc1 = document.getElementById('mc1Input').value;
-    let mc2 = document.getElementById('mc2Input').value;
-    let def1 = document.getElementById('def1Input').value;
-    let def2 = document.getElementById('def2Input').value;
-    let gk = document.getElementById('gkInput').value;
+    if(nomeTime === ''){
 
-    let nivel = document.getElementById('nivel').value;
-
-    if(
-        nomeTime === '' ||
-        atk === '' ||
-        mc1 === '' ||
-        mc2 === '' ||
-        def1 === '' ||
-        def2 === '' ||
-        gk === ''
-    ){
-
-        alert('Preencha todos os jogadores!');
+        alert('Digite o nome do time!');
         return;
     }
 
-    /* COLOCAR NO CAMPO */
+    for(let i = 1; i <= 11; i++){
 
-    document.getElementById('atk').innerHTML =
-    '⚽ ' + atk;
+        let nome =
+        document.getElementById('j' + i).value;
 
-    document.getElementById('mc1').innerHTML =
-    '🎯 ' + mc1;
+        if(nome === ''){
 
-    document.getElementById('mc2').innerHTML =
-    '🎯 ' + mc2;
+            alert('Preencha todos os jogadores!');
+            return;
+        }
 
-    document.getElementById('def1').innerHTML =
-    '🛡 ' + def1;
+        document.getElementById('p' + i).innerHTML =
+        nome;
+    }
 
-    document.getElementById('def2').innerHTML =
-    '🛡 ' + def2;
-
-    document.getElementById('gk').innerHTML =
-    '🧤 ' + gk;
-
-    /* RESULTADO */
+    let nivel =
+    document.getElementById('nivel').value;
 
     let overall = 0;
 
     if(nivel === 'Fraco'){
-        overall = 50;
+        overall = 58;
     }
 
     if(nivel === 'Bom'){
-        overall = 75;
+        overall = 76;
     }
 
     if(nivel === 'Craque'){
-        overall = 90;
+        overall = 91;
     }
 
     if(nivel === 'Lendário'){
@@ -462,12 +460,12 @@ function criarTime(){
 
     let frases = [
 
-        'Seu time chegou na semifinal! 🔥',
-        'Seu time foi campeão da Copa 🏆',
-        'Seu time perdeu nos pênaltis 😢',
-        'Seu time dominou o campeonato ⚽',
-        'Seu time virou sensação mundial 🌍',
-        'Seu time ganhou todos os jogos!'
+        'Seu time ganhou a Champions League 🏆',
+        'Seu time foi campeão mundial 🌍',
+        'Seu time perdeu na semifinal 😢',
+        'Seu time virou sensação do futebol 🔥',
+        'Seu time venceu todos os jogos ⚽',
+        'Seu time fez história no futebol!'
     ];
 
     let frase =
