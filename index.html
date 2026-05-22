@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COPA DO MUNDO 2026</title>
+<title>Copa World Chat 2026</title>
 
 <style>
 
@@ -15,96 +15,179 @@
 }
 
 body{
-    background:linear-gradient(to right,#000428,#004e92);
+    background:linear-gradient(135deg,#00111f,#003566,#000814);
     color:white;
-    padding:20px;
+    min-height:100vh;
 }
 
-h1{
+header{
+    background:#000814;
+    padding:20px;
     text-align:center;
-    font-size:55px;
-    margin-bottom:40px;
-    text-shadow:3px 3px 10px black;
+    box-shadow:0 0 20px black;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+header h1{
+    font-size:45px;
+    color:#ffd60a;
+}
+
+header p{
+    margin-top:10px;
+    color:#ddd;
 }
 
 .container{
-    max-width:1600px;
-    margin:auto;
-}
-
-.partida{
-    background:rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:35px;
-    box-shadow:0 0 20px rgba(0,0,0,0.5);
-}
-
-.times{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    display:grid;
+    grid-template-columns:1fr 350px;
     gap:20px;
-    flex-wrap:wrap;
+    padding:20px;
 }
 
-.time{
-    flex:1;
-    min-width:300px;
+.main{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.card{
     background:rgba(255,255,255,0.07);
+    border-radius:20px;
     padding:20px;
-    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
     transition:0.3s;
 }
 
-.time:hover{
-    transform:scale(1.02);
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.jogo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.time{
+    text-align:center;
+    flex:1;
 }
 
 .time img{
-    width:130px;
-    height:85px;
-    object-fit:cover;
-    border-radius:10px;
+    width:140px;
+    height:90px;
+    border-radius:12px;
     border:3px solid white;
-    display:block;
-    margin:auto;
-    margin-bottom:15px;
+    object-fit:cover;
 }
 
 .time h2{
-    text-align:center;
+    margin-top:10px;
     font-size:32px;
-    margin-bottom:20px;
-}
-
-.escalacao{
-    line-height:1.9;
-    font-size:18px;
 }
 
 .vs{
-    font-size:65px;
+    font-size:60px;
     color:yellow;
     font-weight:bold;
-    text-shadow:2px 2px 10px black;
 }
 
 .info{
     text-align:center;
     margin-top:20px;
-    font-size:22px;
     color:#ddd;
+    font-size:20px;
 }
 
-@media(max-width:950px){
+.sidebar{
+    background:rgba(255,255,255,0.07);
+    border-radius:20px;
+    padding:20px;
+    height:fit-content;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
 
-    .times{
-        flex-direction:column;
-    }
+.sidebar h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#ffd60a;
+}
 
-    .vs{
-        font-size:45px;
+.chat{
+    height:400px;
+    overflow-y:auto;
+    background:#001d3d;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.msg{
+    background:#003566;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+.msg strong{
+    color:#ffd60a;
+}
+
+.input-area{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+input, textarea{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+
+button{
+    background:#ffd60a;
+    border:none;
+    padding:14px;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    background:white;
+    transform:scale(1.03);
+}
+
+.tabela{
+    margin-top:15px;
+}
+
+.tabela ul{
+    list-style:none;
+    line-height:2;
+    font-size:18px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+@media(max-width:1000px){
+
+    .container{
+        grid-template-columns:1fr;
     }
 
 }
@@ -114,34 +197,22 @@ h1{
 </head>
 <body>
 
-<h1>🏆 COPA DO MUNDO 2026 🏆</h1>
+<header>
+<h1>🏆 COPA WORLD CHAT 2026 🏆</h1>
+<p>Converse, acompanhe jogos e comente sobre a Copa do Mundo</p>
+</header>
 
 <div class="container">
 
-<!-- BRASIL VS ARGENTINA -->
+<div class="main">
 
-<div class="partida">
+<div class="card">
 
-<div class="times">
+<div class="jogo">
 
 <div class="time">
 <img src="https://flagcdn.com/w320/br.png">
 <h2>Brasil</h2>
-
-<div class="escalacao">
-🧤 Alisson<br>
-🛡 Danilo<br>
-🛡 Marquinhos<br>
-🛡 Militão<br>
-🛡 Guilherme Arana<br>
-⚽ Bruno Guimarães<br>
-⚽ Paquetá<br>
-⚽ Rodrygo<br>
-⚽ Vinícius Júnior<br>
-⚽ Raphinha<br>
-⚽ Endrick
-</div>
-
 </div>
 
 <div class="vs">VS</div>
@@ -149,256 +220,117 @@ h1{
 <div class="time">
 <img src="https://flagcdn.com/w320/ar.png">
 <h2>Argentina</h2>
-
-<div class="escalacao">
-🧤 Emiliano Martínez<br>
-🛡 Molina<br>
-🛡 Romero<br>
-🛡 Otamendi<br>
-🛡 Tagliafico<br>
-⚽ De Paul<br>
-⚽ Enzo Fernández<br>
-⚽ Mac Allister<br>
-⚽ Messi<br>
-⚽ Julián Álvarez<br>
-⚽ Lautaro Martínez
-</div>
-
 </div>
 
 </div>
 
 <div class="info">
-🔥 Super clássico mundial
+🔥 O maior clássico da Copa do Mundo
 </div>
 
 </div>
 
-<!-- FRANÇA VS ALEMANHA -->
+<div class="card">
 
-<div class="partida">
+<h2>📊 Ranking Favoritos</h2>
 
-<div class="times">
+<div class="tabela">
 
-<div class="time">
-<img src="https://flagcdn.com/w320/fr.png">
-<h2>França</h2>
-
-<div class="escalacao">
-🧤 Maignan<br>
-🛡 Koundé<br>
-🛡 Saliba<br>
-🛡 Upamecano<br>
-🛡 Theo Hernández<br>
-⚽ Camavinga<br>
-⚽ Tchouaméni<br>
-⚽ Griezmann<br>
-⚽ Dembélé<br>
-⚽ Mbappé<br>
-⚽ Kolo Muani
-</div>
-
-</div>
-
-<div class="vs">VS</div>
-
-<div class="time">
-<img src="https://flagcdn.com/w320/de.png">
-<h2>Alemanha</h2>
-
-<div class="escalacao">
-🧤 Ter Stegen<br>
-🛡 Kimmich<br>
-🛡 Rüdiger<br>
-🛡 Tah<br>
-🛡 Raum<br>
-⚽ Musiala<br>
-⚽ Gündogan<br>
-⚽ Wirtz<br>
-⚽ Sané<br>
-⚽ Havertz<br>
-⚽ Füllkrug
-</div>
+<ul>
+<li>🥇 Brasil</li>
+<li>🥈 França</li>
+<li>🥉 Argentina</li>
+<li>⚽ Espanha</li>
+<li>⚽ Inglaterra</li>
+<li>⚽ Portugal</li>
+<li>⚽ Alemanha</li>
+</ul>
 
 </div>
 
 </div>
 
-<div class="info">
-⚡ Gigantes da Europa
-</div>
+<div class="card">
 
-</div>
+<h2>📰 Últimas Notícias</h2>
 
-<!-- PORTUGAL VS ESPANHA -->
+<p style="margin-top:15px; line-height:1.8;">
+• Vinícius Júnior pode ser destaque da Copa.<br><br>
+• Mbappé chega como favorito ao prêmio de melhor jogador.<br><br>
+• Messi pode disputar sua última Copa do Mundo.<br><br>
+• Endrick vira esperança da seleção brasileira.
+</p>
 
-<div class="partida">
-
-<div class="times">
-
-<div class="time">
-<img src="https://flagcdn.com/w320/pt.png">
-<h2>Portugal</h2>
-
-<div class="escalacao">
-🧤 Diogo Costa<br>
-🛡 João Cancelo<br>
-🛡 Rúben Dias<br>
-🛡 Pepe<br>
-🛡 Nuno Mendes<br>
-⚽ Bruno Fernandes<br>
-⚽ Bernardo Silva<br>
-⚽ Vitinha<br>
-⚽ Rafael Leão<br>
-⚽ Cristiano Ronaldo<br>
-⚽ João Félix
 </div>
 
 </div>
 
-<div class="vs">VS</div>
+<div class="sidebar">
 
-<div class="time">
-<img src="https://flagcdn.com/w320/es.png">
-<h2>Espanha</h2>
+<h2>💬 Chat da Copa</h2>
 
-<div class="escalacao">
-🧤 Unai Simón<br>
-🛡 Carvajal<br>
-🛡 Laporte<br>
-🛡 Cubarsí<br>
-🛡 Balde<br>
-⚽ Rodri<br>
-⚽ Pedri<br>
-⚽ Gavi<br>
-⚽ Lamine Yamal<br>
-⚽ Nico Williams<br>
-⚽ Morata
+<div class="chat" id="chat">
+
+<div class="msg">
+<strong>Carlos:</strong><br>
+Brasil vai ganhar essa Copa 🔥
+</div>
+
+<div class="msg">
+<strong>Ana:</strong><br>
+Argentina vem forte demais 🇦🇷
+</div>
+
+</div>
+
+<div class="input-area">
+
+<input type="text" id="nome" placeholder="Seu nome">
+
+<textarea id="mensagem" rows="4" placeholder="Digite seu comentário..."></textarea>
+
+<button onclick="enviarMensagem()">
+Enviar Comentário
+</button>
+
 </div>
 
 </div>
 
 </div>
 
-<div class="info">
-🏆 Estrelas europeias em campo
-</div>
+<footer>
+⚽ Site criado para fãs da Copa do Mundo 2026
+</footer>
 
-</div>
+<script>
 
-<!-- INGLATERRA VS ITÁLIA -->
+function enviarMensagem(){
 
-<div class="partida">
+    let nome = document.getElementById("nome").value;
+    let mensagem = document.getElementById("mensagem").value;
 
-<div class="times">
+    if(nome == "" || mensagem == ""){
+        alert("Preencha tudo!");
+        return;
+    }
 
-<div class="time">
-<img src="https://flagcdn.com/w320/gb.png">
-<h2>Inglaterra</h2>
+    let chat = document.getElementById("chat");
 
-<div class="escalacao">
-🧤 Pickford<br>
-🛡 Walker<br>
-🛡 Stones<br>
-🛡 Maguire<br>
-🛡 Shaw<br>
-⚽ Rice<br>
-⚽ Bellingham<br>
-⚽ Foden<br>
-⚽ Saka<br>
-⚽ Kane<br>
-⚽ Grealish
-</div>
+    let novaMsg = document.createElement("div");
+    novaMsg.classList.add("msg");
 
-</div>
+    novaMsg.innerHTML = "<strong>" + nome + ":</strong><br>" + mensagem;
 
-<div class="vs">VS</div>
+    chat.appendChild(novaMsg);
 
-<div class="time">
-<img src="https://flagcdn.com/w320/it.png">
-<h2>Itália</h2>
+    document.getElementById("nome").value = "";
+    document.getElementById("mensagem").value = "";
 
-<div class="escalacao">
-🧤 Donnarumma<br>
-🛡 Di Lorenzo<br>
-🛡 Bastoni<br>
-🛡 Acerbi<br>
-🛡 Dimarco<br>
-⚽ Barella<br>
-⚽ Jorginho<br>
-⚽ Pellegrini<br>
-⚽ Chiesa<br>
-⚽ Scamacca<br>
-⚽ Politano
-</div>
+    chat.scrollTop = chat.scrollHeight;
+}
 
-</div>
-
-</div>
-
-<div class="info">
-🔥 Clássico pesado europeu
-</div>
-
-</div>
-
-<!-- HOLANDA VS BÉLGICA -->
-
-<div class="partida">
-
-<div class="times">
-
-<div class="time">
-<img src="https://flagcdn.com/w320/nl.png">
-<h2>Holanda</h2>
-
-<div class="escalacao">
-🧤 Verbruggen<br>
-🛡 Dumfries<br>
-🛡 Van Dijk<br>
-🛡 De Ligt<br>
-🛡 Aké<br>
-⚽ De Jong<br>
-⚽ Reijnders<br>
-⚽ Simons<br>
-⚽ Gakpo<br>
-⚽ Depay<br>
-⚽ Malen
-</div>
-
-</div>
-
-<div class="vs">VS</div>
-
-<div class="time">
-<img src="https://flagcdn.com/w320/be.png">
-<h2>Bélgica</h2>
-
-<div class="escalacao">
-🧤 Casteels<br>
-🛡 Castagne<br>
-🛡 Faes<br>
-🛡 Vertonghen<br>
-🛡 Theate<br>
-⚽ Onana<br>
-⚽ Tielemans<br>
-⚽ De Bruyne<br>
-⚽ Doku<br>
-⚽ Lukaku<br>
-⚽ Trossard
-</div>
-
-</div>
-
-</div>
-
-<div class="info">
-⚽ Derby europeu
-</div>
-
-</div>
-
-</div>
+</script>
 
 </body>
 </html>
