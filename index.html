@@ -38,36 +38,40 @@ body{
 
 header{
     position:fixed;
-    width:100%;
     top:0;
-    left:0;
-    padding:20px 40px;
+    width:100%;
+    padding:18px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.3);
+    background:rgba(0,0,0,0.4);
     backdrop-filter:blur(10px);
     z-index:999;
 }
 
 .logo{
-    font-size:32px;
+    font-size:30px;
     font-weight:bold;
     color:#facc15;
 }
 
-.entrar-btn{
-    background:#0ea5e9;
-    color:white;
-    padding:14px 28px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
+.menu{
+    display:flex;
+    gap:15px;
 }
 
-.entrar-btn:hover{
-    background:#0284c7;
+.menu a{
+    text-decoration:none;
+    color:white;
+    background:#0f172a;
+    padding:12px 18px;
+    border-radius:12px;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    background:#0ea5e9;
     transform:scale(1.05);
 }
 
@@ -86,7 +90,6 @@ header{
     font-size:80px;
     color:#facc15;
     margin-bottom:20px;
-    text-shadow:0 0 20px rgba(250,204,21,0.6);
 }
 
 .hero-content p{
@@ -110,7 +113,7 @@ header{
     margin-bottom:50px;
 }
 
-/* CARDS */
+/* JOGOS */
 
 .cards{
     display:grid;
@@ -124,12 +127,10 @@ header{
     padding:25px;
     backdrop-filter:blur(10px);
     transition:0.3s;
-    border:1px solid rgba(255,255,255,0.08);
 }
 
 .card:hover{
     transform:translateY(-8px);
-    box-shadow:0 0 30px rgba(14,165,233,0.4);
 }
 
 .match{
@@ -148,11 +149,10 @@ header{
     height:80px;
     border-radius:12px;
     border:3px solid white;
-    object-fit:cover;
 }
 
 .team h2{
-    margin-top:12px;
+    margin-top:10px;
     font-size:28px;
 }
 
@@ -162,11 +162,44 @@ header{
     font-weight:bold;
 }
 
-.card p{
+/* JOGADORES */
+
+.players-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.player-card{
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    padding:25px;
+    transition:0.3s;
+}
+
+.player-card:hover{
+    transform:scale(1.03);
+}
+
+.player-card img{
+    width:100px;
+    height:70px;
+    border-radius:10px;
+    border:3px solid white;
+    display:block;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+.player-card h2{
     text-align:center;
-    margin-top:20px;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+
+.player-list{
+    line-height:2;
     color:#ddd;
-    line-height:1.7;
 }
 
 /* CHAT */
@@ -210,11 +243,6 @@ header{
     padding:6px 12px;
     border-radius:10px;
     cursor:pointer;
-    transition:0.3s;
-}
-
-.delete-btn:hover{
-    background:#b91c1c;
 }
 
 .inputs{
@@ -246,12 +274,6 @@ textarea{
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
-}
-
-.send-btn:hover{
-    background:#15803d;
-    transform:scale(1.03);
 }
 
 /* FOOTER */
@@ -274,16 +296,14 @@ footer{
         flex-direction:column;
     }
 
-    .vs{
-        font-size:35px;
-    }
-
     header{
-        padding:15px 20px;
+        flex-direction:column;
+        gap:15px;
     }
 
-    .logo{
-        font-size:24px;
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
 }
@@ -301,9 +321,11 @@ footer{
 🏆 SUPER COPA 2026
 </div>
 
-<a href="#conteudo" class="entrar-btn">
-ENTRAR
-</a>
+<div class="menu">
+<a href="#jogos">Jogos</a>
+<a href="#jogadores">Jogadores</a>
+<a href="#comentarios">Comentários</a>
+</div>
 
 </header>
 
@@ -314,17 +336,16 @@ ENTRAR
 <h1>COPA DO MUNDO 2026</h1>
 
 <p>
-O maior campeonato do planeta está chegando.
-Entre agora para acompanhar grandes jogos, comentar com outros torcedores e viver toda emoção da Copa do Mundo.
+Veja grandes jogos, conheça os jogadores convocados das seleções e converse com torcedores do mundo inteiro.
 </p>
 
 </div>
 
 </section>
 
-<div id="conteudo">
+<!-- JOGOS -->
 
-<section class="section">
+<section class="section" id="jogos">
 
 <h1 class="section-title">
 🔥 Grandes Jogos
@@ -350,10 +371,6 @@ Entre agora para acompanhar grandes jogos, comentar com outros torcedores e vive
 
 </div>
 
-<p>
-O maior clássico sul-americano da história.
-</p>
-
 </div>
 
 <div class="card">
@@ -374,33 +391,88 @@ O maior clássico sul-americano da história.
 
 </div>
 
-<p>
-Mbappé contra Cristiano Ronaldo em um duelo histórico.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="match">
-
-<div class="team">
-<img src="https://flagcdn.com/w320/es.png">
-<h2>Espanha</h2>
-</div>
-
-<div class="vs">VS</div>
-
-<div class="team">
-<img src="https://flagcdn.com/w320/de.png">
-<h2>Alemanha</h2>
 </div>
 
 </div>
 
-<p>
-Gigantes europeus em uma partida eletrizante.
-</p>
+</section>
+
+<!-- JOGADORES -->
+
+<section class="section" id="jogadores">
+
+<h1 class="section-title">
+⭐ Jogadores das Seleções
+</h1>
+
+<div class="players-grid">
+
+<div class="player-card">
+
+<img src="https://flagcdn.com/w320/br.png">
+
+<h2>Brasil</h2>
+
+<div class="player-list">
+🧤 Alisson<br>
+⚽ Vinícius Júnior<br>
+⚽ Rodrygo<br>
+⚽ Endrick<br>
+⚽ Raphinha<br>
+⚽ Bruno Guimarães<br>
+⚽ Paquetá
+</div>
+
+</div>
+
+<div class="player-card">
+
+<img src="https://flagcdn.com/w320/ar.png">
+
+<h2>Argentina</h2>
+
+<div class="player-list">
+⚽ Messi<br>
+⚽ Julián Álvarez<br>
+⚽ Lautaro Martínez<br>
+⚽ Enzo Fernández<br>
+⚽ De Paul<br>
+🧤 Emiliano Martínez
+</div>
+
+</div>
+
+<div class="player-card">
+
+<img src="https://flagcdn.com/w320/fr.png">
+
+<h2>França</h2>
+
+<div class="player-list">
+⚽ Mbappé<br>
+⚽ Dembélé<br>
+⚽ Griezmann<br>
+⚽ Camavinga<br>
+⚽ Tchouaméni<br>
+🧤 Maignan
+</div>
+
+</div>
+
+<div class="player-card">
+
+<img src="https://flagcdn.com/w320/pt.png">
+
+<h2>Portugal</h2>
+
+<div class="player-list">
+⚽ Cristiano Ronaldo<br>
+⚽ Bruno Fernandes<br>
+⚽ Bernardo Silva<br>
+⚽ Rafael Leão<br>
+⚽ João Félix<br>
+🧤 Diogo Costa
+</div>
 
 </div>
 
@@ -408,10 +480,12 @@ Gigantes europeus em uma partida eletrizante.
 
 </section>
 
-<section class="section">
+<!-- COMENTARIOS -->
+
+<section class="section" id="comentarios">
 
 <h1 class="section-title">
-💬 Comentários dos Torcedores
+💬 Comentários
 </h1>
 
 <div class="chat-box">
@@ -425,18 +499,7 @@ Excluir
 </button>
 
 <strong>Carlos:</strong><br>
-Brasil vai levar essa Copa 🔥
-
-</div>
-
-<div class="message">
-
-<button class="delete-btn" onclick="excluirComentario(this)">
-Excluir
-</button>
-
-<strong>Amanda:</strong><br>
-Argentina está muito forte 🇦🇷
+Brasil vai ganhar essa Copa 🔥
 
 </div>
 
@@ -458,10 +521,8 @@ Enviar Comentário
 
 </section>
 
-</div>
-
 <footer>
-⚽ SUPER COPA 2026 • Portal da Copa do Mundo
+⚽ SUPER COPA 2026 • Portal Interativo da Copa
 </footer>
 
 <script>
