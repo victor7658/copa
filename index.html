@@ -1,3 +1,6 @@
+# SUPER COPA 2026 — HTML Atualizado
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -20,31 +22,17 @@
 body{
     background:#020617;
     color:white;
-    overflow-x:hidden;
 }
-
-.bg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:
-    radial-gradient(circle at top,#0ea5e9 0%, transparent 30%),
-    radial-gradient(circle at bottom,#16a34a 0%, transparent 30%),
-    #020617;
-    z-index:-1;
-}
-
-/* HEADER */
 
 header{
     position:fixed;
     top:0;
     width:100%;
-    padding:18px 30px;
+    padding:20px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.4);
+    background:rgba(0,0,0,0.5);
     backdrop-filter:blur(10px);
     z-index:999;
 }
@@ -67,15 +55,11 @@ header{
     padding:12px 18px;
     border-radius:12px;
     transition:0.3s;
-    font-weight:bold;
 }
 
 .menu a:hover{
     background:#0ea5e9;
-    transform:scale(1.05);
 }
-
-/* HERO */
 
 .hero{
     height:100vh;
@@ -84,23 +68,21 @@ header{
     align-items:center;
     text-align:center;
     padding:20px;
+    background:linear-gradient(to right,#020617,#0f172a);
 }
 
-.hero-content h1{
-    font-size:80px;
+.hero h1{
+    font-size:70px;
     color:#facc15;
     margin-bottom:20px;
 }
 
-.hero-content p{
-    max-width:850px;
-    margin:auto;
+.hero p{
     font-size:22px;
-    line-height:1.8;
     color:#ddd;
+    max-width:850px;
+    line-height:1.8;
 }
-
-/* SECTION */
 
 .section{
     padding:120px 30px 60px;
@@ -109,82 +91,32 @@ header{
 .section-title{
     text-align:center;
     font-size:50px;
-    color:#facc15;
     margin-bottom:50px;
+    color:#facc15;
 }
 
-/* JOGOS */
-
-.cards{
+.players-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
 }
 
-.card{
+.player-card{
     background:rgba(255,255,255,0.05);
     border-radius:25px;
     padding:25px;
-    backdrop-filter:blur(10px);
     transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.match{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.team{
-    text-align:center;
-}
-
-.team img{
-    width:120px;
-    height:80px;
-    border-radius:12px;
-    border:3px solid white;
-}
-
-.team h2{
-    margin-top:10px;
-    font-size:28px;
-}
-
-.vs{
-    font-size:40px;
-    color:#facc15;
-    font-weight:bold;
-}
-
-/* JOGADORES */
-
-.players-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.player-card{
-    background:rgba(255,255,255,0.05);
-    border-radius:20px;
-    padding:25px;
-    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 .player-card:hover{
-    transform:scale(1.03);
+    transform:translateY(-8px);
 }
 
 .player-card img{
-    width:100px;
-    height:70px;
-    border-radius:10px;
+    width:120px;
+    height:80px;
+    border-radius:12px;
     border:3px solid white;
     display:block;
     margin:auto;
@@ -193,16 +125,14 @@ header{
 
 .player-card h2{
     text-align:center;
-    margin-bottom:20px;
     color:#38bdf8;
+    margin-bottom:20px;
 }
 
 .player-list{
     line-height:2;
     color:#ddd;
 }
-
-/* CHAT */
 
 .chat-box{
     max-width:900px;
@@ -237,9 +167,9 @@ header{
     position:absolute;
     top:10px;
     right:10px;
-    border:none;
     background:#dc2626;
     color:white;
+    border:none;
     padding:6px 12px;
     border-radius:10px;
     cursor:pointer;
@@ -257,26 +187,18 @@ input, textarea{
     border-radius:15px;
     background:#0f172a;
     color:white;
-    font-size:16px;
     outline:none;
-}
-
-textarea{
-    resize:none;
 }
 
 .send-btn{
     background:#16a34a;
     color:white;
     border:none;
-    padding:16px;
+    padding:15px;
     border-radius:15px;
     font-size:18px;
-    font-weight:bold;
     cursor:pointer;
 }
-
-/* FOOTER */
 
 footer{
     text-align:center;
@@ -284,16 +206,10 @@ footer{
     color:#aaa;
 }
 
-/* RESPONSIVO */
-
 @media(max-width:850px){
 
-    .hero-content h1{
-        font-size:50px;
-    }
-
-    .match{
-        flex-direction:column;
+    .hero h1{
+        font-size:45px;
     }
 
     header{
@@ -307,207 +223,151 @@ footer{
     }
 
 }
-
 </style>
 </head>
-
 <body>
-
-<div class="bg"></div>
 
 <header>
 
-<div class="logo">
-🏆 SUPER COPA 2026
-</div>
+<div class="logo">🏆 SUPER COPA 2026</div>
 
 <div class="menu">
-<a href="#jogos">Jogos</a>
-<a href="#jogadores">Jogadores</a>
+<a href="#selecoes">Seleções</a>
 <a href="#comentarios">Comentários</a>
 </div>
 
 </header>
 
 <section class="hero">
-
-<div class="hero-content">
-
+<div>
 <h1>COPA DO MUNDO 2026</h1>
-
 <p>
-Veja grandes jogos, conheça os jogadores convocados das seleções e converse com torcedores do mundo inteiro.
+Site interativo com jogadores das seleções, comentários e informações da Copa.
 </p>
-
 </div>
-
 </section>
 
-<!-- JOGOS -->
+<section class="section" id="selecoes">
 
-<section class="section" id="jogos">
-
-<h1 class="section-title">
-🔥 Grandes Jogos
-</h1>
-
-<div class="cards">
-
-<div class="card">
-
-<div class="match">
-
-<div class="team">
-<img src="https://flagcdn.com/w320/br.png">
-<h2>Brasil</h2>
-</div>
-
-<div class="vs">VS</div>
-
-<div class="team">
-<img src="https://flagcdn.com/w320/ar.png">
-<h2>Argentina</h2>
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="match">
-
-<div class="team">
-<img src="https://flagcdn.com/w320/fr.png">
-<h2>França</h2>
-</div>
-
-<div class="vs">VS</div>
-
-<div class="team">
-<img src="https://flagcdn.com/w320/pt.png">
-<h2>Portugal</h2>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- JOGADORES -->
-
-<section class="section" id="jogadores">
-
-<h1 class="section-title">
-⭐ Jogadores das Seleções
-</h1>
+<h1 class="section-title">⭐ Jogadores Convocados</h1>
 
 <div class="players-grid">
 
 <div class="player-card">
-
 <img src="https://flagcdn.com/w320/br.png">
-
 <h2>Brasil</h2>
-
 <div class="player-list">
 🧤 Alisson<br>
-⚽ Vinícius Júnior<br>
-⚽ Rodrygo<br>
-⚽ Endrick<br>
-⚽ Raphinha<br>
+🛡 Marquinhos<br>
+🛡 Militão<br>
 ⚽ Bruno Guimarães<br>
-⚽ Paquetá
+⚽ Rodrygo<br>
+⚽ Raphinha<br>
+⚽ Vinícius Júnior<br>
+⚽ Endrick
 </div>
-
 </div>
 
 <div class="player-card">
-
 <img src="https://flagcdn.com/w320/ar.png">
-
 <h2>Argentina</h2>
-
 <div class="player-list">
+🧤 Emiliano Martínez<br>
+🛡 Romero<br>
+⚽ De Paul<br>
+⚽ Enzo Fernández<br>
+⚽ Mac Allister<br>
 ⚽ Messi<br>
 ⚽ Julián Álvarez<br>
-⚽ Lautaro Martínez<br>
-⚽ Enzo Fernández<br>
-⚽ De Paul<br>
-🧤 Emiliano Martínez
+⚽ Lautaro Martínez
 </div>
-
 </div>
 
 <div class="player-card">
-
 <img src="https://flagcdn.com/w320/fr.png">
-
 <h2>França</h2>
-
 <div class="player-list">
-⚽ Mbappé<br>
-⚽ Dembélé<br>
-⚽ Griezmann<br>
+🧤 Maignan<br>
+🛡 Saliba<br>
+🛡 Theo Hernández<br>
 ⚽ Camavinga<br>
 ⚽ Tchouaméni<br>
-🧤 Maignan
+⚽ Dembélé<br>
+⚽ Mbappé<br>
+⚽ Kolo Muani
 </div>
-
 </div>
 
 <div class="player-card">
-
 <img src="https://flagcdn.com/w320/pt.png">
-
 <h2>Portugal</h2>
-
 <div class="player-list">
-⚽ Cristiano Ronaldo<br>
+🧤 Diogo Costa<br>
+🛡 Rúben Dias<br>
 ⚽ Bruno Fernandes<br>
 ⚽ Bernardo Silva<br>
+⚽ Vitinha<br>
 ⚽ Rafael Leão<br>
 ⚽ João Félix<br>
-🧤 Diogo Costa
+⚽ Cristiano Ronaldo
+</div>
 </div>
 
+<div class="player-card">
+<img src="https://flagcdn.com/w320/es.png">
+<h2>Espanha</h2>
+<div class="player-list">
+🧤 Unai Simón<br>
+🛡 Carvajal<br>
+⚽ Rodri<br>
+⚽ Pedri<br>
+⚽ Gavi<br>
+⚽ Nico Williams<br>
+⚽ Lamine Yamal<br>
+⚽ Morata
+</div>
+</div>
+
+<div class="player-card">
+<img src="https://flagcdn.com/w320/de.png">
+<h2>Alemanha</h2>
+<div class="player-list">
+🧤 Ter Stegen<br>
+🛡 Rüdiger<br>
+⚽ Musiala<br>
+⚽ Wirtz<br>
+⚽ Gündogan<br>
+⚽ Sané<br>
+⚽ Havertz<br>
+⚽ Füllkrug
+</div>
 </div>
 
 </div>
 
 </section>
 
-<!-- COMENTARIOS -->
-
 <section class="section" id="comentarios">
 
-<h1 class="section-title">
-💬 Comentários
-</h1>
+<h1 class="section-title">💬 Comentários</h1>
 
 <div class="chat-box">
 
 <div class="chat-messages" id="chat">
 
 <div class="message">
-
 <button class="delete-btn" onclick="excluirComentario(this)">
 Excluir
 </button>
-
 <strong>Carlos:</strong><br>
-Brasil vai ganhar essa Copa 🔥
-
+Brasil vai chegar forte na Copa 🔥
 </div>
 
 </div>
 
 <div class="inputs">
 
-<input type="text" id="nome" placeholder="Digite seu nome">
+<input type="text" id="nome" placeholder="Seu nome">
 
 <textarea id="mensagem" rows="4" placeholder="Digite seu comentário"></textarea>
 
@@ -522,27 +382,26 @@ Enviar Comentário
 </section>
 
 <footer>
-⚽ SUPER COPA 2026 • Portal Interativo da Copa
+⚽ SUPER COPA 2026 • Portal Interativo
 </footer>
 
 <script>
 
 function enviarMensagem(){
 
-    let nome = document.getElementById("nome").value;
-    let mensagem = document.getElementById("mensagem").value;
+    let nome = document.getElementById('nome').value;
+    let mensagem = document.getElementById('mensagem').value;
 
-    if(nome === "" || mensagem === ""){
-
-        alert("Preencha todos os campos!");
+    if(nome === '' || mensagem === ''){
+        alert('Preencha todos os campos!');
         return;
     }
 
-    let chat = document.getElementById("chat");
+    let chat = document.getElementById('chat');
 
-    let novaMensagem = document.createElement("div");
+    let novaMensagem = document.createElement('div');
 
-    novaMensagem.classList.add("message");
+    novaMensagem.classList.add('message');
 
     novaMensagem.innerHTML = `
 
@@ -557,14 +416,13 @@ function enviarMensagem(){
 
     chat.appendChild(novaMensagem);
 
-    document.getElementById("nome").value = "";
-    document.getElementById("mensagem").value = "";
+    document.getElementById('nome').value = '';
+    document.getElementById('mensagem').value = '';
 
     chat.scrollTop = chat.scrollHeight;
 }
 
 function excluirComentario(botao){
-
     botao.parentElement.remove();
 }
 
@@ -572,3 +430,6 @@ function excluirComentario(botao){
 
 </body>
 </html>
+```
+
+Obs: As convocações oficiais da Copa 2026 ainda não foram divulgadas. Os jogadores acima são baseados nas seleções mais atuais e nos atletas mais cotados para jogar o torneio.
