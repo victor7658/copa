@@ -1,28 +1,32 @@
-# SUPER COPA 2026 — HTML Atualizado
+<!-- TIMES CONFIRMADOS E FAVORITOS DA COPA 2026 -->
+<!-- SUPER COPA 2026 -->
 
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SUPER COPA 2026</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
     background:#020617;
     color:white;
 }
+
+/* HEADER */
 
 header{
     position:fixed;
@@ -39,8 +43,8 @@ header{
 
 .logo{
     font-size:30px;
-    font-weight:bold;
     color:#facc15;
+    font-weight:bold;
 }
 
 .menu{
@@ -61,6 +65,8 @@ header{
     background:#0ea5e9;
 }
 
+/* HERO */
+
 .hero{
     height:100vh;
     display:flex;
@@ -72,7 +78,7 @@ header{
 }
 
 .hero h1{
-    font-size:70px;
+    font-size:80px;
     color:#facc15;
     margin-bottom:20px;
 }
@@ -80,9 +86,11 @@ header{
 .hero p{
     font-size:22px;
     color:#ddd;
-    max-width:850px;
+    max-width:900px;
     line-height:1.8;
 }
+
+/* SECTION */
 
 .section{
     padding:120px 30px 60px;
@@ -95,44 +103,48 @@ header{
     color:#facc15;
 }
 
-.players-grid{
+/* TIMES */
+
+.teams-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
 }
 
-.player-card{
+.team-card{
     background:rgba(255,255,255,0.05);
-    border-radius:25px;
     padding:25px;
+    border-radius:25px;
     transition:0.3s;
     border:1px solid rgba(255,255,255,0.08);
 }
 
-.player-card:hover{
-    transform:translateY(-8px);
+.team-card:hover{
+    transform:translateY(-10px);
 }
 
-.player-card img{
+.team-card img{
     width:120px;
     height:80px;
-    border-radius:12px;
-    border:3px solid white;
     display:block;
     margin:auto;
-    margin-bottom:15px;
+    border-radius:12px;
+    border:3px solid white;
+    margin-bottom:20px;
 }
 
-.player-card h2{
+.team-card h2{
     text-align:center;
     color:#38bdf8;
     margin-bottom:20px;
 }
 
-.player-list{
+.players{
     line-height:2;
     color:#ddd;
 }
+
+/* CHAT */
 
 .chat-box{
     max-width:900px;
@@ -142,8 +154,8 @@ header{
     border-radius:25px;
 }
 
-.chat-messages{
-    height:420px;
+.chat{
+    height:400px;
     overflow-y:auto;
     background:#0f172a;
     padding:20px;
@@ -168,8 +180,8 @@ header{
     top:10px;
     right:10px;
     background:#dc2626;
-    color:white;
     border:none;
+    color:white;
     padding:6px 12px;
     border-radius:10px;
     cursor:pointer;
@@ -192,13 +204,15 @@ input, textarea{
 
 .send-btn{
     background:#16a34a;
-    color:white;
     border:none;
     padding:15px;
+    color:white;
     border-radius:15px;
     font-size:18px;
     cursor:pointer;
 }
+
+/* FOOTER */
 
 footer{
     text-align:center;
@@ -206,10 +220,12 @@ footer{
     color:#aaa;
 }
 
+/* RESPONSIVO */
+
 @media(max-width:850px){
 
     .hero h1{
-        font-size:45px;
+        font-size:50px;
     }
 
     header{
@@ -223,55 +239,80 @@ footer{
     }
 
 }
+
 </style>
+
 </head>
+
 <body>
 
 <header>
 
-<div class="logo">🏆 SUPER COPA 2026</div>
+<div class="logo">
+🏆 SUPER COPA 2026
+</div>
 
 <div class="menu">
-<a href="#selecoes">Seleções</a>
+<a href="#times">Seleções</a>
 <a href="#comentarios">Comentários</a>
 </div>
 
 </header>
 
 <section class="hero">
+
 <div>
+
 <h1>COPA DO MUNDO 2026</h1>
+
 <p>
-Site interativo com jogadores das seleções, comentários e informações da Copa.
+Veja as principais seleções que vão disputar a Copa do Mundo 2026 com jogadores atualizados e espaço para comentários.
 </p>
+
 </div>
+
 </section>
 
-<section class="section" id="selecoes">
+<!-- TIMES -->
 
-<h1 class="section-title">⭐ Jogadores Convocados</h1>
+<section class="section" id="times">
 
-<div class="players-grid">
+<h1 class="section-title">
+⭐ Seleções da Copa 2026
+</h1>
 
-<div class="player-card">
+<div class="teams-grid">
+
+<!-- BRASIL -->
+
+<div class="team-card">
+
 <img src="https://flagcdn.com/w320/br.png">
+
 <h2>Brasil</h2>
-<div class="player-list">
+
+<div class="players">
 🧤 Alisson<br>
 🛡 Marquinhos<br>
 🛡 Militão<br>
 ⚽ Bruno Guimarães<br>
 ⚽ Rodrygo<br>
-⚽ Raphinha<br>
 ⚽ Vinícius Júnior<br>
+⚽ Raphinha<br>
 ⚽ Endrick
 </div>
+
 </div>
 
-<div class="player-card">
+<!-- ARGENTINA -->
+
+<div class="team-card">
+
 <img src="https://flagcdn.com/w320/ar.png">
+
 <h2>Argentina</h2>
-<div class="player-list">
+
+<div class="players">
 🧤 Emiliano Martínez<br>
 🛡 Romero<br>
 ⚽ De Paul<br>
@@ -281,27 +322,39 @@ Site interativo com jogadores das seleções, comentários e informações da Co
 ⚽ Julián Álvarez<br>
 ⚽ Lautaro Martínez
 </div>
+
 </div>
 
-<div class="player-card">
+<!-- FRANÇA -->
+
+<div class="team-card">
+
 <img src="https://flagcdn.com/w320/fr.png">
+
 <h2>França</h2>
-<div class="player-list">
+
+<div class="players">
 🧤 Maignan<br>
 🛡 Saliba<br>
-🛡 Theo Hernández<br>
 ⚽ Camavinga<br>
 ⚽ Tchouaméni<br>
 ⚽ Dembélé<br>
 ⚽ Mbappé<br>
+⚽ Griezmann<br>
 ⚽ Kolo Muani
 </div>
+
 </div>
 
-<div class="player-card">
+<!-- PORTUGAL -->
+
+<div class="team-card">
+
 <img src="https://flagcdn.com/w320/pt.png">
+
 <h2>Portugal</h2>
-<div class="player-list">
+
+<div class="players">
 🧤 Diogo Costa<br>
 🛡 Rúben Dias<br>
 ⚽ Bruno Fernandes<br>
@@ -311,12 +364,18 @@ Site interativo com jogadores das seleções, comentários e informações da Co
 ⚽ João Félix<br>
 ⚽ Cristiano Ronaldo
 </div>
+
 </div>
 
-<div class="player-card">
+<!-- ESPANHA -->
+
+<div class="team-card">
+
 <img src="https://flagcdn.com/w320/es.png">
+
 <h2>Espanha</h2>
-<div class="player-list">
+
+<div class="players">
 🧤 Unai Simón<br>
 🛡 Carvajal<br>
 ⚽ Rodri<br>
@@ -326,12 +385,18 @@ Site interativo com jogadores das seleções, comentários e informações da Co
 ⚽ Lamine Yamal<br>
 ⚽ Morata
 </div>
+
 </div>
 
-<div class="player-card">
+<!-- ALEMANHA -->
+
+<div class="team-card">
+
 <img src="https://flagcdn.com/w320/de.png">
+
 <h2>Alemanha</h2>
-<div class="player-list">
+
+<div class="players">
 🧤 Ter Stegen<br>
 🛡 Rüdiger<br>
 ⚽ Musiala<br>
@@ -341,26 +406,76 @@ Site interativo com jogadores das seleções, comentários e informações da Co
 ⚽ Havertz<br>
 ⚽ Füllkrug
 </div>
+
+</div>
+
+<!-- INGLATERRA -->
+
+<div class="team-card">
+
+<img src="https://flagcdn.com/w320/gb-eng.png">
+
+<h2>Inglaterra</h2>
+
+<div class="players">
+🧤 Pickford<br>
+🛡 Stones<br>
+⚽ Bellingham<br>
+⚽ Rice<br>
+⚽ Foden<br>
+⚽ Saka<br>
+⚽ Harry Kane<br>
+⚽ Palmer
+</div>
+
+</div>
+
+<!-- HOLANDA -->
+
+<div class="team-card">
+
+<img src="https://flagcdn.com/w320/nl.png">
+
+<h2>Holanda</h2>
+
+<div class="players">
+🧤 Verbruggen<br>
+🛡 Van Dijk<br>
+⚽ De Jong<br>
+⚽ Xavi Simons<br>
+⚽ Reijnders<br>
+⚽ Gakpo<br>
+⚽ Depay<br>
+⚽ Malen
+</div>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- COMENTÁRIOS -->
+
 <section class="section" id="comentarios">
 
-<h1 class="section-title">💬 Comentários</h1>
+<h1 class="section-title">
+💬 Comentários
+</h1>
 
 <div class="chat-box">
 
-<div class="chat-messages" id="chat">
+<div class="chat" id="chat">
 
 <div class="message">
+
 <button class="delete-btn" onclick="excluirComentario(this)">
 Excluir
 </button>
+
 <strong>Carlos:</strong><br>
-Brasil vai chegar forte na Copa 🔥
+Brasil vem forte nessa Copa 🔥
+
 </div>
 
 </div>
@@ -382,7 +497,7 @@ Enviar Comentário
 </section>
 
 <footer>
-⚽ SUPER COPA 2026 • Portal Interativo
+⚽ SUPER COPA 2026 • Site Interativo da Copa
 </footer>
 
 <script>
@@ -393,6 +508,7 @@ function enviarMensagem(){
     let mensagem = document.getElementById('mensagem').value;
 
     if(nome === '' || mensagem === ''){
+
         alert('Preencha todos os campos!');
         return;
     }
@@ -423,6 +539,7 @@ function enviarMensagem(){
 }
 
 function excluirComentario(botao){
+
     botao.parentElement.remove();
 }
 
@@ -430,6 +547,3 @@ function excluirComentario(botao){
 
 </body>
 </html>
-```
-
-Obs: As convocações oficiais da Copa 2026 ainda não foram divulgadas. Os jogadores acima são baseados nas seleções mais atuais e nos atletas mais cotados para jogar o torneio.
