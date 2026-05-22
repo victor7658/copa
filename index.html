@@ -14,6 +14,7 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins', sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
@@ -33,91 +34,83 @@ body{
     z-index:-1;
 }
 
+/* HEADER */
+
 header{
-    padding:25px;
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:20px 40px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(255,255,255,0.05);
+    background:rgba(0,0,0,0.3);
     backdrop-filter:blur(10px);
-    position:sticky;
-    top:0;
     z-index:999;
-    border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .logo{
-    font-size:35px;
-    font-weight:700;
+    font-size:32px;
+    font-weight:bold;
     color:#facc15;
 }
 
-.menu{
-    display:flex;
-    gap:20px;
-}
-
-.menu a{
-    text-decoration:none;
+.entrar-btn{
+    background:#0ea5e9;
     color:white;
+    padding:14px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:bold;
     transition:0.3s;
 }
 
-.menu a:hover{
-    color:#38bdf8;
+.entrar-btn:hover{
+    background:#0284c7;
+    transform:scale(1.05);
 }
 
+/* HERO */
+
 .hero{
-    min-height:90vh;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:40px;
+    padding:20px;
 }
 
 .hero-content h1{
-    font-size:75px;
-    margin-bottom:20px;
+    font-size:80px;
     color:#facc15;
+    margin-bottom:20px;
+    text-shadow:0 0 20px rgba(250,204,21,0.6);
 }
 
 .hero-content p{
-    font-size:22px;
-    color:#ddd;
-    max-width:800px;
+    max-width:850px;
     margin:auto;
+    font-size:22px;
     line-height:1.8;
+    color:#ddd;
 }
 
-.hero button{
-    margin-top:30px;
-    padding:18px 35px;
-    border:none;
-    border-radius:15px;
-    background:#0ea5e9;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    transition:0.3s;
-    font-weight:bold;
-}
+/* SECTION */
 
-.hero button:hover{
-    transform:scale(1.05);
-    background:#0284c7;
+.section{
+    padding:120px 30px 60px;
 }
 
 .section-title{
     text-align:center;
     font-size:50px;
-    margin-bottom:40px;
     color:#facc15;
+    margin-bottom:50px;
 }
 
-.jogos{
-    padding:40px;
-}
+/* CARDS */
 
 .cards{
     display:grid;
@@ -129,19 +122,21 @@ header{
     background:rgba(255,255,255,0.05);
     border-radius:25px;
     padding:25px;
-    transition:0.4s;
     backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
+    box-shadow:0 0 30px rgba(14,165,233,0.4);
 }
 
 .match{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
 }
 
 .team{
@@ -152,8 +147,8 @@ header{
     width:120px;
     height:80px;
     border-radius:12px;
-    object-fit:cover;
     border:3px solid white;
+    object-fit:cover;
 }
 
 .team h2{
@@ -168,14 +163,13 @@ header{
 }
 
 .card p{
-    margin-top:20px;
     text-align:center;
+    margin-top:20px;
     color:#ddd;
+    line-height:1.7;
 }
 
-.chat-section{
-    padding:50px 25px;
-}
+/* CHAT */
 
 .chat-box{
     max-width:900px;
@@ -183,11 +177,10 @@ header{
     background:rgba(255,255,255,0.05);
     padding:25px;
     border-radius:25px;
-    backdrop-filter:blur(10px);
 }
 
 .chat-messages{
-    height:450px;
+    height:420px;
     overflow-y:auto;
     background:#0f172a;
     padding:20px;
@@ -200,7 +193,6 @@ header{
     padding:15px;
     border-radius:15px;
     margin-bottom:15px;
-    animation:fade 0.3s;
     position:relative;
 }
 
@@ -212,29 +204,17 @@ header{
     position:absolute;
     top:10px;
     right:10px;
-    background:#dc2626;
     border:none;
+    background:#dc2626;
     color:white;
     padding:6px 12px;
     border-radius:10px;
     cursor:pointer;
     transition:0.3s;
-    font-size:14px;
 }
 
 .delete-btn:hover{
     background:#b91c1c;
-}
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 .inputs{
@@ -257,52 +237,34 @@ textarea{
     resize:none;
 }
 
-.chat-btn{
+.send-btn{
     background:#16a34a;
     color:white;
     border:none;
     padding:16px;
     border-radius:15px;
     font-size:18px;
+    font-weight:bold;
     cursor:pointer;
     transition:0.3s;
-    font-weight:bold;
 }
 
-.chat-btn:hover{
+.send-btn:hover{
     background:#15803d;
     transform:scale(1.03);
 }
 
-.news{
-    padding:50px 25px;
-}
-
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.news-card{
-    background:rgba(255,255,255,0.05);
-    padding:25px;
-    border-radius:20px;
-}
-
-.news-card h3{
-    color:#38bdf8;
-    margin-bottom:15px;
-}
+/* FOOTER */
 
 footer{
     text-align:center;
     padding:40px;
-    margin-top:40px;
     color:#aaa;
 }
 
-@media(max-width:800px){
+/* RESPONSIVO */
+
+@media(max-width:850px){
 
     .hero-content h1{
         font-size:50px;
@@ -310,7 +272,6 @@ footer{
 
     .match{
         flex-direction:column;
-        gap:20px;
     }
 
     .vs{
@@ -318,8 +279,11 @@ footer{
     }
 
     header{
-        flex-direction:column;
-        gap:15px;
+        padding:15px 20px;
+    }
+
+    .logo{
+        font-size:24px;
     }
 
 }
@@ -333,14 +297,13 @@ footer{
 
 <header>
 
-<div class="logo">🏆 SUPER COPA 2026</div>
-
-<div class="menu">
-<a href="#">Início</a>
-<a href="#">Jogos</a>
-<a href="#">Chat</a>
-<a href="#">Notícias</a>
+<div class="logo">
+🏆 SUPER COPA 2026
 </div>
+
+<a href="#conteudo" class="entrar-btn">
+ENTRAR
+</a>
 
 </header>
 
@@ -351,20 +314,21 @@ footer{
 <h1>COPA DO MUNDO 2026</h1>
 
 <p>
-Acompanhe os jogos, converse com torcedores do mundo inteiro e viva toda emoção da Copa em um único lugar.
+O maior campeonato do planeta está chegando.
+Entre agora para acompanhar grandes jogos, comentar com outros torcedores e viver toda emoção da Copa do Mundo.
 </p>
-
-<button onclick="alert('Bem-vindo ao SUPER COPA 2026!')">
-Entrar Agora
-</button>
 
 </div>
 
 </section>
 
-<section class="jogos">
+<div id="conteudo">
 
-<h1 class="section-title">🔥 Grandes Jogos</h1>
+<section class="section">
+
+<h1 class="section-title">
+🔥 Grandes Jogos
+</h1>
 
 <div class="cards">
 
@@ -387,7 +351,7 @@ Entrar Agora
 </div>
 
 <p>
-O maior clássico da América do Sul promete parar o mundo.
+O maior clássico sul-americano da história.
 </p>
 
 </div>
@@ -411,7 +375,31 @@ O maior clássico da América do Sul promete parar o mundo.
 </div>
 
 <p>
-Mbappé e Cristiano Ronaldo em um duelo histórico.
+Mbappé contra Cristiano Ronaldo em um duelo histórico.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/es.png">
+<h2>Espanha</h2>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/de.png">
+<h2>Alemanha</h2>
+</div>
+
+</div>
+
+<p>
+Gigantes europeus em uma partida eletrizante.
 </p>
 
 </div>
@@ -420,9 +408,11 @@ Mbappé e Cristiano Ronaldo em um duelo histórico.
 
 </section>
 
-<section class="chat-section">
+<section class="section">
 
-<h1 class="section-title">💬 Chat dos Torcedores</h1>
+<h1 class="section-title">
+💬 Comentários dos Torcedores
+</h1>
 
 <div class="chat-box">
 
@@ -435,7 +425,7 @@ Excluir
 </button>
 
 <strong>Carlos:</strong><br>
-Brasil vai ganhar essa Copa 🔥
+Brasil vai levar essa Copa 🔥
 
 </div>
 
@@ -445,8 +435,8 @@ Brasil vai ganhar essa Copa 🔥
 Excluir
 </button>
 
-<strong>Marina:</strong><br>
-Argentina vem muito forte 🇦🇷
+<strong>Amanda:</strong><br>
+Argentina está muito forte 🇦🇷
 
 </div>
 
@@ -458,7 +448,7 @@ Argentina vem muito forte 🇦🇷
 
 <textarea id="mensagem" rows="4" placeholder="Digite seu comentário"></textarea>
 
-<button class="chat-btn" onclick="enviarMensagem()">
+<button class="send-btn" onclick="enviarMensagem()">
 Enviar Comentário
 </button>
 
@@ -468,39 +458,10 @@ Enviar Comentário
 
 </section>
 
-<section class="news">
-
-<h1 class="section-title">📰 Notícias</h1>
-
-<div class="news-grid">
-
-<div class="news-card">
-<h3>🔥 Brasil favorito</h3>
-<p>
-A seleção brasileira chega entre as favoritas da Copa.
-</p>
 </div>
-
-<div class="news-card">
-<h3>⚽ Messi</h3>
-<p>
-Messi pode disputar sua última Copa do Mundo.
-</p>
-</div>
-
-<div class="news-card">
-<h3>🚀 Jovens estrelas</h3>
-<p>
-Endrick, Bellingham e Yamal prometem brilhar em 2026.
-</p>
-</div>
-
-</div>
-
-</section>
 
 <footer>
-⚽ SUPER COPA 2026 • Site interativo da Copa
+⚽ SUPER COPA 2026 • Portal da Copa do Mundo
 </footer>
 
 <script>
@@ -511,6 +472,7 @@ function enviarMensagem(){
     let mensagem = document.getElementById("mensagem").value;
 
     if(nome === "" || mensagem === ""){
+
         alert("Preencha todos os campos!");
         return;
     }
@@ -522,14 +484,14 @@ function enviarMensagem(){
     novaMensagem.classList.add("message");
 
     novaMensagem.innerHTML = `
-    
+
     <button class="delete-btn" onclick="excluirComentario(this)">
     Excluir
     </button>
 
     <strong>${nome}:</strong><br>
     ${mensagem}
-    
+
     `;
 
     chat.appendChild(novaMensagem);
@@ -542,9 +504,7 @@ function enviarMensagem(){
 
 function excluirComentario(botao){
 
-    let comentario = botao.parentElement;
-
-    comentario.remove();
+    botao.parentElement.remove();
 }
 
 </script>
