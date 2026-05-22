@@ -3,452 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COPA 2026 - ESCALAÇÕES</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Seleções - Time VS Time</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#0b1520;
+    background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
     color:white;
-}
-
-/* TOPO */
-
-header{
-    text-align:center;
-    padding:30px;
-    background:linear-gradient(90deg,#02111f,#0f3057,#00587a);
-}
-
-header h1{
-    font-size:4rem;
-    color:#ffd700;
-}
-
-header p{
-    margin-top:10px;
-    font-size:1.2rem;
-}
-
-/* MENU */
-
-.menu{
+    min-height:100vh;
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    padding:20px;
-}
-
-.team-btn{
-    padding:14px 22px;
-    border:none;
-    border-radius:15px;
-    color:white;
-    font-size:1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.team-btn:hover{
-    transform:scale(1.08);
-}
-
-/* CORES */
-
-.brasil{background:#009c3b;}
-.argentina{background:#3ea6ff;}
-.franca{background:#002fff;}
-.portugal{background:#c40000;}
-.inglaterra{background:#666;}
-.espanha{background:#ff8800;}
-.alemanha{background:#222;}
-.italia{background:#0055ff;}
-
-/* ABA ATIVA */
-
-.team-btn.active{
-    background:white !important;
-    color:black !important;
-    border:3px solid gold;
-}
-
-/* CAMPO */
-
-.field{
-    position:relative;
-    width:95%;
-    max-width:1100px;
-    height:1450px;
-    margin:20px auto 50px;
-    background:#1d8b3f;
-    border-radius:25px;
-    overflow:hidden;
-    border:8px solid white;
-}
-
-/* LINHAS */
-
-.field::before{
-    content:'';
-    position:absolute;
-    inset:20px;
-    border:4px solid white;
-}
-
-.middle-line{
-    position:absolute;
-    top:50%;
-    left:20px;
-    width:calc(100% - 40px);
-    height:4px;
-    background:white;
-}
-
-.center-circle{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:180px;
-    height:180px;
-    border:4px solid white;
-    border-radius:50%;
-}
-
-/* JOGADORES */
-
-.player{
-    position:absolute;
-    transform:translate(-50%,-50%);
-    width:115px;
-    height:115px;
-    border-radius:50%;
-    background:white;
-    color:black;
-    display:flex;
     align-items:center;
-    justify-content:center;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    background:rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+}
+
+h1{
     text-align:center;
-    padding:10px;
-    font-size:0.85rem;
-    font-weight:700;
-    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+.jogo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    margin:20px 0;
+    border-radius:15px;
     transition:0.3s;
 }
 
-.player:hover{
-    transform:translate(-50%,-50%) scale(1.1);
-    background:#ffd700;
+.jogo:hover{
+    transform:scale(1.02);
+    background:rgba(255,255,255,0.15);
 }
 
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-.field{
-    height:1700px;
+.time{
+    width:40%;
+    text-align:center;
 }
 
-.player{
-    width:80px;
+.time img{
+    width:120px;
     height:80px;
-    font-size:0.6rem;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+    border:3px solid white;
 }
 
-header h1{
-    font-size:2.5rem;
+.time h2{
+    font-size:28px;
 }
 
+.vs{
+    font-size:40px;
+    font-weight:bold;
+    color:yellow;
 }
 
+.info{
+    text-align:center;
+    margin-top:10px;
+    font-size:18px;
+    color:#ddd;
+}
+
+@media(max-width:700px){
+    .jogo{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .time{
+        width:100%;
+    }
+
+    .vs{
+        font-size:35px;
+    }
+}
 </style>
+
 </head>
 <body>
 
-<header>
+<div class="container">
 
-<h1 id="teamTitle">BRASIL</h1>
+<h1>⚽ SELEÇÕES - TIME VS TIME ⚽</h1>
 
-<p>ESCALAÇÕES DA TEMPORADA 2026</p>
+<div class="jogo">
 
-</header>
+<div class="time">
+<img src="https://flagcdn.com/w320/br.png">
+<h2>Brasil</h2>
+</div>
 
-<!-- MENU -->
+<div class="vs">VS</div>
 
-<div class="menu">
-
-<button class="team-btn brasil active"
-onclick="showTeam('brasil',this)">
-Brasil
-</button>
-
-<button class="team-btn argentina"
-onclick="showTeam('argentina',this)">
-Argentina
-</button>
-
-<button class="team-btn franca"
-onclick="showTeam('franca',this)">
-França
-</button>
-
-<button class="team-btn portugal"
-onclick="showTeam('portugal',this)">
-Portugal
-</button>
-
-<button class="team-btn inglaterra"
-onclick="showTeam('inglaterra',this)">
-Inglaterra
-</button>
-
-<button class="team-btn espanha"
-onclick="showTeam('espanha',this)">
-Espanha
-</button>
-
-<button class="team-btn alemanha"
-onclick="showTeam('alemanha',this)">
-Alemanha
-</button>
-
-<button class="team-btn italia"
-onclick="showTeam('italia',this)">
-Itália
-</button>
+<div class="time">
+<img src="https://flagcdn.com/w320/ar.png">
+<h2>Argentina</h2>
+</div>
 
 </div>
 
-<!-- CAMPO -->
+<div class="info">
+📅 Copa 2026 - Grande Clássico Sul-Americano
+</div>
 
-<div class="field">
+<div class="jogo">
 
-<div class="middle-line"></div>
+<div class="time">
+<img src="https://flagcdn.com/w320/fr.png">
+<h2>França</h2>
+</div>
 
-<div class="center-circle"></div>
+<div class="vs">VS</div>
 
-<div id="players"></div>
+<div class="time">
+<img src="https://flagcdn.com/w320/de.png">
+<h2>Alemanha</h2>
+</div>
 
 </div>
 
-<script>
-
-/* TIMES 2026 */
-
-const teams = {
-
-/* BRASIL */
-
-brasil:[
-
-{name:"ALISSON",top:"88%",left:"50%"},
-
-{name:"MILITÃO",top:"72%",left:"25%"},
-{name:"MARQUINHOS",top:"72%",left:"50%"},
-{name:"BERALDO",top:"72%",left:"75%"},
-
-{name:"ARANA",top:"55%",left:"15%"},
-{name:"CASEMIRO",top:"55%",left:"35%"},
-{name:"BRUNO G.",top:"55%",left:"50%"},
-{name:"PAQUETÁ",top:"55%",left:"65%"},
-{name:"DANILO",top:"55%",left:"85%"},
-
-{name:"VINI JR",top:"30%",left:"20%"},
-{name:"RODRYGO",top:"30%",left:"50%"},
-{name:"RAPHINHA",top:"30%",left:"80%"},
-
-{name:"ENDRICK",top:"15%",left:"50%"}
-
-],
-
-/* ARGENTINA */
-
-argentina:[
-
-{name:"MARTINEZ",top:"88%",left:"50%"},
-
-{name:"ROMERO",top:"72%",left:"30%"},
-{name:"OTAMENDI",top:"72%",left:"70%"},
-
-{name:"ENZO",top:"55%",left:"35%"},
-{name:"MAC ALLISTER",top:"55%",left:"65%"},
-
-{name:"MESSI",top:"30%",left:"50%"},
-{name:"DI MARIA",top:"30%",left:"20%"},
-{name:"JULIAN",top:"30%",left:"80%"},
-
-{name:"LAUTARO",top:"15%",left:"50%"}
-
-],
-
-/* FRANÇA */
-
-franca:[
-
-{name:"MAIGNAN",top:"88%",left:"50%"},
-
-{name:"SALIBA",top:"72%",left:"30%"},
-{name:"KOUNDE",top:"72%",left:"70%"},
-
-{name:"CAMAVINGA",top:"55%",left:"35%"},
-{name:"TCHOUAMENI",top:"55%",left:"65%"},
-
-{name:"GRIEZMANN",top:"40%",left:"50%"},
-
-{name:"MBAPPÉ",top:"25%",left:"20%"},
-{name:"DEMBÉLÉ",top:"25%",left:"80%"},
-
-{name:"GIROUD",top:"15%",left:"50%"}
-
-],
-
-/* PORTUGAL */
-
-portugal:[
-
-{name:"DIOGO COSTA",top:"88%",left:"50%"},
-
-{name:"RUBEN DIAS",top:"72%",left:"30%"},
-{name:"PEPE",top:"72%",left:"70%"},
-
-{name:"BERNARDO",top:"55%",left:"35%"},
-{name:"BRUNO F.",top:"55%",left:"65%"},
-
-{name:"LEÃO",top:"30%",left:"20%"},
-{name:"CRISTIANO",top:"15%",left:"50%"},
-{name:"JOÃO FÉLIX",top:"30%",left:"80%"}
-
-],
-
-/* INGLATERRA */
-
-inglaterra:[
-
-{name:"PICKFORD",top:"88%",left:"50%"},
-
-{name:"STONES",top:"72%",left:"30%"},
-{name:"WALKER",top:"72%",left:"70%"},
-
-{name:"RICE",top:"55%",left:"35%"},
-{name:"BELLINGHAM",top:"55%",left:"65%"},
-
-{name:"FODEN",top:"30%",left:"20%"},
-{name:"KANE",top:"15%",left:"50%"},
-{name:"SAKA",top:"30%",left:"80%"}
-
-],
-
-/* ESPANHA */
-
-espanha:[
-
-{name:"SIMON",top:"88%",left:"50%"},
-
-{name:"LAPORTE",top:"72%",left:"30%"},
-{name:"CARVAJAL",top:"72%",left:"70%"},
-
-{name:"PEDRI",top:"55%",left:"35%"},
-{name:"GAVI",top:"55%",left:"65%"},
-
-{name:"YAMAL",top:"30%",left:"20%"},
-{name:"MORATA",top:"15%",left:"50%"},
-{name:"NICO W.",top:"30%",left:"80%"}
-
-],
-
-/* ALEMANHA */
-
-alemanha:[
-
-{name:"TER STEGEN",top:"88%",left:"50%"},
-
-{name:"RUDIGER",top:"72%",left:"30%"},
-{name:"KIMMICH",top:"72%",left:"70%"},
-
-{name:"GUNDOGAN",top:"55%",left:"35%"},
-{name:"MUSIALA",top:"55%",left:"65%"},
-
-{name:"WIRTZ",top:"30%",left:"20%"},
-{name:"HAVERTZ",top:"15%",left:"50%"},
-{name:"SANÉ",top:"30%",left:"80%"}
-
-],
-
-/* ITÁLIA */
-
-italia:[
-
-{name:"DONNARUMMA",top:"88%",left:"50%"},
-
-{name:"BASTONI",top:"72%",left:"30%"},
-{name:"DI LORENZO",top:"72%",left:"70%"},
-
-{name:"JORGINHO",top:"55%",left:"35%"},
-{name:"BARELLA",top:"55%",left:"65%"},
-
-{name:"CHIESA",top:"30%",left:"20%"},
-{name:"SCAMACCA",top:"15%",left:"50%"},
-{name:"BERARDI",top:"30%",left:"80%"}
-
-]
-
-};
-
-/* MOSTRAR TIME */
-
-function showTeam(team,button){
-
-document.querySelectorAll('.team-btn').forEach(btn=>{
-btn.classList.remove('active');
-});
-
-button.classList.add('active');
-
-document.getElementById('teamTitle').innerHTML =
-team.toUpperCase();
-
-const playersDiv =
-document.getElementById('players');
-
-playersDiv.innerHTML = '';
-
-teams[team].forEach(player=>{
-
-playersDiv.innerHTML += `
-
-<div class="player"
-style="top:${player.top};
-left:${player.left};">
-
-${player.name}
+<div class="info">
+🔥 Confronto Europeu
+</div>
+
+<div class="jogo">
+
+<div class="time">
+<img src="https://flagcdn.com/w320/pt.png">
+<h2>Portugal</h2>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="time">
+<img src="https://flagcdn.com/w320/es.png">
+<h2>Espanha</h2>
+</div>
 
 </div>
 
-`;
+<div class="info">
+🏆 Jogo Internacional
+</div>
 
-});
-
-}
-
-/* INICIAR */
-
-showTeam(
-'brasil',
-document.querySelector('.brasil')
-);
-
-</script>
+</div>
 
 </body>
 </html>
