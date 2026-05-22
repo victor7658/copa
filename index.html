@@ -22,8 +22,6 @@ body{
     overflow-x:hidden;
 }
 
-/* FUNDO */
-
 .bg{
     position:fixed;
     width:100%;
@@ -34,8 +32,6 @@ body{
     #020617;
     z-index:-1;
 }
-
-/* HEADER */
 
 header{
     padding:25px;
@@ -71,8 +67,6 @@ header{
     color:#38bdf8;
 }
 
-/* HERO */
-
 .hero{
     min-height:90vh;
     display:flex;
@@ -86,7 +80,6 @@ header{
     font-size:75px;
     margin-bottom:20px;
     color:#facc15;
-    text-shadow:0 0 25px rgba(250,204,21,0.6);
 }
 
 .hero-content p{
@@ -115,8 +108,6 @@ header{
     background:#0284c7;
 }
 
-/* JOGOS */
-
 .section-title{
     text-align:center;
     font-size:50px;
@@ -141,12 +132,10 @@ header{
     transition:0.4s;
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(14,165,233,0.5);
 }
 
 .match{
@@ -182,10 +171,7 @@ header{
     margin-top:20px;
     text-align:center;
     color:#ddd;
-    line-height:1.7;
 }
-
-/* CHAT */
 
 .chat-section{
     padding:50px 25px;
@@ -198,11 +184,10 @@ header{
     padding:25px;
     border-radius:25px;
     backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.1);
 }
 
 .chat-messages{
-    height:400px;
+    height:450px;
     overflow-y:auto;
     background:#0f172a;
     padding:20px;
@@ -216,10 +201,29 @@ header{
     border-radius:15px;
     margin-bottom:15px;
     animation:fade 0.3s;
+    position:relative;
 }
 
 .message strong{
     color:#38bdf8;
+}
+
+.delete-btn{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#dc2626;
+    border:none;
+    color:white;
+    padding:6px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:14px;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
 }
 
 @keyframes fade{
@@ -270,8 +274,6 @@ textarea{
     transform:scale(1.03);
 }
 
-/* NOTICIAS */
-
 .news{
     padding:50px 25px;
 }
@@ -286,11 +288,6 @@ textarea{
     background:rgba(255,255,255,0.05);
     padding:25px;
     border-radius:20px;
-    transition:0.3s;
-}
-
-.news-card:hover{
-    transform:translateY(-5px);
 }
 
 .news-card h3{
@@ -298,17 +295,12 @@ textarea{
     margin-bottom:15px;
 }
 
-/* FOOTER */
-
 footer{
     text-align:center;
     padding:40px;
     margin-top:40px;
     color:#aaa;
-    border-top:1px solid rgba(255,255,255,0.1);
 }
-
-/* RESPONSIVO */
 
 @media(max-width:800px){
 
@@ -333,8 +325,8 @@ footer{
 }
 
 </style>
-
 </head>
+
 <body>
 
 <div class="bg"></div>
@@ -359,11 +351,10 @@ footer{
 <h1>COPA DO MUNDO 2026</h1>
 
 <p>
-O maior campeonato do planeta chegou. 
-Acompanhe partidas, converse com torcedores, veja notícias e viva toda emoção da Copa do Mundo em um único lugar.
+Acompanhe os jogos, converse com torcedores do mundo inteiro e viva toda emoção da Copa em um único lugar.
 </p>
 
-<button onclick="alert('Bem-vindo ao maior portal da Copa!')">
+<button onclick="alert('Bem-vindo ao SUPER COPA 2026!')">
 Entrar Agora
 </button>
 
@@ -396,7 +387,7 @@ Entrar Agora
 </div>
 
 <p>
-Vinícius Júnior enfrenta Messi em um dos maiores clássicos da história do futebol mundial.
+O maior clássico da América do Sul promete parar o mundo.
 </p>
 
 </div>
@@ -420,31 +411,7 @@ Vinícius Júnior enfrenta Messi em um dos maiores clássicos da história do fu
 </div>
 
 <p>
-Mbappé e Cristiano Ronaldo em um confronto histórico da Copa do Mundo.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="match">
-
-<div class="team">
-<img src="https://flagcdn.com/w320/es.png">
-<h2>Espanha</h2>
-</div>
-
-<div class="vs">VS</div>
-
-<div class="team">
-<img src="https://flagcdn.com/w320/de.png">
-<h2>Alemanha</h2>
-</div>
-
-</div>
-
-<p>
-Jogo europeu eletrizante com jovens estrelas e muita rivalidade.
+Mbappé e Cristiano Ronaldo em um duelo histórico.
 </p>
 
 </div>
@@ -462,13 +429,25 @@ Jogo europeu eletrizante com jovens estrelas e muita rivalidade.
 <div class="chat-messages" id="chat">
 
 <div class="message">
+
+<button class="delete-btn" onclick="excluirComentario(this)">
+Excluir
+</button>
+
 <strong>Carlos:</strong><br>
-Brasil vai ser campeão dessa Copa 🔥
+Brasil vai ganhar essa Copa 🔥
+
 </div>
 
 <div class="message">
+
+<button class="delete-btn" onclick="excluirComentario(this)">
+Excluir
+</button>
+
 <strong>Marina:</strong><br>
-Mbappé vai destruir nessa edição ⚽
+Argentina vem muito forte 🇦🇷
+
 </div>
 
 </div>
@@ -477,7 +456,7 @@ Mbappé vai destruir nessa edição ⚽
 
 <input type="text" id="nome" placeholder="Digite seu nome">
 
-<textarea id="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+<textarea id="mensagem" rows="4" placeholder="Digite seu comentário"></textarea>
 
 <button class="chat-btn" onclick="enviarMensagem()">
 Enviar Comentário
@@ -491,28 +470,28 @@ Enviar Comentário
 
 <section class="news">
 
-<h1 class="section-title">📰 Últimas Notícias</h1>
+<h1 class="section-title">📰 Notícias</h1>
 
 <div class="news-grid">
 
 <div class="news-card">
-<h3>🔥 Brasil forte</h3>
+<h3>🔥 Brasil favorito</h3>
 <p>
-A seleção brasileira chega entre as favoritas para conquistar o título mundial.
+A seleção brasileira chega entre as favoritas da Copa.
 </p>
 </div>
 
 <div class="news-card">
-<h3>⚽ Messi pode se despedir</h3>
+<h3>⚽ Messi</h3>
 <p>
-A Copa de 2026 pode marcar a despedida de Messi em Mundiais.
+Messi pode disputar sua última Copa do Mundo.
 </p>
 </div>
 
 <div class="news-card">
-<h3>🚀 Nova geração</h3>
+<h3>🚀 Jovens estrelas</h3>
 <p>
-Lamine Yamal, Endrick e Bellingham prometem ser as estrelas da competição.
+Endrick, Bellingham e Yamal prometem brilhar em 2026.
 </p>
 </div>
 
@@ -521,9 +500,7 @@ Lamine Yamal, Endrick e Bellingham prometem ser as estrelas da competição.
 </section>
 
 <footer>
-
-⚽ SUPER COPA 2026 • Todos os direitos reservados
-
+⚽ SUPER COPA 2026 • Site interativo da Copa
 </footer>
 
 <script>
@@ -544,8 +521,16 @@ function enviarMensagem(){
 
     novaMensagem.classList.add("message");
 
-    novaMensagem.innerHTML =
-    "<strong>" + nome + ":</strong><br>" + mensagem;
+    novaMensagem.innerHTML = `
+    
+    <button class="delete-btn" onclick="excluirComentario(this)">
+    Excluir
+    </button>
+
+    <strong>${nome}:</strong><br>
+    ${mensagem}
+    
+    `;
 
     chat.appendChild(novaMensagem);
 
@@ -553,6 +538,13 @@ function enviarMensagem(){
     document.getElementById("mensagem").value = "";
 
     chat.scrollTop = chat.scrollHeight;
+}
+
+function excluirComentario(botao){
+
+    let comentario = botao.parentElement;
+
+    comentario.remove();
 }
 
 </script>
