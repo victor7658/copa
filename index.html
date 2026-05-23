@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MURAL DA COPA DO MUNDO</title>
+<title>COPA DO MUNDO 4K - TORNEIO & OPINIÕES</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -41,28 +41,42 @@ body::before{
 
 header{
     text-align:center;
-    padding:40px 20px;
+    padding:35px;
 }
 
 header h1{
     font-family:'Orbitron',sans-serif;
     font-size:60px;
     color:#facc15;
-    text-shadow:0 0 20px #facc15;
+    text-shadow:0 0 25px #facc15;
 }
 
 header p{
-    margin-top:10px;
     color:#cbd5e1;
+    margin-top:10px;
 }
 
 /* LAYOUT */
 
 .container{
     width:95%;
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
-    padding-bottom:60px;
+    padding-bottom:50px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:1fr;
+    }
 }
 
 /* CARD */
@@ -70,93 +84,104 @@ header p{
 .card{
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.1);
-    border-radius:30px;
-    padding:25px;
+    border-radius:25px;
+    padding:20px;
     backdrop-filter:blur(10px);
 }
 
-/* INPUTS */
+/* TITULO */
 
-.input-box{
+.card h2{
+    color:#38bdf8;
     margin-bottom:15px;
 }
 
-label{
-    display:block;
-    margin-bottom:8px;
-    color:#cbd5e1;
+/* TIMES */
+
+.team{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#0f172a;
+    padding:12px;
+    border-radius:15px;
+    margin-bottom:10px;
 }
 
-input, textarea{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:15px;
-    background:#0f172a;
-    color:white;
-    font-size:15px;
-    outline:none;
-    resize:none;
+.flag{
+    font-size:30px;
 }
 
 button{
     width:100%;
-    padding:16px;
+    padding:15px;
     border:none;
-    border-radius:16px;
+    border-radius:15px;
     margin-top:10px;
-    font-size:17px;
-    font-weight:bold;
     cursor:pointer;
-    background:linear-gradient(90deg,#22c55e,#16a34a);
-    color:white;
+    font-weight:bold;
     transition:0.3s;
 }
 
-button:hover{
+.play{
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    color:white;
+}
+
+.play:hover{
     transform:scale(1.03);
 }
 
-/* POSTS */
+/* RESULTADO JOGO */
 
-.posts{
-    margin-top:30px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+.match{
+    background:#0f172a;
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    margin-top:10px;
+}
+
+.score{
+    font-size:40px;
+    color:#facc15;
+    font-weight:bold;
+}
+
+/* MURAL */
+
+textarea,input{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:none;
+    background:#0f172a;
+    color:white;
+    margin-bottom:10px;
+    outline:none;
+}
+
+.post-btn{
+    background:linear-gradient(90deg,#38bdf8,#22c55e);
+    color:black;
 }
 
 .post{
     background:#0f172a;
-    padding:18px;
-    border-radius:18px;
+    padding:15px;
+    border-radius:15px;
+    margin-top:10px;
     border-left:4px solid #facc15;
-    animation:fade 0.5s ease;
-}
-
-@keyframes fade{
-    from{opacity:0; transform:translateY(10px);}
-    to{opacity:1; transform:translateY(0);}
 }
 
 .post h3{
     color:#facc15;
-    font-size:18px;
+    font-size:16px;
 }
 
 .post p{
-    margin-top:8px;
     color:#cbd5e1;
-    line-height:1.5;
-}
-
-/* TÍTULO MURAL */
-
-.mural-title{
-    text-align:center;
-    margin-top:20px;
-    font-size:22px;
-    color:#38bdf8;
+    margin-top:5px;
 }
 
 </style>
@@ -167,39 +192,55 @@ button:hover{
 
 <header>
 
-<h1>🏆 MURAL DA COPA</h1>
+<h1>🏆 COPA DO MUNDO 4K</h1>
 
-<p>Deixe sua opinião sobre a Copa do Mundo deste ano</p>
+<p>Torneio oficial + mural de opiniões da comunidade</p>
 
 </header>
 
 <div class="container">
 
+<div class="grid">
+
+<!-- TORNEIO -->
+
 <div class="card">
 
-<h2>📝 Compartilhe sua opinião</h2>
+<h2>⚽ Times do Torneio</h2>
 
-<div class="input-box">
-<label>Seu nome</label>
-<input type="text" id="name" placeholder="Ex: João">
-</div>
+<div class="team">🇧🇷 Brasil <b>99</b></div>
+<div class="team">🇲🇦 Marrocos <b>90</b></div>
+<div class="team">🇭🇹 Haiti <b>82</b></div>
+<div class="team">🏴 Escócia <b>88</b></div>
 
-<div class="input-box">
-<label>Sua opinião sobre a Copa</label>
-<textarea id="text" rows="4" placeholder="Escreva sua opinião..."></textarea>
-</div>
-
-<button onclick="addPost()">
-PUBLICAR OPINIÃO
+<button class="play" onclick="playMatch()">
+SIMULAR PARTIDA
 </button>
 
-<div class="mural-title">
-🔥 Opiniões da comunidade
+<div class="match" id="match">
+
+<h3 id="teams">Brasil vs Marrocos</h3>
+<div class="score" id="score">0 X 0</div>
+<p id="winner">Clique para jogar!</p>
+
 </div>
 
-<div class="posts" id="posts">
+</div>
 
-<!-- POSTS AQUI -->
+<!-- MURAL -->
+
+<div class="card">
+
+<h2>💬 Mural da Copa</h2>
+
+<input type="text" id="name" placeholder="Seu nome">
+<textarea id="comment" rows="4" placeholder="Escreva sua opinião sobre a Copa..."></textarea>
+
+<button class="post-btn" onclick="addComment()">
+PUBLICAR
+</button>
+
+<div id="posts"></div>
 
 </div>
 
@@ -209,34 +250,83 @@ PUBLICAR OPINIÃO
 
 <script>
 
-function addPost(){
+/* TIMES */
 
-    let name =
-    document.getElementById('name').value;
+const teams = [
+    "Brasil 🇧🇷",
+    "Marrocos 🇲🇦",
+    "Haiti 🇭🇹",
+    "Escócia 🏴"
+];
 
-    let text =
-    document.getElementById('text').value;
+let i = 0;
+let j = 1;
 
-    if(name === '' || text === ''){
-        alert('Preencha todos os campos!');
+/* PARTIDA */
+
+function playMatch(){
+
+    let score1 = Math.floor(Math.random()*6);
+    let score2 = Math.floor(Math.random()*6);
+
+    document.getElementById('teams').innerHTML =
+    teams[i] + " VS " + teams[j];
+
+    document.getElementById('score').innerHTML =
+    score1 + " X " + score2;
+
+    let result = "";
+
+    if(score1 > score2){
+        result = "🏆 " + teams[i] + " venceu!";
+    }
+    else if(score2 > score1){
+        result = "🏆 " + teams[j] + " venceu!";
+    }
+    else{
+        result = "😱 Empate histórico!";
+    }
+
+    document.getElementById('winner').innerHTML = result;
+
+    j++;
+
+    if(j >= teams.length){
+        i++;
+        j = i + 1;
+    }
+
+    if(i >= teams.length - 1){
+        i = 0;
+        j = 1;
+    }
+
+}
+
+/* MURAL */
+
+function addComment(){
+
+    let name = document.getElementById('name').value;
+    let comment = document.getElementById('comment').value;
+
+    if(name === '' || comment === ''){
+        alert('Preencha tudo!');
         return;
     }
 
-    let post =
-    document.createElement('div');
+    let div = document.createElement('div');
+    div.classList.add('post');
 
-    post.classList.add('post');
-
-    post.innerHTML = `
+    div.innerHTML = `
         <h3>${name}</h3>
-        <p>${text}</p>
+        <p>${comment}</p>
     `;
 
-    document.getElementById('posts')
-    .prepend(post);
+    document.getElementById('posts').prepend(div);
 
     document.getElementById('name').value = '';
-    document.getElementById('text').value = '';
+    document.getElementById('comment').value = '';
 
 }
 
