@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>COPA DO MUNDO 4K - TORNEIO & OPINIÕES</title>
+<title>MURAL DA COPA DO MUNDO</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -41,14 +41,14 @@ body::before{
 
 header{
     text-align:center;
-    padding:35px;
+    padding:40px 20px;
 }
 
 header h1{
     font-family:'Orbitron',sans-serif;
     font-size:60px;
     color:#facc15;
-    text-shadow:0 0 25px #facc15;
+    text-shadow:0 0 20px #facc15;
 }
 
 header p{
@@ -56,27 +56,12 @@ header p{
     margin-top:10px;
 }
 
-/* LAYOUT */
+/* CONTAINER */
 
 .container{
     width:95%;
-    max-width:1200px;
+    max-width:1000px;
     margin:auto;
-    padding-bottom:50px;
-}
-
-/* GRID */
-
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-@media(max-width:900px){
-    .grid{
-        grid-template-columns:1fr;
-    }
 }
 
 /* CARD */
@@ -85,86 +70,58 @@ header p{
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.1);
     border-radius:25px;
-    padding:20px;
+    padding:25px;
     backdrop-filter:blur(10px);
-}
-
-/* TITULO */
-
-.card h2{
-    color:#38bdf8;
-    margin-bottom:15px;
 }
 
 /* TIMES */
 
-.team{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:#0f172a;
-    padding:12px;
-    border-radius:15px;
-    margin-bottom:10px;
+.teams{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:20px;
 }
 
-.flag{
-    font-size:30px;
+.team{
+    background:#0f172a;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* INPUTS */
+
+input, textarea{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    margin-bottom:10px;
+    background:#0f172a;
+    color:white;
+    outline:none;
+    resize:none;
 }
 
 button{
     width:100%;
-    padding:15px;
+    padding:14px;
     border:none;
-    border-radius:15px;
-    margin-top:10px;
+    border-radius:14px;
     cursor:pointer;
     font-weight:bold;
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    color:white;
     transition:0.3s;
 }
 
-.play{
-    background:linear-gradient(90deg,#22c55e,#16a34a);
-    color:white;
+button:hover{
+    transform:scale(1.02);
 }
 
-.play:hover{
-    transform:scale(1.03);
-}
-
-/* RESULTADO JOGO */
-
-.match{
-    background:#0f172a;
-    padding:20px;
-    border-radius:20px;
-    text-align:center;
-    margin-top:10px;
-}
-
-.score{
-    font-size:40px;
-    color:#facc15;
-    font-weight:bold;
-}
-
-/* MURAL */
-
-textarea,input{
-    width:100%;
-    padding:12px;
-    border-radius:12px;
-    border:none;
-    background:#0f172a;
-    color:white;
-    margin-bottom:10px;
-    outline:none;
-}
-
-.post-btn{
-    background:linear-gradient(90deg,#38bdf8,#22c55e);
-    color:black;
-}
+/* POSTS */
 
 .post{
     background:#0f172a;
@@ -176,12 +133,35 @@ textarea,input{
 
 .post h3{
     color:#facc15;
-    font-size:16px;
 }
 
 .post p{
-    color:#cbd5e1;
     margin-top:5px;
+    color:#cbd5e1;
+}
+
+/* AÇÕES */
+
+.actions{
+    margin-top:10px;
+    display:flex;
+    gap:10px;
+}
+
+.actions button{
+    flex:1;
+    padding:10px;
+    font-size:13px;
+}
+
+/* BOTÕES DIFERENTES */
+
+.edit{
+    background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+}
+
+.delete{
+    background:linear-gradient(90deg,#ef4444,#dc2626);
 }
 
 </style>
@@ -192,53 +172,37 @@ textarea,input{
 
 <header>
 
-<h1>🏆 COPA DO MUNDO 4K</h1>
+<h1>🏆 MURAL DA COPA</h1>
 
-<p>Torneio oficial + mural de opiniões da comunidade</p>
+<p>Brasil, Marrocos, Haiti e Escócia — opinião da comunidade</p>
 
 </header>
 
 <div class="container">
 
-<div class="grid">
-
-<!-- TORNEIO -->
-
 <div class="card">
 
-<h2>⚽ Times do Torneio</h2>
+<!-- TIMES -->
 
-<div class="team">🇧🇷 Brasil <b>99</b></div>
-<div class="team">🇲🇦 Marrocos <b>90</b></div>
-<div class="team">🇭🇹 Haiti <b>82</b></div>
-<div class="team">🏴 Escócia <b>88</b></div>
+<div class="teams">
 
-<button class="play" onclick="playMatch()">
-SIMULAR PARTIDA
-</button>
-
-<div class="match" id="match">
-
-<h3 id="teams">Brasil vs Marrocos</h3>
-<div class="score" id="score">0 X 0</div>
-<p id="winner">Clique para jogar!</p>
+<div class="team">🇧🇷 Brasil</div>
+<div class="team">🇲🇦 Marrocos</div>
+<div class="team">🇭🇹 Haiti</div>
+<div class="team">🏴 Escócia</div>
 
 </div>
 
-</div>
-
-<!-- MURAL -->
-
-<div class="card">
-
-<h2>💬 Mural da Copa</h2>
+<!-- FORM -->
 
 <input type="text" id="name" placeholder="Seu nome">
 <textarea id="comment" rows="4" placeholder="Escreva sua opinião sobre a Copa..."></textarea>
 
-<button class="post-btn" onclick="addComment()">
-PUBLICAR
+<button onclick="addComment()">
+PUBLICAR OPINIÃO
 </button>
+
+<!-- POSTS -->
 
 <div id="posts"></div>
 
@@ -246,64 +210,9 @@ PUBLICAR
 
 </div>
 
-</div>
-
 <script>
 
-/* TIMES */
-
-const teams = [
-    "Brasil 🇧🇷",
-    "Marrocos 🇲🇦",
-    "Haiti 🇭🇹",
-    "Escócia 🏴"
-];
-
-let i = 0;
-let j = 1;
-
-/* PARTIDA */
-
-function playMatch(){
-
-    let score1 = Math.floor(Math.random()*6);
-    let score2 = Math.floor(Math.random()*6);
-
-    document.getElementById('teams').innerHTML =
-    teams[i] + " VS " + teams[j];
-
-    document.getElementById('score').innerHTML =
-    score1 + " X " + score2;
-
-    let result = "";
-
-    if(score1 > score2){
-        result = "🏆 " + teams[i] + " venceu!";
-    }
-    else if(score2 > score1){
-        result = "🏆 " + teams[j] + " venceu!";
-    }
-    else{
-        result = "😱 Empate histórico!";
-    }
-
-    document.getElementById('winner').innerHTML = result;
-
-    j++;
-
-    if(j >= teams.length){
-        i++;
-        j = i + 1;
-    }
-
-    if(i >= teams.length - 1){
-        i = 0;
-        j = 1;
-    }
-
-}
-
-/* MURAL */
+/* ADICIONAR COMENTÁRIO */
 
 function addComment(){
 
@@ -315,18 +224,51 @@ function addComment(){
         return;
     }
 
-    let div = document.createElement('div');
-    div.classList.add('post');
+    let post = document.createElement('div');
+    post.classList.add('post');
 
-    div.innerHTML = `
+    post.innerHTML = `
         <h3>${name}</h3>
-        <p>${comment}</p>
+        <p class="text">${comment}</p>
+
+        <div class="actions">
+
+            <button class="edit" onclick="editComment(this)">
+                ✏️ Editar
+            </button>
+
+            <button class="delete" onclick="deleteComment(this)">
+                🗑️ Excluir
+            </button>
+
+        </div>
     `;
 
-    document.getElementById('posts').prepend(div);
+    document.getElementById('posts').prepend(post);
 
     document.getElementById('name').value = '';
     document.getElementById('comment').value = '';
+
+}
+
+/* EXCLUIR */
+
+function deleteComment(btn){
+    btn.parentElement.parentElement.remove();
+}
+
+/* EDITAR */
+
+function editComment(btn){
+
+    let post = btn.parentElement.parentElement;
+    let textElement = post.querySelector('.text');
+
+    let newText = prompt('Edite seu comentário:', textElement.innerText);
+
+    if(newText !== null && newText !== ''){
+        textElement.innerText = newText;
+    }
 
 }
 
