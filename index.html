@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>SUPER SIMULADOR DE TIME</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>COPA DO MUNDO INTERATIVA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,36 +18,45 @@
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#050816;
+    background:#020617;
     color:white;
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
 }
 
 /* FUNDO */
 
-body::before{
-    content:'';
+.bg{
     position:fixed;
     width:100%;
     height:100%;
-    background:
-    radial-gradient(circle at top left,#00f5ff33,transparent 30%),
-    radial-gradient(circle at bottom right,#00ff7b22,transparent 30%),
-    linear-gradient(135deg,#020617,#0f172a);
     z-index:-2;
+    background:
+    radial-gradient(circle at top,#16a34a55,transparent 35%),
+    radial-gradient(circle at bottom,#facc1555,transparent 35%),
+    linear-gradient(135deg,#020617,#071426,#0f172a);
 }
 
-body::after{
-    content:'';
+.stars{
     position:fixed;
     width:100%;
     height:100%;
-    background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size:40px 40px;
     z-index:-1;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+    from{opacity:0.2;}
+    to{opacity:1;}
 }
 
 /* HEADER */
@@ -58,9 +68,9 @@ header{
 
 header h1{
     font-family:'Orbitron',sans-serif;
-    font-size:55px;
-    color:#00f5ff;
-    text-shadow:0 0 15px #00f5ff88;
+    font-size:65px;
+    color:#facc15;
+    text-shadow:0 0 20px #facc15;
 }
 
 header p{
@@ -69,7 +79,7 @@ header p{
     font-size:18px;
 }
 
-/* CONTAINER */
+/* LAYOUT */
 
 .container{
     width:95%;
@@ -78,7 +88,7 @@ header p{
     padding-bottom:50px;
 }
 
-.layout{
+.grid{
     display:grid;
     grid-template-columns:420px 1fr;
     gap:30px;
@@ -86,7 +96,7 @@ header p{
 
 @media(max-width:1200px){
 
-    .layout{
+    .grid{
         grid-template-columns:1fr;
     }
 
@@ -97,19 +107,19 @@ header p{
 .card{
     background:rgba(255,255,255,0.05);
     border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
     border-radius:30px;
+    backdrop-filter:blur(10px);
     padding:25px;
-    box-shadow:0 0 25px rgba(0,0,0,0.4);
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
 .card h2{
+    color:#38bdf8;
     margin-bottom:25px;
-    color:#00f5ff;
     font-size:30px;
 }
 
-/* FORM */
+/* INPUTS */
 
 .input-box{
     margin-bottom:16px;
@@ -119,23 +129,17 @@ header p{
     display:block;
     margin-bottom:8px;
     color:#e2e8f0;
-    font-size:14px;
 }
 
-input, select{
+input,select{
     width:100%;
     padding:15px;
     border:none;
-    border-radius:14px;
+    border-radius:15px;
     background:#0f172a;
     color:white;
     outline:none;
     font-size:15px;
-    transition:0.3s;
-}
-
-input:focus, select:focus{
-    box-shadow:0 0 10px #00f5ff88;
 }
 
 /* BOTÃO */
@@ -144,8 +148,8 @@ button{
     width:100%;
     padding:18px;
     border:none;
-    border-radius:16px;
-    background:linear-gradient(90deg,#06b6d4,#00ff88);
+    border-radius:18px;
+    background:linear-gradient(90deg,#facc15,#22c55e);
     color:#02111b;
     font-size:18px;
     font-weight:bold;
@@ -156,7 +160,7 @@ button{
 
 button:hover{
     transform:scale(1.03);
-    box-shadow:0 0 20px #00ff8880;
+    box-shadow:0 0 20px #facc15;
 }
 
 /* CAMPO */
@@ -165,22 +169,23 @@ button:hover{
     position:relative;
     width:100%;
     height:950px;
-    border-radius:30px;
+    border-radius:35px;
     overflow:hidden;
+    border:5px solid white;
     background:
     repeating-linear-gradient(
         to bottom,
-        #15803d 0px,
+        #16a34a 0px,
+        #16a34a 90px,
         #15803d 90px,
-        #166534 90px,
-        #166534 180px
+        #15803d 180px
     );
-    border:5px solid white;
 }
 
 /* LINHAS */
 
-.mid-line{
+.field::before{
+    content:'';
     position:absolute;
     width:100%;
     height:4px;
@@ -188,10 +193,10 @@ button:hover{
     top:50%;
 }
 
-.center-circle{
+.circle{
     position:absolute;
-    width:170px;
-    height:170px;
+    width:180px;
+    height:180px;
     border:4px solid rgba(255,255,255,0.5);
     border-radius:50%;
     top:50%;
@@ -199,19 +204,19 @@ button:hover{
     transform:translate(-50%,-50%);
 }
 
-/* TIME */
+/* TORCIDA */
 
-.team-name{
+.crowd{
     position:absolute;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:#020617cc;
-    padding:10px 25px;
-    border-radius:20px;
-    font-size:24px;
-    font-weight:bold;
-    color:#00f5ff;
+    top:0;
+    width:100%;
+    height:70px;
+    background:linear-gradient(90deg,#111827,#1e293b,#111827);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    letter-spacing:8px;
 }
 
 /* JOGADORES */
@@ -220,35 +225,28 @@ button:hover{
     position:absolute;
     width:120px;
     padding:12px;
-    border-radius:18px;
-    text-align:center;
     background:#020617dd;
     border:2px solid rgba(255,255,255,0.2);
+    border-radius:18px;
+    text-align:center;
     transition:0.3s;
     font-size:13px;
 }
 
 .player:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 20px #00f5ff55;
-}
-
-.player span{
-    display:block;
-    margin-top:6px;
-    font-size:12px;
-    color:#94a3b8;
+    transform:scale(1.1);
+    box-shadow:0 0 20px #38bdf8;
 }
 
 /* POSIÇÕES */
 
-.p1{top:90px;left:50%;transform:translateX(-50%);}
-.p2{top:200px;left:15%;}
-.p3{top:200px;right:15%;}
+.p1{top:120px;left:50%;transform:translateX(-50%);}
+.p2{top:230px;left:15%;}
+.p3{top:230px;right:15%;}
 
-.p4{top:380px;left:10%;}
-.p5{top:350px;left:50%;transform:translateX(-50%);}
-.p6{top:380px;right:10%;}
+.p4{top:420px;left:10%;}
+.p5{top:390px;left:50%;transform:translateX(-50%);}
+.p6{top:420px;right:10%;}
 
 .p7{bottom:240px;left:8%;}
 .p8{bottom:210px;left:32%;}
@@ -259,7 +257,22 @@ button:hover{
     bottom:40px;
     left:50%;
     transform:translateX(-50%);
-    background:#082f49;
+}
+
+/* PLACAR */
+
+.scoreboard{
+    position:absolute;
+    top:90px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#020617dd;
+    padding:14px 30px;
+    border-radius:20px;
+    font-size:28px;
+    font-weight:bold;
+    color:#facc15;
+    border:2px solid rgba(255,255,255,0.1);
 }
 
 /* RESULTADO */
@@ -267,35 +280,32 @@ button:hover{
 .result{
     margin-top:25px;
     background:#020617;
-    border-radius:20px;
+    border-radius:25px;
     padding:25px;
     display:none;
     text-align:center;
-    border:1px solid rgba(255,255,255,0.1);
 }
 
 .result h3{
-    font-size:35px;
     color:#facc15;
+    font-size:35px;
 }
 
 .result p{
     margin-top:15px;
     color:#cbd5e1;
-    line-height:1.7;
+    line-height:1.8;
 }
 
-.overall{
+.cup{
     margin-top:20px;
-    font-size:65px;
-    font-weight:bold;
-    color:#00ff88;
-    text-shadow:0 0 15px #00ff8880;
+    font-size:80px;
+    animation:float 2s infinite alternate;
 }
 
-.stars{
-    margin-top:15px;
-    font-size:30px;
+@keyframes float{
+    from{transform:translateY(0px);}
+    to{transform:translateY(-10px);}
 }
 
 /* FOOTER */
@@ -307,76 +317,94 @@ footer{
 }
 
 </style>
+
 </head>
+
 <body>
+
+<div class="bg"></div>
+
+<div class="stars" id="stars"></div>
 
 <header>
 
-<h1>⚽ SUPER TEAM BUILDER</h1>
+<h1>🏆 COPA DO MUNDO</h1>
 
 <p>
-Monte um elenco completo e descubra o poder do seu time.
+Monte sua seleção, jogue a final e tente conquistar o mundo.
 </p>
 
 </header>
 
 <div class="container">
 
-<div class="layout">
+<div class="grid">
 
 <!-- PAINEL -->
 
 <div class="card">
 
-<h2>🔥 Criar Escalação</h2>
+<h2>🌍 Criar Seleção</h2>
 
 <div class="input-box">
-<label>Nome do Time</label>
-<input type="text" id="teamName" placeholder="Ex: Trovão FC">
+<label>Nome da Seleção</label>
+<input type="text" id="team" placeholder="Ex: Brasil">
 </div>
 
-<div class="input-box"><label>Centroavante</label><input type="text" id="j1"></div>
-<div class="input-box"><label>Ponta Esquerda</label><input type="text" id="j2"></div>
-<div class="input-box"><label>Ponta Direita</label><input type="text" id="j3"></div>
-
-<div class="input-box"><label>Meia 1</label><input type="text" id="j4"></div>
-<div class="input-box"><label>Meia 2</label><input type="text" id="j5"></div>
-<div class="input-box"><label>Meia 3</label><input type="text" id="j6"></div>
-
-<div class="input-box"><label>Lateral Esquerdo</label><input type="text" id="j7"></div>
-<div class="input-box"><label>Zagueiro 1</label><input type="text" id="j8"></div>
-<div class="input-box"><label>Zagueiro 2</label><input type="text" id="j9"></div>
-<div class="input-box"><label>Lateral Direito</label><input type="text" id="j10"></div>
-
-<div class="input-box"><label>Goleiro</label><input type="text" id="j11"></div>
-
 <div class="input-box">
-<label>Modo do Time</label>
+<label>País Adversário</label>
 
-<select id="mode">
+<select id="enemy">
 
-<option>Iniciante</option>
-<option>Competitivo</option>
-<option>Elite</option>
-<option>Galáctico</option>
+<option>Argentina</option>
+<option>França</option>
+<option>Alemanha</option>
+<option>Espanha</option>
+<option>Portugal</option>
+<option>Inglaterra</option>
 
 </select>
 
 </div>
 
-<button onclick="createTeam()">
-⚡ GERAR TIME
+<div class="input-box">
+<label>Nível da Seleção</label>
+
+<select id="power">
+
+<option>Normal</option>
+<option>Forte</option>
+<option>Lendária</option>
+
+</select>
+
+</div>
+
+<!-- JOGADORES -->
+
+<div class="input-box"><input type="text" id="j1" placeholder="Atacante"></div>
+<div class="input-box"><input type="text" id="j2" placeholder="Ponta Esquerda"></div>
+<div class="input-box"><input type="text" id="j3" placeholder="Ponta Direita"></div>
+<div class="input-box"><input type="text" id="j4" placeholder="Meio Campo"></div>
+<div class="input-box"><input type="text" id="j5" placeholder="Meio Campo"></div>
+<div class="input-box"><input type="text" id="j6" placeholder="Meio Campo"></div>
+<div class="input-box"><input type="text" id="j7" placeholder="Lateral"></div>
+<div class="input-box"><input type="text" id="j8" placeholder="Zagueiro"></div>
+<div class="input-box"><input type="text" id="j9" placeholder="Zagueiro"></div>
+<div class="input-box"><input type="text" id="j10" placeholder="Lateral"></div>
+<div class="input-box"><input type="text" id="j11" placeholder="Goleiro"></div>
+
+<button onclick="playMatch()">
+⚽ JOGAR FINAL DA COPA
 </button>
 
 <div class="result" id="result">
 
-<h3 id="resultTitle"></h3>
+<h3 id="title"></h3>
 
-<p id="resultText"></p>
+<p id="text"></p>
 
-<div class="overall" id="overall"></div>
-
-<div class="stars" id="stars"></div>
+<div class="cup" id="cup"></div>
 
 </div>
 
@@ -386,31 +414,34 @@ Monte um elenco completo e descubra o poder do seu time.
 
 <div class="card">
 
-<h2>🏟 Escalação em Campo</h2>
+<h2>🏟 FINAL DA COPA</h2>
 
 <div class="field">
 
-<div class="mid-line"></div>
-<div class="center-circle"></div>
-
-<div class="team-name" id="displayTeam">
-SEU TIME
+<div class="crowd">
+🎉 🎺 ⚽ 🔥 🥁 🏆 🎉 ⚽
 </div>
 
-<div class="player p1" id="p1">🎯<span>ATA</span></div>
-<div class="player p2" id="p2">⚡<span>PE</span></div>
-<div class="player p3" id="p3">⚡<span>PD</span></div>
+<div class="scoreboard" id="scoreboard">
+0 X 0
+</div>
 
-<div class="player p4" id="p4">🧠<span>MC</span></div>
-<div class="player p5" id="p5">🧠<span>MC</span></div>
-<div class="player p6" id="p6">🧠<span>MC</span></div>
+<div class="circle"></div>
 
-<div class="player p7" id="p7">🛡<span>LE</span></div>
-<div class="player p8" id="p8">🛡<span>ZAG</span></div>
-<div class="player p9" id="p9">🛡<span>ZAG</span></div>
-<div class="player p10" id="p10">🛡<span>LD</span></div>
+<div class="player p1" id="p1">⚽ ATA</div>
+<div class="player p2" id="p2">⚡ PE</div>
+<div class="player p3" id="p3">⚡ PD</div>
 
-<div class="player p11" id="p11">🧤<span>GK</span></div>
+<div class="player p4" id="p4">🎯 MC</div>
+<div class="player p5" id="p5">🎯 MC</div>
+<div class="player p6" id="p6">🎯 MC</div>
+
+<div class="player p7" id="p7">🛡 LE</div>
+<div class="player p8" id="p8">🛡 ZAG</div>
+<div class="player p9" id="p9">🛡 ZAG</div>
+<div class="player p10" id="p10">🛡 LD</div>
+
+<div class="player p11" id="p11">🧤 GK</div>
 
 </div>
 
@@ -421,27 +452,48 @@ SEU TIME
 </div>
 
 <footer>
-⚽ Super Simulador • HTML + CSS + JavaScript
+🏆 Simulador Criativo da Copa do Mundo
 </footer>
 
 <script>
 
-function createTeam(){
+/* ESTRELAS */
 
-    let teamName = document.getElementById('teamName').value;
+for(let i = 0; i < 120; i++){
 
-    if(teamName === ''){
-        alert('Digite o nome do time!');
+    let star = document.createElement('div');
+
+    star.classList.add('star');
+
+    star.style.top = Math.random() * 100 + '%';
+    star.style.left = Math.random() * 100 + '%';
+
+    star.style.animationDuration =
+    (Math.random() * 3 + 1) + 's';
+
+    document.getElementById('stars').appendChild(star);
+}
+
+/* JOGO */
+
+function playMatch(){
+
+    let team =
+    document.getElementById('team').value;
+
+    if(team === ''){
+
+        alert('Digite o nome da seleção!');
         return;
     }
 
-    document.getElementById('displayTeam').innerHTML = teamName;
-
     for(let i = 1; i <= 11; i++){
 
-        let player = document.getElementById('j' + i).value;
+        let player =
+        document.getElementById('j' + i).value;
 
         if(player === ''){
+
             alert('Preencha todos os jogadores!');
             return;
         }
@@ -450,59 +502,74 @@ function createTeam(){
         player;
     }
 
-    let mode =
-    document.getElementById('mode').value;
+    let enemy =
+    document.getElementById('enemy').value;
 
-    let overall = 0;
-    let stars = '';
+    let power =
+    document.getElementById('power').value;
 
-    if(mode === 'Iniciante'){
-        overall = 63;
-        stars = '⭐';
+    let goals = 0;
+
+    if(power === 'Normal'){
+        goals = Math.floor(Math.random() * 3);
     }
 
-    if(mode === 'Competitivo'){
-        overall = 81;
-        stars = '⭐⭐⭐';
+    if(power === 'Forte'){
+        goals = Math.floor(Math.random() * 5);
     }
 
-    if(mode === 'Elite'){
-        overall = 92;
-        stars = '⭐⭐⭐⭐';
+    if(power === 'Lendária'){
+        goals = Math.floor(Math.random() * 7) + 1;
     }
 
-    if(mode === 'Galáctico'){
-        overall = 99;
-        stars = '⭐⭐⭐⭐⭐';
+    let enemyGoals =
+    Math.floor(Math.random() * 5);
+
+    document.getElementById('scoreboard').innerHTML =
+    goals + ' X ' + enemyGoals;
+
+    document.getElementById('result').style.display =
+    'block';
+
+    if(goals > enemyGoals){
+
+        document.getElementById('title').innerHTML =
+        '🏆 ' + team + ' CAMPEÃO!';
+
+        document.getElementById('text').innerHTML =
+        team + ' venceu a final contra ' + enemy +
+        ' e conquistou a Copa do Mundo diante de milhares de torcedores!';
+
+        document.getElementById('cup').innerHTML =
+        '🏆';
+
     }
 
-    let stories = [
+    else if(goals === enemyGoals){
 
-        'Seu time conquistou a Libertadores 🏆',
-        'Seu elenco ficou invicto na temporada 🔥',
-        'Seu goleiro virou lenda do clube 🧤',
-        'Seu ataque marcou mais de 100 gols ⚽',
-        'Seu time dominou o futebol mundial 🌍',
-        'Seu elenco virou o mais temido do planeta 😈'
+        document.getElementById('title').innerHTML =
+        '😱 JOGO HISTÓRICO';
 
-    ];
+        document.getElementById('text').innerHTML =
+        'A final terminou empatada! A torcida ficou sem acreditar no drama da decisão.';
 
-    let randomStory =
-    stories[Math.floor(Math.random() * stories.length)];
+        document.getElementById('cup').innerHTML =
+        '⚽';
 
-    document.getElementById('result').style.display = 'block';
+    }
 
-    document.getElementById('resultTitle').innerHTML =
-    '🔥 ' + teamName;
+    else{
 
-    document.getElementById('resultText').innerHTML =
-    randomStory;
+        document.getElementById('title').innerHTML =
+        '💔 DERROTA';
 
-    document.getElementById('overall').innerHTML =
-    overall + ' OVERALL';
+        document.getElementById('text').innerHTML =
+        enemy + ' venceu a final da Copa do Mundo.';
 
-    document.getElementById('stars').innerHTML =
-    stars;
+        document.getElementById('cup').innerHTML =
+        '😭';
+
+    }
 
 }
 
