@@ -5,9 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JORNADA DA COPA</title>
+<title>ULTRA COPA 4K</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -18,105 +18,237 @@
 }
 
 body{
-    background:#020617;
-    color:white;
     font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
+    background:#020617;
+    overflow:hidden;
+    color:white;
 }
 
-/* FUNDO */
+/* FUNDO CINEMÁTICO */
 
-body::before{
-    content:'';
+.bg{
     position:fixed;
     width:100%;
     height:100%;
-    z-index:-2;
-
     background:
-    radial-gradient(circle at top,#16a34a55,transparent 35%),
-    radial-gradient(circle at bottom,#0ea5e955,transparent 35%),
+    radial-gradient(circle at top,#16a34a55,transparent 30%),
+    radial-gradient(circle at bottom,#0ea5e955,transparent 30%),
+    radial-gradient(circle at center,#facc1522,transparent 40%),
     linear-gradient(135deg,#020617,#071426,#0f172a);
+    z-index:-5;
 }
 
-/* HEADER FIXO */
+/* PARTÍCULAS */
 
-.top{
+.particles{
     position:fixed;
-    top:0;
     width:100%;
-    z-index:999;
-    background:rgba(0,0,0,0.4);
-    backdrop-filter:blur(10px);
-    padding:18px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
 }
 
-.logo{
-    font-family:'Orbitron',sans-serif;
-    font-size:28px;
-    color:#facc15;
-}
-
-.scroll-text{
-    color:#cbd5e1;
-}
-
-/* SEÇÕES */
-
-.section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:100px 10%;
-    position:relative;
-}
-
-/* CONTEÚDO */
-
-.content{
-    max-width:700px;
-    z-index:5;
-}
-
-.content h1{
-    font-size:70px;
-    font-family:'Orbitron',sans-serif;
-    margin-bottom:20px;
-    color:#facc15;
-    text-shadow:0 0 20px #facc15;
-}
-
-.content h2{
-    font-size:55px;
-    margin-bottom:20px;
-}
-
-.content p{
-    font-size:20px;
-    line-height:1.8;
-    color:#e2e8f0;
-}
-
-/* IMAGENS/EMOJIS */
-
-.big{
-    font-size:220px;
-    animation:float 3s infinite alternate;
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:0.5;
+    animation:float 8s linear infinite;
 }
 
 @keyframes float{
 
     from{
-        transform:translateY(0px);
+        transform:translateY(100vh);
     }
 
     to{
-        transform:translateY(-25px);
+        transform:translateY(-100vh);
+    }
+
+}
+
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:20px;
+}
+
+header h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:65px;
+    color:#facc15;
+    text-shadow:
+    0 0 10px #facc15,
+    0 0 30px #facc15;
+}
+
+header p{
+    color:#cbd5e1;
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* LAYOUT */
+
+.container{
+    width:95%;
+    max-width:1700px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:25px;
+}
+
+@media(max-width:1200px){
+
+    .container{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* CARDS */
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:35px;
+    padding:25px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 40px rgba(0,0,0,0.4);
+}
+
+/* INPUTS */
+
+.card h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.input-box{
+    margin-bottom:16px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    color:#e2e8f0;
+}
+
+input,select{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:18px;
+    background:#0f172a;
+    color:white;
+    font-size:15px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus,
+select:focus{
+
+    box-shadow:0 0 20px #38bdf8;
+
+}
+
+/* BOTÕES */
+
+button{
+    width:100%;
+    padding:17px;
+    border:none;
+    border-radius:18px;
+    margin-top:14px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.start{
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    color:white;
+}
+
+.shoot{
+    background:linear-gradient(90deg,#facc15,#f59e0b);
+    color:black;
+}
+
+button:hover{
+
+    transform:scale(1.04);
+
+}
+
+/* POWER */
+
+.power-area{
+    margin-top:25px;
+}
+
+.power-bar{
+    width:100%;
+    height:24px;
+    background:#1e293b;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.power{
+    width:0%;
+    height:100%;
+    background:
+    linear-gradient(
+        90deg,
+        #22c55e,
+        #facc15,
+        #ef4444
+    );
+}
+
+/* RESULT */
+
+.result{
+    margin-top:20px;
+    padding:20px;
+    background:#0f172a;
+    border-radius:20px;
+    text-align:center;
+    display:none;
+}
+
+.result h3{
+    font-size:32px;
+    color:#facc15;
+}
+
+.result p{
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+.big{
+    margin-top:15px;
+    font-size:90px;
+    animation:pulse 1s infinite alternate;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.1);
     }
 
 }
@@ -124,115 +256,158 @@ body::before{
 /* CAMPO */
 
 .field{
-    width:100%;
-    height:500px;
-    border-radius:35px;
-    border:6px solid white;
     position:relative;
+    height:820px;
+    border-radius:40px;
+    overflow:hidden;
+    border:6px solid white;
 
     background:
     repeating-linear-gradient(
         to bottom,
         #16a34a 0px,
-        #16a34a 80px,
-        #15803d 80px,
-        #15803d 160px
+        #16a34a 90px,
+        #15803d 90px,
+        #15803d 180px
     );
+
+    box-shadow:
+    inset 0 0 80px rgba(0,0,0,0.4),
+    0 0 40px rgba(0,0,0,0.5);
 }
 
-.line{
+/* TORCIDA */
+
+.crowd{
     position:absolute;
+    top:0;
     width:100%;
-    height:4px;
-    background:rgba(255,255,255,0.5);
-    top:50%;
+    padding:12px;
+    background:#111827;
+    text-align:center;
+    font-size:32px;
+    letter-spacing:10px;
 }
 
-.circle{
+/* PLACAR */
+
+.score{
     position:absolute;
-    width:170px;
-    height:170px;
-    border:4px solid rgba(255,255,255,0.5);
-    border-radius:50%;
-    top:50%;
+    top:80px;
     left:50%;
-    transform:translate(-50%,-50%);
-}
-
-/* JOGADOR */
-
-.player{
-    position:absolute;
-    bottom:50px;
-    left:10%;
-    font-size:90px;
-    transition:1s;
-}
-
-/* BOLA */
-
-.ball{
-    position:absolute;
-    bottom:70px;
-    left:16%;
-    font-size:45px;
-    transition:1s;
+    transform:translateX(-50%);
+    background:#020617ee;
+    padding:18px 40px;
+    border-radius:20px;
+    font-size:38px;
+    color:#facc15;
+    font-weight:bold;
+    border:2px solid rgba(255,255,255,0.1);
 }
 
 /* GOL */
 
 .goal{
     position:absolute;
-    top:40px;
-    right:50px;
-    width:200px;
-    height:140px;
-    border:6px solid white;
+    top:160px;
+    left:50%;
+    transform:translateX(-50%);
+    width:550px;
+    height:250px;
+    border:8px solid white;
     border-bottom:none;
 }
 
-/* TROFÉU */
+/* REDE */
 
-.trophy{
-    font-size:250px;
-    animation:shine 2s infinite alternate;
+.net{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px);
+
+    background-size:25px 25px;
 }
 
-@keyframes shine{
+/* GOLEIRO */
 
-    from{
-        filter:drop-shadow(0 0 10px #facc15);
-    }
+.keeper{
+    position:absolute;
+    top:300px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:110px;
+    transition:0.4s;
+    z-index:5;
+}
+
+/* BOLA */
+
+.ball{
+    position:absolute;
+    bottom:140px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:48px;
+    transition:0.8s;
+    z-index:6;
+}
+
+/* JOGADOR */
+
+.player{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:110px;
+}
+
+/* DIREÇÕES */
+
+.controls{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+
+.controls button{
+    width:110px;
+}
+
+/* FLASH GOL */
+
+.flash{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:white;
+    opacity:0;
+    pointer-events:none;
+}
+
+/* CONFETE */
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:20px;
+    background:red;
+    top:-50px;
+    animation:confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall{
 
     to{
-        filter:drop-shadow(0 0 40px #facc15);
+        transform:translateY(1000px) rotate(720deg);
     }
 
-}
-
-/* BARRA */
-
-.progress{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:5px;
-    background:linear-gradient(90deg,#22c55e,#facc15);
-    z-index:9999;
-}
-
-/* ANIMAÇÕES */
-
-.hidden{
-    opacity:0;
-    transform:translateY(100px);
-    transition:1s;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0px);
 }
 
 </style>
@@ -241,194 +416,458 @@ body::before{
 
 <body>
 
-<div class="progress" id="progress"></div>
+<div class="bg"></div>
 
-<div class="top">
+<div class="particles" id="particles"></div>
 
-<div class="logo">
-🏆 COPA STORY
-</div>
+<header>
 
-<div class="scroll-text">
-Role o mouse ↓
-</div>
-
-</div>
-
-<!-- INTRO -->
-
-<section class="section">
-
-<div class="content hidden">
-
-<h1>A FINAL COMEÇOU</h1>
+<h1>🏆 ULTRA COPA 4K</h1>
 
 <p>
-Milhões de torcedores estão assistindo a maior final da história da Copa do Mundo.
-Role o mouse para acompanhar a jornada da sua seleção.
+A final mais épica da Copa do Mundo
 </p>
 
+</header>
+
+<div class="container">
+
+<!-- MENU -->
+
+<div class="card">
+
+<h2>⚽ FINAL</h2>
+
+<div class="input-box">
+<label>Sua Seleção</label>
+<input type="text" id="team" placeholder="Brasil">
 </div>
 
-<div class="big hidden">
-🌍
-</div>
+<div class="input-box">
+<label>Adversário</label>
 
-</section>
+<select id="enemy">
 
-<!-- ESTÁDIO -->
+<option>Argentina</option>
+<option>França</option>
+<option>Portugal</option>
+<option>Espanha</option>
+<option>Alemanha</option>
 
-<section class="section">
-
-<div class="big hidden">
-🏟
-</div>
-
-<div class="content hidden">
-
-<h2>O ESTÁDIO ESTÁ LOTADO</h2>
-
-<p>
-A torcida canta sem parar.
-As luzes do estádio brilham enquanto os jogadores entram em campo.
-</p>
+</select>
 
 </div>
 
-</section>
+<button class="start" onclick="startGame()">
+🔥 COMEÇAR FINAL
+</button>
+
+<div class="power-area">
+
+<h2>💥 FORÇA DO CHUTE</h2>
+
+<div class="power-bar">
+
+<div class="power" id="power"></div>
+
+</div>
+
+</div>
+
+<button class="shoot" onclick="shoot()">
+⚽ CHUTAR
+</button>
+
+<div class="result" id="result">
+
+<h3 id="title"></h3>
+
+<p id="text"></p>
+
+<div class="big" id="emoji"></div>
+
+</div>
+
+</div>
 
 <!-- CAMPO -->
 
-<section class="section">
+<div class="card">
 
-<div class="field hidden">
+<div class="field" id="field">
 
-<div class="line"></div>
-<div class="circle"></div>
+<div class="flash" id="flash"></div>
 
-<div class="goal"></div>
+<div class="crowd">
+🎉 ⚽ 🥁 🔥 🏆 ⚽ 🎉
+</div>
 
-<div class="player" id="player">
-🧍
+<div class="score" id="score">
+0 X 0
+</div>
+
+<div class="goal">
+
+<div class="net"></div>
+
+</div>
+
+<div class="keeper" id="keeper">
+🧤
 </div>
 
 <div class="ball" id="ball">
 ⚽
 </div>
 
+<div class="player">
+🧍
 </div>
 
-</section>
+<div class="controls">
 
-<!-- GOL -->
+<button onclick="direction='left'">
+⬅
+</button>
 
-<section class="section">
+<button onclick="direction='center'">
+⬆
+</button>
 
-<div class="content hidden">
-
-<h2>GOOOOOOL!</h2>
-
-<p>
-A bola explode no fundo da rede.
-A torcida vai à loucura.
-O estádio inteiro treme com o gol da final.
-</p>
-
-</div>
-
-<div class="big hidden">
-⚽🔥
-</div>
-
-</section>
-
-<!-- TROFÉU -->
-
-<section class="section">
-
-<div class="trophy hidden">
-🏆
-</div>
-
-<div class="content hidden">
-
-<h2>CAMPEÃO DO MUNDO</h2>
-
-<p>
-Sua seleção levantou a taça da Copa do Mundo.
-Uma conquista eterna para a história do futebol.
-</p>
+<button onclick="direction='right'">
+➡
+</button>
 
 </div>
 
-</section>
+</div>
+
+</div>
+
+</div>
 
 <script>
 
-/* ANIMAÇÃO AO ROLAR */
+/* PARTÍCULAS */
 
-const hiddenElements =
-document.querySelectorAll('.hidden');
+for(let i=0;i<120;i++){
 
-const observer =
-new IntersectionObserver((entries)=>{
+    let p =
+    document.createElement('div');
 
-    entries.forEach((entry)=>{
+    p.classList.add('particle');
 
-        if(entry.isIntersecting){
+    p.style.left =
+    Math.random()*100 + '%';
 
-            entry.target.classList.add('show');
+    p.style.animationDuration =
+    (Math.random()*5+4) + 's';
+
+    p.style.opacity =
+    Math.random();
+
+    document.getElementById('particles')
+    .appendChild(p);
+
+}
+
+/* VARIÁVEIS */
+
+let direction = 'center';
+
+let playerGoals = 0;
+let enemyGoals = 0;
+let rounds = 0;
+
+let power = 0;
+let increasing = true;
+
+let started = false;
+
+/* POWER BAR */
+
+setInterval(()=>{
+
+    if(!started) return;
+
+    if(increasing){
+
+        power += 2;
+
+        if(power >= 100){
+
+            increasing = false;
 
         }
 
-    });
+    }else{
 
-});
+        power -= 2;
 
-hiddenElements.forEach((el)=>observer.observe(el));
+        if(power <= 0){
 
-/* BARRA DE PROGRESSO */
+            increasing = true;
 
-window.addEventListener('scroll',()=>{
+        }
 
-    let scrollTop =
-    document.documentElement.scrollTop;
+    }
 
-    let height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
+    document.getElementById('power')
+    .style.width = power + '%';
 
-    let progress =
-    (scrollTop / height) * 100;
+},20);
 
-    document.getElementById('progress').style.width =
-    progress + '%';
+/* COMEÇAR */
 
-});
+function startGame(){
 
-/* MOVIMENTO CAMPO */
+    playerGoals = 0;
+    enemyGoals = 0;
+    rounds = 0;
 
-window.addEventListener('scroll',()=>{
+    started = true;
 
-    let scroll =
-    window.scrollY;
+    document.getElementById('score')
+    .innerHTML = '0 X 0';
 
-    let player =
-    document.getElementById('player');
+    document.getElementById('result')
+    .style.display = 'none';
+
+}
+
+/* CHUTE */
+
+function shoot(){
+
+    if(!started){
+
+        alert('Comece a final!');
+        return;
+
+    }
+
+    if(rounds >= 5){
+
+        finishGame();
+        return;
+
+    }
+
+    let keeperMove =
+    ['left','center','right']
+    [Math.floor(Math.random()*3)];
+
+    let keeper =
+    document.getElementById('keeper');
+
+    keeper.style.left = '50%';
+
+    if(keeperMove === 'left'){
+
+        keeper.style.left = '35%';
+
+    }
+
+    if(keeperMove === 'right'){
+
+        keeper.style.left = '65%';
+
+    }
 
     let ball =
     document.getElementById('ball');
 
-    let move =
-    Math.min(scroll / 8, 950);
+    ball.style.bottom = '540px';
 
-    player.style.left =
-    move + 'px';
+    if(direction === 'left'){
 
-    ball.style.left =
-    (move + 70) + 'px';
+        ball.style.left = '35%';
 
-});
+    }
+
+    if(direction === 'center'){
+
+        ball.style.left = '50%';
+
+    }
+
+    if(direction === 'right'){
+
+        ball.style.left = '65%';
+
+    }
+
+    setTimeout(()=>{
+
+        if(direction !== keeperMove && power > 25){
+
+            playerGoals++;
+
+            goalEffect();
+
+            showResult(
+            '⚽ GOOOOOOOL!',
+            'A torcida explodiu no estádio!',
+            '🔥'
+            );
+
+        }else{
+
+            showResult(
+            '🧤 DEFENDEU!',
+            'O goleiro salvou o time adversário!',
+            '😱'
+            );
+
+        }
+
+        /* ADVERSÁRIO */
+
+        if(Math.random() > 0.45){
+
+            enemyGoals++;
+
+        }
+
+        rounds++;
+
+        document.getElementById('score')
+        .innerHTML =
+        playerGoals + ' X ' + enemyGoals;
+
+        resetBall();
+
+        if(rounds >= 5){
+
+            finishGame();
+
+        }
+
+    },800);
+
+}
+
+/* RESET */
+
+function resetBall(){
+
+    let ball =
+    document.getElementById('ball');
+
+    ball.style.bottom = '140px';
+    ball.style.left = '50%';
+
+}
+
+/* RESULT */
+
+function showResult(title,text,emoji){
+
+    document.getElementById('result')
+    .style.display = 'block';
+
+    document.getElementById('title')
+    .innerHTML = title;
+
+    document.getElementById('text')
+    .innerHTML = text;
+
+    document.getElementById('emoji')
+    .innerHTML = emoji;
+
+}
+
+/* EFEITO GOL */
+
+function goalEffect(){
+
+    let flash =
+    document.getElementById('flash');
+
+    flash.style.opacity = '0.8';
+
+    setTimeout(()=>{
+
+        flash.style.opacity = '0';
+
+    },150);
+
+    for(let i=0;i<80;i++){
+
+        let confetti =
+        document.createElement('div');
+
+        confetti.classList.add('confetti');
+
+        confetti.style.left =
+        Math.random()*100 + '%';
+
+        confetti.style.background =
+        ['#facc15','#22c55e','#38bdf8','#ef4444']
+        [Math.floor(Math.random()*4)];
+
+        confetti.style.animationDuration =
+        (Math.random()*3+2)+'s';
+
+        document.getElementById('field')
+        .appendChild(confetti);
+
+        setTimeout(()=>{
+
+            confetti.remove();
+
+        },4000);
+
+    }
+
+}
+
+/* FINAL */
+
+function finishGame(){
+
+    let team =
+    document.getElementById('team').value || 'Seu Time';
+
+    let enemy =
+    document.getElementById('enemy').value;
+
+    if(playerGoals > enemyGoals){
+
+        showResult(
+        '🏆 CAMPEÃO DO MUNDO!',
+        team + ' venceu ' + enemy +
+        ' na maior final da história!',
+        '🏆'
+        );
+
+        goalEffect();
+
+    }
+
+    else if(playerGoals < enemyGoals){
+
+        showResult(
+        '💔 DERROTA',
+        enemy + ' venceu a final.',
+        '😭'
+        );
+
+    }
+
+    else{
+
+        showResult(
+        '😱 EMPATE',
+        'A final terminou empatada.',
+        '⚽'
+        );
+
+    }
+
+    started = false;
+
+}
 
 </script>
 
