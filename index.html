@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>COPA 2026 - TIMES E CONVOCADOS</title>
+<title>COPA 2026 - ELENCOS OFICIAIS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -51,10 +51,6 @@ header h1{
     text-shadow:0 0 20px #facc15;
 }
 
-header p{
-    color:#cbd5e1;
-}
-
 /* CONTAINER */
 
 .container{
@@ -63,23 +59,12 @@ header p{
     margin:auto;
 }
 
-/* CARD */
-
-.card{
-    background:rgba(255,255,255,0.05);
-    border-radius:25px;
-    padding:20px;
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-}
-
 /* TIMES */
 
 .teams{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:10px;
-    margin-bottom:20px;
 }
 
 .team{
@@ -87,9 +72,9 @@ header p{
     padding:14px;
     border-radius:15px;
     text-align:center;
-    font-weight:bold;
     cursor:pointer;
     transition:0.3s;
+    font-weight:bold;
 }
 
 .team:hover{
@@ -97,26 +82,59 @@ header p{
     background:#111c33;
 }
 
-/* CONVOCADOS */
+/* JANELA */
 
-.squad{
-    margin-top:15px;
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    max-width:600px;
     background:#0f172a;
-    padding:15px;
-    border-radius:15px;
+    border-radius:20px;
+    padding:20px;
     display:none;
+    z-index:10;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
 }
 
-.squad h3{
+/* FUNDO ESCURO */
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:5;
+}
+
+/* BOTÃO X */
+
+.close{
+    position:absolute;
+    top:10px;
+    right:15px;
+    font-size:22px;
+    cursor:pointer;
     color:#facc15;
+}
+
+/* LISTA */
+
+h2{
+    color:#38bdf8;
     margin-bottom:10px;
 }
 
-.squad ul{
+ul{
     list-style:none;
 }
 
-.squad li{
+li{
     padding:5px 0;
     color:#cbd5e1;
 }
@@ -126,39 +144,31 @@ header p{
 input, textarea{
     width:100%;
     padding:12px;
-    border:none;
     border-radius:12px;
-    margin-top:10px;
+    border:none;
     background:#0f172a;
     color:white;
+    margin-top:10px;
     outline:none;
-    resize:none;
 }
 
 button{
     width:100%;
     padding:14px;
+    margin-top:10px;
     border:none;
     border-radius:14px;
-    margin-top:10px;
     background:linear-gradient(90deg,#22c55e,#16a34a);
     color:white;
     font-weight:bold;
     cursor:pointer;
-    transition:0.3s;
 }
-
-button:hover{
-    transform:scale(1.03);
-}
-
-/* POSTS */
 
 .post{
     background:#0f172a;
     margin-top:10px;
-    padding:15px;
-    border-radius:15px;
+    padding:12px;
+    border-radius:12px;
     border-left:4px solid #facc15;
 }
 
@@ -178,39 +188,41 @@ button:hover{
 <body>
 
 <header>
-
-<h1>🏆 COPA 2026</h1>
-<p>Clique em um país para ver os convocados (simulação)</p>
-
+<h1>🏆 COPA 2026 - ELENCOS</h1>
 </header>
 
 <div class="container">
 
-<div class="card">
-
-<!-- TIMES -->
-
 <div class="teams">
 
-<div class="team" onclick="showTeam('brasil')">🇧🇷 Brasil</div>
-<div class="team" onclick="showTeam('marrocos')">🇲🇦 Marrocos</div>
-<div class="team" onclick="showTeam('haiti')">🇭🇹 Haiti</div>
-<div class="team" onclick="showTeam('escocia')">🏴 Escócia</div>
+<div class="team" onclick="openTeam('brasil')">🇧🇷 Brasil</div>
+<div class="team" onclick="openTeam('marrocos')">🇲🇦 Marrocos</div>
+<div class="team" onclick="openTeam('haiti')">🇭🇹 Haiti</div>
+<div class="team" onclick="openTeam('escocia')">🏴 Escócia</div>
 
 </div>
 
-<!-- CONVOCADOS -->
+<!-- OVERLAY -->
 
-<div class="squad" id="squad">
+<div class="overlay" id="overlay" onclick="closeTeam()"></div>
 
-<h3 id="teamName">Convocados</h3>
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="close" onclick="closeTeam()">✖</div>
+
+<h2 id="teamName"></h2>
+
 <ul id="players"></ul>
 
 </div>
 
+<br><br>
+
 <!-- MURAL -->
 
-<h3 style="margin-top:20px;color:#38bdf8;">💬 Mural da Copa</h3>
+<h2 style="color:#38bdf8;">💬 Mural da Copa</h2>
 
 <input type="text" id="name" placeholder="Seu nome">
 <textarea id="comment" rows="3" placeholder="Escreva sua opinião..."></textarea>
@@ -221,105 +233,114 @@ button:hover{
 
 </div>
 
-</div>
-
 <script>
 
-/* ELENCOS (SIMULAÇÃO 2026) */
+/* ELENCO BRASIL (SEU LISTADO) */
 
 const squads = {
 
 brasil:{
-name:"🇧🇷 Brasil (Projeção 2026)",
+name:"🇧🇷 Brasil - Convocados 2026",
 players:[
-"Alisson (GK)",
-"Marquinhos",
-"Militão",
-"Casemiro",
-"Vinícius Jr.",
-"Rodrygo",
-"Endrick",
-"Raphinha",
-"Bruno Guimarães",
-"Lucas Paquetá",
-"Gabriel Jesus"
+
+"Goleiros",
+"Alisson (Liverpool)",
+"Ederson (Fenerbahçe)",
+"Weverton (Grêmio)",
+
+"Defensores",
+"Alex Sandro (Flamengo)",
+"Bremer (Juventus)",
+"Danilo (Flamengo)",
+"Douglas Santos (Zenit)",
+"Gabriel Magalhães (Arsenal)",
+"Ibañez (Al-Ahli)",
+"Léo Pereira (Flamengo)",
+"Marquinhos (PSG)",
+"Wesley (Roma)",
+
+"Meio-campistas",
+"Bruno Guimarães (Newcastle)",
+"Casemiro (Manchester United)",
+"Danilo Santos (Botafogo)",
+"Fabinho (Al-Ittihad)",
+"Lucas Paquetá (Flamengo)",
+
+"Atacantes",
+"Endrick (Lyon)",
+"Gabriel Martinelli (Arsenal)",
+"Igor Thiago (Brentford)",
+"Luiz Henrique (Zenit)",
+"Matheus Cunha (Manchester United)",
+"Neymar (Santos)",
+"Raphinha (Barcelona)",
+"Rayan (Bournemouth)"
+
 ]
 },
 
 marrocos:{
-name:"🇲🇦 Marrocos (Projeção 2026)",
+name:"🇲🇦 Marrocos",
 players:[
 "Bono (GK)",
-"Achraf Hakimi",
-"Aguerd",
-"Saïss",
-"Amrabat",
+"Hakimi",
 "Ziyech",
 "En-Nesyri",
-"El Khannouss",
-"Ounahi",
-"Abde",
-"Diaz"
+"Amrabat"
 ]
 },
 
 haiti:{
-name:"🇭🇹 Haiti (Projeção 2026)",
+name:"🇭🇹 Haiti",
 players:[
-"Placide (GK)",
+"Placide",
 "Pierrot",
-"Arcus",
-"Bellegarde",
-"Pierre",
 "Joseph",
-"Louis",
-"Adé",
-"Jean",
-"Jacques",
-"Fleurant"
+"Jean"
 ]
 },
 
 escocia:{
-name:"🏴 Escócia (Projeção 2026)",
+name:"🏴 Escócia",
 players:[
 "Robertson",
 "McTominay",
 "Tierney",
-"McGinn",
-"Christie",
-"Dykes",
-"Adams",
-"Ferguson",
-"Ralston",
-"Shankland",
-"Gordon"
+"McGinn"
 ]
 }
 
 };
 
-/* MOSTRAR TIME */
+/* ABRIR TIME */
 
-function showTeam(team){
+function openTeam(team){
 
-let data = squads[team];
+document.getElementById('modal').style.display = "block";
+document.getElementById('overlay').style.display = "block";
 
-document.getElementById('squad').style.display = "block";
-
-document.getElementById('teamName').innerText = data.name;
+document.getElementById('teamName').innerText =
+squads[team].name;
 
 let list = document.getElementById('players');
-
 list.innerHTML = "";
 
-data.players.forEach(p =>{
+squads[team].players.forEach(p =>{
 
 let li = document.createElement("li");
 li.innerText = "⚽ " + p;
 list.appendChild(li);
 
 });
+
+}
+
+/* FECHAR */
+
+function closeTeam(){
+
+document.getElementById('modal').style.display = "none";
+document.getElementById('overlay').style.display = "none";
 
 }
 
