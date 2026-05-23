@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MURAL DA COPA DO MUNDO</title>
+<title>COPA 2026 - TIMES E CONVOCADOS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -41,19 +41,18 @@ body::before{
 
 header{
     text-align:center;
-    padding:40px 20px;
+    padding:35px;
 }
 
 header h1{
     font-family:'Orbitron',sans-serif;
-    font-size:60px;
+    font-size:55px;
     color:#facc15;
     text-shadow:0 0 20px #facc15;
 }
 
 header p{
     color:#cbd5e1;
-    margin-top:10px;
 }
 
 /* CONTAINER */
@@ -68,9 +67,9 @@ header p{
 
 .card{
     background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
     border-radius:25px;
-    padding:25px;
+    padding:20px;
+    border:1px solid rgba(255,255,255,0.1);
     backdrop-filter:blur(10px);
 }
 
@@ -85,20 +84,51 @@ header p{
 
 .team{
     background:#0f172a;
-    padding:12px;
-    border-radius:12px;
+    padding:14px;
+    border-radius:15px;
     text-align:center;
     font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* INPUTS */
+.team:hover{
+    transform:scale(1.05);
+    background:#111c33;
+}
+
+/* CONVOCADOS */
+
+.squad{
+    margin-top:15px;
+    background:#0f172a;
+    padding:15px;
+    border-radius:15px;
+    display:none;
+}
+
+.squad h3{
+    color:#facc15;
+    margin-bottom:10px;
+}
+
+.squad ul{
+    list-style:none;
+}
+
+.squad li{
+    padding:5px 0;
+    color:#cbd5e1;
+}
+
+/* MURAL */
 
 input, textarea{
     width:100%;
     padding:12px;
     border:none;
     border-radius:12px;
-    margin-bottom:10px;
+    margin-top:10px;
     background:#0f172a;
     color:white;
     outline:none;
@@ -110,58 +140,35 @@ button{
     padding:14px;
     border:none;
     border-radius:14px;
-    cursor:pointer;
-    font-weight:bold;
+    margin-top:10px;
     background:linear-gradient(90deg,#22c55e,#16a34a);
     color:white;
+    font-weight:bold;
+    cursor:pointer;
     transition:0.3s;
 }
 
 button:hover{
-    transform:scale(1.02);
+    transform:scale(1.03);
 }
 
 /* POSTS */
 
 .post{
     background:#0f172a;
+    margin-top:10px;
     padding:15px;
     border-radius:15px;
-    margin-top:10px;
     border-left:4px solid #facc15;
 }
 
-.post h3{
+.post h4{
     color:#facc15;
 }
 
 .post p{
-    margin-top:5px;
     color:#cbd5e1;
-}
-
-/* AÇÕES */
-
-.actions{
-    margin-top:10px;
-    display:flex;
-    gap:10px;
-}
-
-.actions button{
-    flex:1;
-    padding:10px;
-    font-size:13px;
-}
-
-/* BOTÕES DIFERENTES */
-
-.edit{
-    background:linear-gradient(90deg,#38bdf8,#0ea5e9);
-}
-
-.delete{
-    background:linear-gradient(90deg,#ef4444,#dc2626);
+    margin-top:5px;
 }
 
 </style>
@@ -172,9 +179,8 @@ button:hover{
 
 <header>
 
-<h1>🏆 MURAL DA COPA</h1>
-
-<p>Brasil, Marrocos, Haiti e Escócia — opinião da comunidade</p>
+<h1>🏆 COPA 2026</h1>
+<p>Clique em um país para ver os convocados (simulação)</p>
 
 </header>
 
@@ -186,23 +192,30 @@ button:hover{
 
 <div class="teams">
 
-<div class="team">🇧🇷 Brasil</div>
-<div class="team">🇲🇦 Marrocos</div>
-<div class="team">🇭🇹 Haiti</div>
-<div class="team">🏴 Escócia</div>
+<div class="team" onclick="showTeam('brasil')">🇧🇷 Brasil</div>
+<div class="team" onclick="showTeam('marrocos')">🇲🇦 Marrocos</div>
+<div class="team" onclick="showTeam('haiti')">🇭🇹 Haiti</div>
+<div class="team" onclick="showTeam('escocia')">🏴 Escócia</div>
 
 </div>
 
-<!-- FORM -->
+<!-- CONVOCADOS -->
+
+<div class="squad" id="squad">
+
+<h3 id="teamName">Convocados</h3>
+<ul id="players"></ul>
+
+</div>
+
+<!-- MURAL -->
+
+<h3 style="margin-top:20px;color:#38bdf8;">💬 Mural da Copa</h3>
 
 <input type="text" id="name" placeholder="Seu nome">
-<textarea id="comment" rows="4" placeholder="Escreva sua opinião sobre a Copa..."></textarea>
+<textarea id="comment" rows="3" placeholder="Escreva sua opinião..."></textarea>
 
-<button onclick="addComment()">
-PUBLICAR OPINIÃO
-</button>
-
-<!-- POSTS -->
+<button onclick="addComment()">PUBLICAR</button>
 
 <div id="posts"></div>
 
@@ -212,63 +225,128 @@ PUBLICAR OPINIÃO
 
 <script>
 
-/* ADICIONAR COMENTÁRIO */
+/* ELENCOS (SIMULAÇÃO 2026) */
+
+const squads = {
+
+brasil:{
+name:"🇧🇷 Brasil (Projeção 2026)",
+players:[
+"Alisson (GK)",
+"Marquinhos",
+"Militão",
+"Casemiro",
+"Vinícius Jr.",
+"Rodrygo",
+"Endrick",
+"Raphinha",
+"Bruno Guimarães",
+"Lucas Paquetá",
+"Gabriel Jesus"
+]
+},
+
+marrocos:{
+name:"🇲🇦 Marrocos (Projeção 2026)",
+players:[
+"Bono (GK)",
+"Achraf Hakimi",
+"Aguerd",
+"Saïss",
+"Amrabat",
+"Ziyech",
+"En-Nesyri",
+"El Khannouss",
+"Ounahi",
+"Abde",
+"Diaz"
+]
+},
+
+haiti:{
+name:"🇭🇹 Haiti (Projeção 2026)",
+players:[
+"Placide (GK)",
+"Pierrot",
+"Arcus",
+"Bellegarde",
+"Pierre",
+"Joseph",
+"Louis",
+"Adé",
+"Jean",
+"Jacques",
+"Fleurant"
+]
+},
+
+escocia:{
+name:"🏴 Escócia (Projeção 2026)",
+players:[
+"Robertson",
+"McTominay",
+"Tierney",
+"McGinn",
+"Christie",
+"Dykes",
+"Adams",
+"Ferguson",
+"Ralston",
+"Shankland",
+"Gordon"
+]
+}
+
+};
+
+/* MOSTRAR TIME */
+
+function showTeam(team){
+
+let data = squads[team];
+
+document.getElementById('squad').style.display = "block";
+
+document.getElementById('teamName').innerText = data.name;
+
+let list = document.getElementById('players');
+
+list.innerHTML = "";
+
+data.players.forEach(p =>{
+
+let li = document.createElement("li");
+li.innerText = "⚽ " + p;
+list.appendChild(li);
+
+});
+
+}
+
+/* MURAL */
 
 function addComment(){
 
-    let name = document.getElementById('name').value;
-    let comment = document.getElementById('comment').value;
+let name = document.getElementById('name').value;
+let comment = document.getElementById('comment').value;
 
-    if(name === '' || comment === ''){
-        alert('Preencha tudo!');
-        return;
-    }
-
-    let post = document.createElement('div');
-    post.classList.add('post');
-
-    post.innerHTML = `
-        <h3>${name}</h3>
-        <p class="text">${comment}</p>
-
-        <div class="actions">
-
-            <button class="edit" onclick="editComment(this)">
-                ✏️ Editar
-            </button>
-
-            <button class="delete" onclick="deleteComment(this)">
-                🗑️ Excluir
-            </button>
-
-        </div>
-    `;
-
-    document.getElementById('posts').prepend(post);
-
-    document.getElementById('name').value = '';
-    document.getElementById('comment').value = '';
-
+if(name === "" || comment === ""){
+alert("Preencha tudo!");
+return;
 }
 
-/* EXCLUIR */
+let post = document.createElement("div");
+post.classList.add("post");
 
-function deleteComment(btn){
-    btn.parentElement.parentElement.remove();
-}
+post.innerHTML = `
+<h4>${name}</h4>
+<p>${comment}</p>
+`;
 
-/* EDITAR */
+document.getElementById("posts").prepend(post);
 
-function editComment(btn){
-
-    let post = btn.parentElement.parentElement;
-    let textElement = post.querySelector('.text');
-
-    let newText = prompt('Edite seu comentário:', textElement.innerText);
-
-    if(newText !== null && newText !== ''){
-        textElement.innerText = newText;
-    }
+document.getElementById("name").value = "";
+document.getElementById("comment").value = "";
 
 }
 
