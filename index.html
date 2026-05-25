@@ -198,6 +198,10 @@ font-size:15px;
 border-radius:10px;
 }
 
+.delete-btn:hover{
+background:#b91c1c;
+}
+
 /* FOOTER */
 
 .footer{
@@ -315,6 +319,9 @@ type="text"
 id="name" 
 placeholder="Seu nome"
 autocomplete="off"
+spellcheck="false"
+autocorrect="off"
+autocapitalize="off"
 >
 
 <textarea 
@@ -335,55 +342,13 @@ placeholder="Escreva sua opinião..."
 
 </div>
 
-<!-- FIREBASE -->
+<script>
 
-<script type="module">
+/* ADICIONAR COMENTÁRIO */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getFirestore,
-collection,
-addDoc,
-onSnapshot,
-deleteDoc,
-doc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-/* CONFIG FIREBASE */
-
-const firebaseConfig = {
-
-apiKey: "SUA_API_KEY",
-
-authDomain: "SEU_PROJETO.firebaseapp.com",
-
-projectId: "SEU_PROJECT_ID",
-
-storageBucket: "SEU_PROJETO.appspot.com",
-
-messagingSenderId: "000000000",
-
-appId: "APP_ID"
-
-};
-
-/* INICIAR */
-
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-/* REFERÊNCIA */
-
-const postsRef = collection(db, "comentarios");
-
-/* PUBLICAR */
-
-window.addComment = async function(){
+function addComment(){
 
 let name = document.getElementById("name").value.trim();
-
 let comment = document.getElementById("comment").value.trim();
 
 if(name === "" || comment === ""){
@@ -391,64 +356,35 @@ alert("Preencha tudo!");
 return;
 }
 
-/* SALVAR NO FIREBASE */
+let post = document.createElement("div");
 
-await addDoc(postsRef, {
+post.classList.add("post");
 
-name:name,
-comment:comment,
-date:Date.now()
+post.innerHTML = `
+<h4>${name}</h4>
+<p>${comment}</p>
 
-});
+<button class="delete-btn" onclick="deleteComment(this)">
+🗑 EXCLUIR
+</button>
+`;
+
+document.getElementById("posts").prepend(post);
 
 document.getElementById("name").value = "";
 document.getElementById("comment").value = "";
 
 }
 
-/* MOSTRAR EM TEMPO REAL */
+/* EXCLUIR COMENTÁRIO */
 
-onSnapshot(postsRef,(snapshot)=>{
+function deleteComment(button){
 
-let posts = document.getElementById("posts");
-
-posts.innerHTML = "";
-
-snapshot.forEach((docItem)=>{
-
-let data = docItem.data();
-
-let post = document.createElement("div");
-
-post.classList.add("post");
-
-post.innerHTML = `
-
-<h4>${data.name}</h4>
-
-<p>${data.comment}</p>
-
-<button class="delete-btn" onclick="deleteComment('${docItem.id}')">
-🗑 EXCLUIR
-</button>
-
-`;
-
-posts.prepend(post);
-
-});
-
-});
-
-/* EXCLUIR */
-
-window.deleteComment = async function(id){
-
-await deleteDoc(doc(db,"comentarios",id));
+button.parentElement.remove();
 
 }
 
-/* ENTER */
+/* ENTER PARA PUBLICAR */
 
 document.getElementById("comment").addEventListener("keypress", function(event){
 
