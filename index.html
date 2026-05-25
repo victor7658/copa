@@ -362,9 +362,23 @@ padding:25px 10px;
 
 <h2>💬 DEIXE SUA OPINIÃO</h2>
 
-<input type="text" id="name" placeholder="Seu nome">
+<!-- AUTOCOMPLETE DESATIVADO -->
 
-<textarea id="comment" rows="4" placeholder="Escreva sua opinião..."></textarea>
+<input 
+type="text" 
+id="name" 
+placeholder="Seu nome"
+autocomplete="off"
+spellcheck="false"
+autocorrect="off"
+autocapitalize="off"
+>
+
+<textarea 
+id="comment" 
+rows="4" 
+placeholder="Escreva sua opinião..."
+></textarea>
 
 <button onclick="addComment()">PUBLICAR</button>
 
