@@ -41,6 +41,7 @@ padding:30px 0;
 header{
 text-align:center;
 margin-bottom:40px;
+animation:fade 1s ease;
 }
 
 header h1{
@@ -71,6 +72,7 @@ border-radius:25px;
 overflow:hidden;
 backdrop-filter:blur(5px);
 box-shadow:0 0 40px rgba(0,0,0,0.6);
+animation:fade 1.2s ease;
 }
 
 table{
@@ -91,7 +93,14 @@ text-align:center;
 font-size:28px;
 font-weight:bold;
 border-bottom:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
 }
+
+tr:hover{
+background:rgba(255,255,255,0.05);
+}
+
+/* TIMES */
 
 .match{
 display:flex;
@@ -107,6 +116,11 @@ align-items:center;
 gap:12px;
 font-size:32px;
 font-weight:700;
+transition:0.3s;
+}
+
+.team:hover{
+transform:scale(1.08);
 }
 
 .team img{
@@ -114,12 +128,14 @@ width:55px;
 height:40px;
 object-fit:cover;
 border-radius:6px;
+box-shadow:0 0 10px rgba(255,255,255,0.4);
 }
 
 .vs{
 font-family:'Orbitron',sans-serif;
 font-size:40px;
 color:#facc15;
+text-shadow:0 0 15px #facc15;
 }
 
 /* OPINIÃO */
@@ -130,6 +146,8 @@ background:rgba(0,0,0,0.55);
 padding:30px;
 border-radius:25px;
 border:2px solid rgba(34,197,94,0.4);
+backdrop-filter:blur(5px);
+animation:fade 1.5s ease;
 }
 
 .mural h2{
@@ -138,6 +156,7 @@ font-size:40px;
 text-align:center;
 margin-bottom:25px;
 color:#22c55e;
+text-shadow:0 0 10px #22c55e;
 }
 
 input,
@@ -168,6 +187,11 @@ color:white;
 font-size:20px;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.03);
 }
 
 /* POSTS */
@@ -178,6 +202,7 @@ padding:18px;
 border-radius:16px;
 margin-top:18px;
 border-left:5px solid #facc15;
+animation:show 0.4s ease;
 }
 
 .post h4{
@@ -210,12 +235,43 @@ margin-top:40px;
 font-size:22px;
 font-family:'Orbitron',sans-serif;
 color:#22c55e;
+text-shadow:0 0 10px #22c55e;
 }
+
+/* ANIMAÇÕES */
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVO */
 
 @media(max-width:768px){
 
 header h1{
 font-size:50px;
+}
+
+header h2{
+font-size:24px;
 }
 
 .team{
@@ -225,6 +281,10 @@ font-size:22px;
 .team img{
 width:45px;
 height:32px;
+}
+
+.vs{
+font-size:28px;
 }
 
 td{
@@ -238,6 +298,12 @@ padding:25px 10px;
 </head>
 
 <body>
+
+<!-- ÁUDIO TORCIDA -->
+
+<audio autoplay loop volume="0.2">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4f4d7e7c34.mp3?filename=stadium-crowd-ambience-110010.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
 
@@ -256,6 +322,7 @@ padding:25px 10px;
 </tr>
 
 <tr>
+
 <td>1</td>
 
 <td>
@@ -277,6 +344,7 @@ padding:25px 10px;
 </div>
 
 </td>
+
 </tr>
 
 <tr>
@@ -302,6 +370,7 @@ padding:25px 10px;
 </div>
 
 </td>
+
 </tr>
 
 </table>
@@ -320,8 +389,6 @@ id="name"
 placeholder="Seu nome"
 autocomplete="off"
 spellcheck="false"
-autocorrect="off"
-autocapitalize="off"
 >
 
 <textarea 
@@ -344,11 +411,18 @@ placeholder="Escreva sua opinião..."
 
 <script>
 
+/* VOLUME BAIXO */
+
+const audio = document.querySelector("audio");
+
+audio.volume = 0.15;
+
 /* ADICIONAR COMENTÁRIO */
 
 function addComment(){
 
 let name = document.getElementById("name").value.trim();
+
 let comment = document.getElementById("comment").value.trim();
 
 if(name === "" || comment === ""){
@@ -376,7 +450,7 @@ document.getElementById("comment").value = "";
 
 }
 
-/* EXCLUIR COMENTÁRIO */
+/* EXCLUIR */
 
 function deleteComment(button){
 
@@ -384,7 +458,7 @@ button.parentElement.remove();
 
 }
 
-/* ENTER PARA PUBLICAR */
+/* ENTER */
 
 document.getElementById("comment").addEventListener("keypress", function(event){
 
