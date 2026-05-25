@@ -90,8 +90,6 @@ tr:hover td{
 background:#111c33;
 }
 
-/* VS */
-
 .vs{
 color:#facc15;
 padding:0 10px;
@@ -152,6 +150,7 @@ border-radius:14px;
 margin-top:15px;
 border-left:5px solid #facc15;
 animation:show 0.4s ease;
+position:relative;
 }
 
 .post h4{
@@ -161,7 +160,28 @@ margin-bottom:5px;
 
 .post p{
 color:#cbd5e1;
+margin-bottom:10px;
 }
+
+/* BOTÃO EXCLUIR */
+
+.delete-btn{
+background:#dc2626;
+padding:8px 12px;
+border:none;
+border-radius:10px;
+color:white;
+font-size:14px;
+cursor:pointer;
+width:auto;
+margin-top:5px;
+}
+
+.delete-btn:hover{
+background:#b91c1c;
+}
+
+/* ANIMAÇÃO */
 
 @keyframes show{
 from{
@@ -231,6 +251,8 @@ font-size:18px;
 
 </table>
 
+<!-- MURAL -->
+
 <div class="mural">
 
 <h2>💬 Mural da Copa</h2>
@@ -249,10 +271,12 @@ font-size:18px;
 
 <script>
 
+/* ADICIONAR COMENTÁRIO */
+
 function addComment(){
 
-let name = document.getElementById("name").value;
-let comment = document.getElementById("comment").value;
+let name = document.getElementById("name").value.trim();
+let comment = document.getElementById("comment").value.trim();
 
 if(name === "" || comment === ""){
 alert("Preencha tudo!");
@@ -266,12 +290,26 @@ post.classList.add("post");
 post.innerHTML = `
 <h4>${name}</h4>
 <p>${comment}</p>
+
+<button class="delete-btn" onclick="deleteComment(this)">
+🗑 Excluir Comentário
+</button>
 `;
 
 document.getElementById("posts").prepend(post);
 
+/* LIMPAR CAMPOS */
+
 document.getElementById("name").value = "";
 document.getElementById("comment").value = "";
+
+}
+
+/* EXCLUIR COMENTÁRIO */
+
+function deleteComment(button){
+
+button.parentElement.remove();
 
 }
 
