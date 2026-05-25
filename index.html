@@ -29,8 +29,6 @@ background-position:center;
 background-attachment:fixed;
 }
 
-/* CONTAINER */
-
 .container{
 width:95%;
 max-width:1000px;
@@ -95,13 +93,6 @@ font-weight:bold;
 border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-tr:hover{
-background:rgba(255,255,255,0.05);
-transition:0.3s;
-}
-
-/* TIMES */
-
 .match{
 display:flex;
 justify-content:center;
@@ -123,14 +114,12 @@ width:55px;
 height:40px;
 object-fit:cover;
 border-radius:6px;
-box-shadow:0 0 10px rgba(255,255,255,0.3);
 }
 
 .vs{
 font-family:'Orbitron',sans-serif;
 font-size:40px;
 color:#facc15;
-text-shadow:0 0 15px #facc15;
 }
 
 /* OPINIÃO */
@@ -141,7 +130,6 @@ background:rgba(0,0,0,0.55);
 padding:30px;
 border-radius:25px;
 border:2px solid rgba(34,197,94,0.4);
-backdrop-filter:blur(5px);
 }
 
 .mural h2{
@@ -150,7 +138,6 @@ font-size:40px;
 text-align:center;
 margin-bottom:25px;
 color:#22c55e;
-text-shadow:0 0 10px #22c55e;
 }
 
 input,
@@ -160,7 +147,7 @@ padding:16px;
 margin-top:12px;
 border:none;
 border-radius:14px;
-background:rgba(15,23,42,0.95);
+background:#0f172a;
 color:white;
 font-size:17px;
 outline:none;
@@ -181,32 +168,24 @@ color:white;
 font-size:20px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.02);
 }
 
 /* POSTS */
 
 .post{
-background:rgba(15,23,42,0.95);
+background:#0f172a;
 padding:18px;
 border-radius:16px;
 margin-top:18px;
 border-left:5px solid #facc15;
-animation:show 0.4s ease;
 }
 
 .post h4{
 color:#facc15;
-font-size:22px;
 margin-bottom:8px;
 }
 
 .post p{
-font-size:18px;
 color:#e2e8f0;
 margin-bottom:10px;
 }
@@ -219,10 +198,6 @@ font-size:15px;
 border-radius:10px;
 }
 
-.delete-btn:hover{
-background:#b91c1c;
-}
-
 /* FOOTER */
 
 .footer{
@@ -231,32 +206,12 @@ margin-top:40px;
 font-size:22px;
 font-family:'Orbitron',sans-serif;
 color:#22c55e;
-text-shadow:0 0 10px #22c55e;
 }
-
-/* ANIMAÇÃO */
-
-@keyframes show{
-from{
-opacity:0;
-transform:translateY(15px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* RESPONSIVO */
 
 @media(max-width:768px){
 
 header h1{
 font-size:50px;
-}
-
-header h2{
-font-size:24px;
 }
 
 .team{
@@ -266,10 +221,6 @@ font-size:22px;
 .team img{
 width:45px;
 height:32px;
-}
-
-.vs{
-font-size:28px;
 }
 
 td{
@@ -301,7 +252,6 @@ padding:25px 10px;
 </tr>
 
 <tr>
-
 <td>1</td>
 
 <td>
@@ -323,7 +273,6 @@ padding:25px 10px;
 </div>
 
 </td>
-
 </tr>
 
 <tr>
@@ -349,7 +298,6 @@ padding:25px 10px;
 </div>
 
 </td>
-
 </tr>
 
 </table>
@@ -362,16 +310,11 @@ padding:25px 10px;
 
 <h2>💬 DEIXE SUA OPINIÃO</h2>
 
-<!-- AUTOCOMPLETE DESATIVADO -->
-
 <input 
 type="text" 
 id="name" 
 placeholder="Seu nome"
 autocomplete="off"
-spellcheck="false"
-autocorrect="off"
-autocapitalize="off"
 >
 
 <textarea 
@@ -392,13 +335,55 @@ placeholder="Escreva sua opinião..."
 
 </div>
 
-<script>
+<!-- FIREBASE -->
 
-/* ADICIONAR COMENTÁRIO */
+<script type="module">
 
-function addComment(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+onSnapshot,
+deleteDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* CONFIG FIREBASE */
+
+const firebaseConfig = {
+
+apiKey: "SUA_API_KEY",
+
+authDomain: "SEU_PROJETO.firebaseapp.com",
+
+projectId: "SEU_PROJECT_ID",
+
+storageBucket: "SEU_PROJETO.appspot.com",
+
+messagingSenderId: "000000000",
+
+appId: "APP_ID"
+
+};
+
+/* INICIAR */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+/* REFERÊNCIA */
+
+const postsRef = collection(db, "comentarios");
+
+/* PUBLICAR */
+
+window.addComment = async function(){
 
 let name = document.getElementById("name").value.trim();
+
 let comment = document.getElementById("comment").value.trim();
 
 if(name === "" || comment === ""){
@@ -406,35 +391,64 @@ alert("Preencha tudo!");
 return;
 }
 
-let post = document.createElement("div");
+/* SALVAR NO FIREBASE */
 
-post.classList.add("post");
+await addDoc(postsRef, {
 
-post.innerHTML = `
-<h4>${name}</h4>
-<p>${comment}</p>
+name:name,
+comment:comment,
+date:Date.now()
 
-<button class="delete-btn" onclick="deleteComment(this)">
-🗑 EXCLUIR
-</button>
-`;
-
-document.getElementById("posts").prepend(post);
+});
 
 document.getElementById("name").value = "";
 document.getElementById("comment").value = "";
 
 }
 
-/* EXCLUIR COMENTÁRIO */
+/* MOSTRAR EM TEMPO REAL */
 
-function deleteComment(button){
+onSnapshot(postsRef,(snapshot)=>{
 
-button.parentElement.remove();
+let posts = document.getElementById("posts");
+
+posts.innerHTML = "";
+
+snapshot.forEach((docItem)=>{
+
+let data = docItem.data();
+
+let post = document.createElement("div");
+
+post.classList.add("post");
+
+post.innerHTML = `
+
+<h4>${data.name}</h4>
+
+<p>${data.comment}</p>
+
+<button class="delete-btn" onclick="deleteComment('${docItem.id}')">
+🗑 EXCLUIR
+</button>
+
+`;
+
+posts.prepend(post);
+
+});
+
+});
+
+/* EXCLUIR */
+
+window.deleteComment = async function(id){
+
+await deleteDoc(doc(db,"comentarios",id));
 
 }
 
-/* ENTER PARA PUBLICAR */
+/* ENTER */
 
 document.getElementById("comment").addEventListener("keypress", function(event){
 
