@@ -21,9 +21,11 @@ font-family:'Poppins',sans-serif;
 color:white;
 overflow-x:hidden;
 min-height:100vh;
+
 background:
 linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
 url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
@@ -47,10 +49,14 @@ animation:sumir 4s forwards;
 }
 
 .loader img{
-width:180px;
+width:170px;
+object-fit:contain;
+
 filter:
-drop-shadow(0 0 10px gold)
-drop-shadow(0 0 25px orange);
+drop-shadow(0 0 10px #facc15)
+drop-shadow(0 0 25px #f59e0b)
+drop-shadow(0 0 45px gold);
+
 animation:pulse 1.5s infinite;
 }
 
@@ -59,6 +65,7 @@ font-family:'Orbitron',sans-serif;
 font-size:70px;
 margin-top:20px;
 color:#facc15;
+
 text-shadow:
 0 0 10px #facc15,
 0 0 20px #facc15,
@@ -72,30 +79,40 @@ color:#22c55e;
 letter-spacing:4px;
 }
 
+/* ANIMAÇÕES */
+
 @keyframes pulse{
+
 0%{
 transform:scale(1);
 }
+
 50%{
 transform:scale(1.08);
 }
+
 100%{
 transform:scale(1);
 }
+
 }
 
 @keyframes sumir{
+
 0%{
 opacity:1;
 visibility:visible;
 }
+
 90%{
 opacity:1;
 }
+
 100%{
 opacity:0;
 visibility:hidden;
 }
+
 }
 
 /* CONTAINER */
@@ -114,23 +131,33 @@ text-align:center;
 margin-bottom:40px;
 }
 
+/* NOVO TROFÉU */
+
 .trophy{
-width:130px;
+width:140px;
 margin-bottom:15px;
+object-fit:contain;
 
 filter:
-drop-shadow(0 0 10px gold)
-drop-shadow(0 0 25px orange)
-drop-shadow(0 0 50px #facc15);
+drop-shadow(0 0 10px #facc15)
+drop-shadow(0 0 25px #f59e0b)
+drop-shadow(0 0 45px gold);
 
 animation:pulse 2s infinite;
+transition:0.4s;
+}
+
+.trophy:hover{
+transform:scale(1.08) rotate(-2deg);
 }
 
 header h1{
 font-family:'Orbitron',sans-serif;
 font-size:80px;
 font-weight:900;
+
 color:#facc15;
+
 text-shadow:
 0 0 10px #facc15,
 0 0 20px #facc15,
@@ -204,12 +231,16 @@ cursor:pointer;
 }
 
 .team:hover{
+
 transform:scale(1.08);
+
 box-shadow:
 0 0 10px #22c55e,
 0 0 20px #22c55e,
 0 0 40px #22c55e;
+
 background:rgba(34,197,94,0.15);
+
 }
 
 .team img{
@@ -237,7 +268,7 @@ text-shadow:0 0 10px #22c55e;
 font-family:'Orbitron',sans-serif;
 }
 
-/* OPINIÃO */
+/* MURAL */
 
 .mural{
 margin-top:50px;
@@ -280,7 +311,9 @@ padding:16px;
 margin-top:15px;
 border:none;
 border-radius:14px;
+
 background:linear-gradient(90deg,#16a34a,#22c55e);
+
 color:white;
 font-size:20px;
 font-weight:bold;
@@ -392,7 +425,10 @@ padding:25px 10px;
 
 <div class="loader">
 
-<img src="image(4).png" alt="Troféu">
+<img 
+src="https://pngimg.com/d/fifa_world_cup_PNG25.png"
+alt="Troféu"
+>
 
 <h1>COPA 2026</h1>
 
@@ -404,15 +440,21 @@ padding:25px 10px;
 
 <header>
 
-<!-- NOVO TROFÉU -->
+<!-- TROFÉU NOVO -->
 
-<img src="image(4).png" class="trophy" alt="Troféu">
+<img 
+src="https://pngimg.com/d/fifa_world_cup_PNG25.png"
+class="trophy"
+alt="Troféu Copa"
+>
 
 <h1>COPA 2026</h1>
 
 <h2>CONFRONTOS</h2>
 
 </header>
+
+<!-- TABELA -->
 
 <div class="table-box">
 
@@ -523,7 +565,9 @@ rows="4"
 placeholder="Escreva sua opinião..."
 ></textarea>
 
-<button onclick="addComment()">PUBLICAR</button>
+<button onclick="addComment()">
+PUBLICAR
+</button>
 
 <div id="posts"></div>
 
@@ -539,6 +583,8 @@ placeholder="Escreva sua opinião..."
 
 <script>
 
+/* ADICIONAR COMENTÁRIO */
+
 function addComment(){
 
 let name = document.getElementById("name").value.trim();
@@ -546,8 +592,11 @@ let name = document.getElementById("name").value.trim();
 let comment = document.getElementById("comment").value.trim();
 
 if(name === "" || comment === ""){
+
 alert("Preencha tudo!");
+
 return;
+
 }
 
 let post = document.createElement("div");
@@ -572,11 +621,15 @@ document.getElementById("comment").value = "";
 
 }
 
+/* EXCLUIR */
+
 function deleteComment(button){
 
 button.parentElement.remove();
 
 }
+
+/* ENTER */
 
 document.getElementById("comment").addEventListener("keypress", function(event){
 
