@@ -29,7 +29,7 @@ background-position:center;
 background-attachment:fixed;
 }
 
-/* TELA INICIAL */
+/* LOADER */
 
 .loader{
 position:fixed;
@@ -46,19 +46,27 @@ z-index:9999;
 animation:sumir 4s forwards;
 }
 
+.loader img{
+width:180px;
+filter:
+drop-shadow(0 0 10px gold)
+drop-shadow(0 0 25px orange);
+animation:pulse 1.5s infinite;
+}
+
 .loader h1{
 font-family:'Orbitron',sans-serif;
 font-size:70px;
+margin-top:20px;
 color:#facc15;
 text-shadow:
 0 0 10px #facc15,
 0 0 20px #facc15,
 0 0 40px #f59e0b;
-animation:pulse 1s infinite;
 }
 
 .loader p{
-margin-top:20px;
+margin-top:15px;
 font-size:22px;
 color:#22c55e;
 letter-spacing:4px;
@@ -104,6 +112,18 @@ padding:30px 0;
 header{
 text-align:center;
 margin-bottom:40px;
+}
+
+.trophy{
+width:130px;
+margin-bottom:15px;
+
+filter:
+drop-shadow(0 0 10px gold)
+drop-shadow(0 0 25px orange)
+drop-shadow(0 0 50px #facc15);
+
+animation:pulse 2s infinite;
 }
 
 header h1{
@@ -182,8 +202,6 @@ border-radius:18px;
 transition:0.4s;
 cursor:pointer;
 }
-
-/* EFEITO NEON */
 
 .team:hover{
 transform:scale(1.08);
@@ -321,8 +339,16 @@ text-shadow:0 0 10px #22c55e;
 
 @media(max-width:768px){
 
+.loader img{
+width:120px;
+}
+
 .loader h1{
 font-size:45px;
+}
+
+.trophy{
+width:90px;
 }
 
 header h1{
@@ -362,11 +388,13 @@ padding:25px 10px;
 
 <body>
 
-<!-- TELA INICIAL -->
+<!-- LOADER -->
 
 <div class="loader">
 
-<h1>🏆 COPA 2026</h1>
+<img src="image(4).png" alt="Troféu">
+
+<h1>COPA 2026</h1>
 
 <p>CARREGANDO...</p>
 
@@ -376,7 +404,11 @@ padding:25px 10px;
 
 <header>
 
-<h1>🏆 COPA 2026</h1>
+<!-- NOVO TROFÉU -->
+
+<img src="image(4).png" class="trophy" alt="Troféu">
+
+<h1>COPA 2026</h1>
 
 <h2>CONFRONTOS</h2>
 
@@ -471,7 +503,7 @@ padding:25px 10px;
 
 </div>
 
-<!-- OPINIÃO -->
+<!-- MURAL -->
 
 <div class="mural">
 
@@ -507,8 +539,6 @@ placeholder="Escreva sua opinião..."
 
 <script>
 
-/* ADICIONAR COMENTÁRIO */
-
 function addComment(){
 
 let name = document.getElementById("name").value.trim();
@@ -542,15 +572,11 @@ document.getElementById("comment").value = "";
 
 }
 
-/* EXCLUIR */
-
 function deleteComment(button){
 
 button.parentElement.remove();
 
 }
-
-/* ENTER */
 
 document.getElementById("comment").addEventListener("keypress", function(event){
 
