@@ -1,680 +1,560 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- EXEMPLO PARA COLOCAR OS 48 TIMES -->
 
-<title>COPA 2026</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Poppins',sans-serif;
-color:white;
-overflow-x:hidden;
-min-height:100vh;
-
-background:
-linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
-url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1920&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-}
-
-/* ========================= */
-/* LOADER NEON */
-/* ========================= */
-
-.loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#020617;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
-animation:sumir 5s forwards;
-}
-
-.loader h1{
-font-family:'Orbitron',sans-serif;
-font-size:85px;
-font-weight:900;
-color:#facc15;
-
-text-shadow:
-0 0 10px #facc15,
-0 0 20px #facc15,
-0 0 40px #f59e0b,
-0 0 80px gold;
-
-animation:neon 1.5s infinite alternate;
-}
-
-.loader p{
-margin-top:20px;
-font-size:26px;
-letter-spacing:6px;
-font-family:'Orbitron',sans-serif;
-color:#22c55e;
-
-text-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e,
-0 0 40px #22c55e;
-
-animation:pulse 1s infinite;
-}
-
-/* BARRA */
-
-.loading-bar{
-width:320px;
-height:14px;
-background:#0f172a;
-border-radius:20px;
-margin-top:35px;
-overflow:hidden;
-border:1px solid #22c55e;
-box-shadow:0 0 20px #22c55e;
-}
-
-.loading-fill{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#22c55e,#facc15);
-animation:load 4s forwards;
-
-box-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e,
-0 0 40px #22c55e;
-}
-
-/* ANIMAÇÕES */
-
-@keyframes neon{
-
-from{
-text-shadow:
-0 0 10px #facc15,
-0 0 20px #facc15,
-0 0 40px #f59e0b;
-}
-
-to{
-text-shadow:
-0 0 20px #facc15,
-0 0 40px #f59e0b,
-0 0 80px gold,
-0 0 120px gold;
-}
-
-}
-
-@keyframes pulse{
-
-0%{
-transform:scale(1);
-}
-
-50%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
-@keyframes load{
-
-0%{
-width:0%;
-}
-
-100%{
-width:100%;
-}
-
-}
-
-@keyframes sumir{
-
-0%{
-opacity:1;
-visibility:visible;
-}
-
-90%{
-opacity:1;
-}
-
-100%{
-opacity:0;
-visibility:hidden;
-}
-
-}
-
-/* ========================= */
-/* CONTAINER */
-/* ========================= */
-
-.container{
-width:95%;
-max-width:1000px;
-margin:auto;
-padding:30px 0;
-}
-
-/* HEADER */
-
-header{
-text-align:center;
-margin-bottom:40px;
-}
-
-header h1{
-font-family:'Orbitron',sans-serif;
-font-size:80px;
-font-weight:900;
-color:#facc15;
-
-text-shadow:
-0 0 10px #facc15,
-0 0 20px #facc15,
-0 0 40px #f59e0b;
-
-animation:neon 2s infinite alternate;
-}
-
-header h2{
-font-family:'Orbitron',sans-serif;
-font-size:35px;
-color:white;
-margin-top:10px;
-letter-spacing:4px;
-}
-
-/* ========================= */
-/* TABELA */
-/* ========================= */
-
-.table-box{
-background:rgba(0,0,0,0.55);
-border:2px solid rgba(34,197,94,0.4);
-border-radius:25px;
-overflow:hidden;
-backdrop-filter:blur(5px);
-box-shadow:0 0 40px rgba(0,0,0,0.6);
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:rgba(34,197,94,0.8);
-padding:22px;
-font-size:24px;
-font-family:'Orbitron',sans-serif;
-}
-
-td{
-padding:35px 20px;
-text-align:center;
-font-size:28px;
-font-weight:bold;
-border-bottom:1px solid rgba(255,255,255,0.1);
-transition:0.3s;
-}
-
-tr:hover{
-background:rgba(255,255,255,0.05);
-}
-
-/* TIMES */
-
-.match{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:25px;
-flex-wrap:wrap;
-}
-
-.team{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:32px;
-font-weight:700;
-padding:12px 20px;
-border-radius:18px;
-transition:0.4s;
-cursor:pointer;
-}
-
-.team:hover{
-transform:scale(1.08);
-
-box-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e,
-0 0 40px #22c55e;
-
-background:rgba(34,197,94,0.15);
-}
-
-.team img{
-width:55px;
-height:40px;
-object-fit:cover;
-border-radius:6px;
-box-shadow:0 0 10px rgba(255,255,255,0.4);
-}
-
-.vs{
-font-family:'Orbitron',sans-serif;
-font-size:40px;
-color:#facc15;
-text-shadow:0 0 15px #facc15;
-}
-
-/* HORÁRIO */
-
-.time{
-margin-top:15px;
-font-size:22px;
-color:#22c55e;
-text-shadow:0 0 10px #22c55e;
-font-family:'Orbitron',sans-serif;
-}
-
-/* ========================= */
-/* MURAL */
-/* ========================= */
-
-.mural{
-margin-top:50px;
-background:rgba(0,0,0,0.55);
-padding:30px;
-border-radius:25px;
-border:2px solid rgba(34,197,94,0.4);
-backdrop-filter:blur(5px);
-}
-
-.mural h2{
-font-family:'Orbitron',sans-serif;
-font-size:40px;
-text-align:center;
-margin-bottom:25px;
-color:#22c55e;
-
-text-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e;
-}
-
-input,
-textarea{
-width:100%;
-padding:16px;
-margin-top:12px;
-border:none;
-border-radius:14px;
-background:#0f172a;
-color:white;
-font-size:17px;
-outline:none;
-}
-
-textarea{
-resize:none;
-}
-
-button{
-width:100%;
-padding:16px;
-margin-top:15px;
-border:none;
-border-radius:14px;
-
-background:linear-gradient(90deg,#16a34a,#22c55e);
-
-color:white;
-font-size:20px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.03);
-}
-
-/* POSTS */
-
-.post{
-background:#0f172a;
-padding:18px;
-border-radius:16px;
-margin-top:18px;
-border-left:5px solid #facc15;
-}
-
-.post h4{
-color:#facc15;
-margin-bottom:8px;
-}
-
-.post p{
-color:#e2e8f0;
-margin-bottom:10px;
-}
-
-.delete-btn{
-background:#dc2626;
-padding:10px 15px;
-width:auto;
-font-size:15px;
-border-radius:10px;
-}
-
-.delete-btn:hover{
-background:#b91c1c;
-}
-
-/* FOOTER */
-
-.footer{
-text-align:center;
-margin-top:40px;
-font-size:22px;
-font-family:'Orbitron',sans-serif;
-color:#22c55e;
-
-text-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:768px){
-
-.loader h1{
-font-size:50px;
-}
-
-.loader p{
-font-size:18px;
-}
-
-.loading-bar{
-width:230px;
-}
-
-header h1{
-font-size:50px;
-}
-
-header h2{
-font-size:24px;
-}
-
-.team{
-font-size:22px;
-}
-
-.team img{
-width:45px;
-height:32px;
-}
-
-.vs{
-font-size:28px;
-}
-
-.time{
-font-size:18px;
-}
-
-td{
-font-size:20px;
-padding:25px 10px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- LOADER NEON -->
-
-<div class="loader">
-
-<h1>🏆 COPA 2026</h1>
-
-<p>CARREGANDO...</p>
-
-<div class="loading-bar">
-
-<div class="loading-fill"></div>
-
-</div>
-
-</div>
-
-<div class="container">
-
-<header>
-
-<h1>🏆 COPA 2026</h1>
-
-<h2>CONFRONTOS</h2>
-
-</header>
-
-<!-- TABELA -->
-
-<div class="table-box">
-
-<table>
+<!-- COPIE ISSO DENTRO DA <table> -->
 
 <tr>
 <th>JOGO</th>
 <th>CONFRONTO</th>
 </tr>
 
+<!-- 1 -->
 <tr>
-
 <td>1</td>
-
 <td>
-
 <div class="match">
 
 <div class="team">
-
 <img src="https://flagcdn.com/w320/br.png">
-
 <span>BRASIL</span>
-
 </div>
 
 <div class="vs">VS</div>
 
 <div class="team">
-
-<img src="https://flagcdn.com/w320/ma.png">
-
-<span>MARROCOS</span>
-
+<img src="https://flagcdn.com/w320/ar.png">
+<span>ARGENTINA</span>
 </div>
 
 </div>
-
-<div class="time">
-🕖 19:00
-</div>
-
+<div class="time">🕖 19:00</div>
 </td>
-
 </tr>
 
+<!-- 2 -->
 <tr>
-
 <td>2</td>
-
 <td>
-
 <div class="match">
 
 <div class="team">
-
-<img src="https://flagcdn.com/w320/ht.png">
-
-<span>HAITI</span>
-
+<img src="https://flagcdn.com/w320/fr.png">
+<span>FRANÇA</span>
 </div>
 
 <div class="vs">VS</div>
 
 <div class="team">
-
-<img src="https://flagcdn.com/w320/gb-sct.png">
-
-<span>ESCÓCIA</span>
-
+<img src="https://flagcdn.com/w320/de.png">
+<span>ALEMANHA</span>
 </div>
 
 </div>
-
-<div class="time">
-🕙 22:00
-</div>
-
+<div class="time">🕙 22:00</div>
 </td>
-
 </tr>
 
-</table>
+<!-- 3 -->
+<tr>
+<td>3</td>
+<td>
+<div class="match">
 
+<div class="team">
+<img src="https://flagcdn.com/w320/es.png">
+<span>ESPANHA</span>
 </div>
 
-<!-- MURAL -->
+<div class="vs">VS</div>
 
-<div class="mural">
-
-<h2>💬 DEIXE SUA OPINIÃO</h2>
-
-<input 
-type="text" 
-id="name" 
-placeholder="Seu nome"
-autocomplete="off"
-spellcheck="false"
->
-
-<textarea 
-id="comment" 
-rows="4" 
-placeholder="Escreva sua opinião..."
-></textarea>
-
-<button onclick="addComment()">
-PUBLICAR
-</button>
-
-<div id="posts"></div>
-
-</div>
-
-<div class="footer">
-
-⭐ A MAIOR COPA DO MUNDO DA HISTÓRIA ⭐
-
+<div class="team">
+<img src="https://flagcdn.com/w320/pt.png">
+<span>PORTUGAL</span>
 </div>
 
 </div>
+<div class="time">🕖 18:00</div>
+</td>
+</tr>
 
-<script>
+<!-- 4 -->
+<tr>
+<td>4</td>
+<td>
+<div class="match">
 
-function addComment(){
+<div class="team">
+<img src="https://flagcdn.com/w320/us.png">
+<span>ESTADOS UNIDOS</span>
+</div>
 
-let name = document.getElementById("name").value.trim();
+<div class="vs">VS</div>
 
-let comment = document.getElementById("comment").value.trim();
+<div class="team">
+<img src="https://flagcdn.com/w320/mx.png">
+<span>MÉXICO</span>
+</div>
 
-if(name === "" || comment === ""){
+</div>
+<div class="time">🕘 21:00</div>
+</td>
+</tr>
 
-alert("Preencha tudo!");
+<!-- 5 -->
+<tr>
+<td>5</td>
+<td>
+<div class="match">
 
-return;
+<div class="team">
+<img src="https://flagcdn.com/w320/gb-eng.png">
+<span>INGLATERRA</span>
+</div>
 
-}
+<div class="vs">VS</div>
 
-let post = document.createElement("div");
+<div class="team">
+<img src="https://flagcdn.com/w320/nl.png">
+<span>HOLANDA</span>
+</div>
 
-post.classList.add("post");
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
 
-post.innerHTML = `
-<h4>${name}</h4>
+<!-- 6 -->
+<tr>
+<td>6</td>
+<td>
+<div class="match">
 
-<p>${comment}</p>
+<div class="team">
+<img src="https://flagcdn.com/w320/be.png">
+<span>BÉLGICA</span>
+</div>
 
-<button class="delete-btn" onclick="deleteComment(this)">
-🗑 EXCLUIR
-</button>
-`;
+<div class="vs">VS</div>
 
-document.getElementById("posts").prepend(post);
+<div class="team">
+<img src="https://flagcdn.com/w320/hr.png">
+<span>CROÁCIA</span>
+</div>
 
-document.getElementById("name").value = "";
+</div>
+<div class="time">🕕 18:00</div>
+</td>
+</tr>
 
-document.getElementById("comment").value = "";
+<!-- 7 -->
+<tr>
+<td>7</td>
+<td>
+<div class="match">
 
-}
+<div class="team">
+<img src="https://flagcdn.com/w320/uy.png">
+<span>URUGUAI</span>
+</div>
 
-function deleteComment(button){
+<div class="vs">VS</div>
 
-button.parentElement.remove();
+<div class="team">
+<img src="https://flagcdn.com/w320/co.png">
+<span>COLÔMBIA</span>
+</div>
 
-}
+</div>
+<div class="time">🕘 21:00</div>
+</td>
+</tr>
 
-document.getElementById("comment").addEventListener("keypress", function(event){
+<!-- 8 -->
+<tr>
+<td>8</td>
+<td>
+<div class="match">
 
-if(event.key === "Enter" && !event.shiftKey){
+<div class="team">
+<img src="https://flagcdn.com/w320/jp.png">
+<span>JAPÃO</span>
+</div>
 
-event.preventDefault();
+<div class="vs">VS</div>
 
-addComment();
+<div class="team">
+<img src="https://flagcdn.com/w320/kr.png">
+<span>COREIA DO SUL</span>
+</div>
 
-}
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
 
-});
+<!-- 9 -->
+<tr>
+<td>9</td>
+<td>
+<div class="match">
 
-</script>
+<div class="team">
+<img src="https://flagcdn.com/w320/ma.png">
+<span>MARROCOS</span>
+</div>
 
-</body>
-</html>
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/sn.png">
+<span>SENEGAL</span>
+</div>
+
+</div>
+<div class="time">🕖 19:00</div>
+</td>
+</tr>
+
+<!-- 10 -->
+<tr>
+<td>10</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/it.png">
+<span>ITÁLIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/ch.png">
+<span>SUÍÇA</span>
+</div>
+
+</div>
+<div class="time">🕙 22:00</div>
+</td>
+</tr>
+
+<!-- 11 -->
+<tr>
+<td>11</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/ca.png">
+<span>CANADÁ</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/cr.png">
+<span>COSTA RICA</span>
+</div>
+
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
+
+<!-- 12 -->
+<tr>
+<td>12</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/au.png">
+<span>AUSTRÁLIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/qa.png">
+<span>CATAR</span>
+</div>
+
+</div>
+<div class="time">🕕 18:00</div>
+</td>
+</tr>
+
+<!-- 13 -->
+<tr>
+<td>13</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/dk.png">
+<span>DINAMARCA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/rs.png">
+<span>SÉRVIA</span>
+</div>
+
+</div>
+<div class="time">🕘 21:00</div>
+</td>
+</tr>
+
+<!-- 14 -->
+<tr>
+<td>14</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/eg.png">
+<span>EGITO</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/ng.png">
+<span>NIGÉRIA</span>
+</div>
+
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
+
+<!-- 15 -->
+<tr>
+<td>15</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/cm.png">
+<span>CAMARÕES</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/gh.png">
+<span>GANA</span>
+</div>
+
+</div>
+<div class="time">🕖 19:00</div>
+</td>
+</tr>
+
+<!-- 16 -->
+<tr>
+<td>16</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/tn.png">
+<span>TUNÍSIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/dz.png">
+<span>ARGÉLIA</span>
+</div>
+
+</div>
+<div class="time">🕙 22:00</div>
+</td>
+</tr>
+
+<!-- 17 -->
+<tr>
+<td>17</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/cl.png">
+<span>CHILE</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/py.png">
+<span>PARAGUAI</span>
+</div>
+
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
+
+<!-- 18 -->
+<tr>
+<td>18</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/ec.png">
+<span>EQUADOR</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/pe.png">
+<span>PERU</span>
+</div>
+
+</div>
+<div class="time">🕕 18:00</div>
+</td>
+</tr>
+
+<!-- 19 -->
+<tr>
+<td>19</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/sa.png">
+<span>ARÁBIA SAUDITA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/ir.png">
+<span>IRÃ</span>
+</div>
+
+</div>
+<div class="time">🕘 21:00</div>
+</td>
+</tr>
+
+<!-- 20 -->
+<tr>
+<td>20</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/nz.png">
+<span>NOVA ZELÂNDIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/jm.png">
+<span>JAMAICA</span>
+</div>
+
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
+
+<!-- 21 -->
+<tr>
+<td>21</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/pl.png">
+<span>POLÔNIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/se.png">
+<span>SUÉCIA</span>
+</div>
+
+</div>
+<div class="time">🕖 19:00</div>
+</td>
+</tr>
+
+<!-- 22 -->
+<tr>
+<td>22</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/no.png">
+<span>NORUEGA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/at.png">
+<span>ÁUSTRIA</span>
+</div>
+
+</div>
+<div class="time">🕙 22:00</div>
+</td>
+</tr>
+
+<!-- 23 -->
+<tr>
+<td>23</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/tr.png">
+<span>TURQUIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/ua.png">
+<span>UCRÂNIA</span>
+</div>
+
+</div>
+<div class="time">🕗 20:00</div>
+</td>
+</tr>
+
+<!-- 24 -->
+<tr>
+<td>24</td>
+<td>
+<div class="match">
+
+<div class="team">
+<img src="https://flagcdn.com/w320/hu.png">
+<span>HUNGRIA</span>
+</div>
+
+<div class="vs">VS</div>
+
+<div class="team">
+<img src="https://flagcdn.com/w320/cz.png">
+<span>REPÚBLICA TCHECA</span>
+</div>
+
+</div>
+<div class="time">🕕 18:00</div>
+</td>
+</tr>
