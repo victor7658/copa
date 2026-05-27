@@ -1,4 +1,4 @@
-ta bom, agr faça o seguinte <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -31,9 +31,7 @@ background-position:center;
 background-attachment:fixed;
 }
 
-/* ========================= */
-/* LOADER NEON */
-/* ========================= */
+/* LOADER */
 
 .loader{
 position:fixed;
@@ -80,8 +78,6 @@ text-shadow:
 animation:pulse 1s infinite;
 }
 
-/* BARRA */
-
 .loading-bar{
 width:320px;
 height:14px;
@@ -98,14 +94,7 @@ height:100%;
 width:0%;
 background:linear-gradient(90deg,#22c55e,#facc15);
 animation:load 4s forwards;
-
-box-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e,
-0 0 40px #22c55e;
 }
-
-/* ANIMAÇÕES */
 
 @keyframes neon{
 
@@ -172,18 +161,14 @@ visibility:hidden;
 
 }
 
-/* ========================= */
 /* CONTAINER */
-/* ========================= */
 
 .container{
 width:95%;
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:30px 0;
 }
-
-/* HEADER */
 
 header{
 text-align:center;
@@ -195,12 +180,6 @@ font-family:'Orbitron',sans-serif;
 font-size:80px;
 font-weight:900;
 color:#facc15;
-
-text-shadow:
-0 0 10px #facc15,
-0 0 20px #facc15,
-0 0 40px #f59e0b;
-
 animation:neon 2s infinite alternate;
 }
 
@@ -212,105 +191,68 @@ margin-top:10px;
 letter-spacing:4px;
 }
 
-/* ========================= */
-/* TABELA */
-/* ========================= */
+/* GRUPOS */
 
-.table-box{
+.group{
+margin-bottom:40px;
 background:rgba(0,0,0,0.55);
 border:2px solid rgba(34,197,94,0.4);
 border-radius:25px;
-overflow:hidden;
+padding:25px;
 backdrop-filter:blur(5px);
-box-shadow:0 0 40px rgba(0,0,0,0.6);
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:rgba(34,197,94,0.8);
-padding:22px;
-font-size:24px;
+.group-title{
 font-family:'Orbitron',sans-serif;
-}
-
-td{
-padding:35px 20px;
+font-size:40px;
+color:#22c55e;
+margin-bottom:25px;
 text-align:center;
-font-size:28px;
-font-weight:bold;
-border-bottom:1px solid rgba(255,255,255,0.1);
-transition:0.3s;
+
+text-shadow:
+0 0 10px #22c55e,
+0 0 20px #22c55e;
 }
 
-tr:hover{
-background:rgba(255,255,255,0.05);
+.teams-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 }
 
-/* TIMES */
-
-.match{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:25px;
-flex-wrap:wrap;
-}
-
-.team{
-display:flex;
-align-items:center;
-gap:12px;
-font-size:32px;
-font-weight:700;
-padding:12px 20px;
+.team-card{
+background:#0f172a;
+padding:20px;
 border-radius:18px;
+display:flex;
+align-items:center;
+gap:15px;
 transition:0.4s;
-cursor:pointer;
+border:1px solid rgba(255,255,255,0.1);
 }
 
-.team:hover{
-transform:scale(1.08);
+.team-card:hover{
+transform:scale(1.05);
 
 box-shadow:
 0 0 10px #22c55e,
 0 0 20px #22c55e,
 0 0 40px #22c55e;
-
-background:rgba(34,197,94,0.15);
 }
 
-.team img{
-width:55px;
-height:40px;
+.team-card img{
+width:60px;
+height:45px;
 object-fit:cover;
 border-radius:6px;
-box-shadow:0 0 10px rgba(255,255,255,0.4);
 }
 
-.vs{
-font-family:'Orbitron',sans-serif;
-font-size:40px;
-color:#facc15;
-text-shadow:0 0 15px #facc15;
+.team-card span{
+font-size:24px;
+font-weight:bold;
 }
 
-/* HORÁRIO */
-
-.time{
-margin-top:15px;
-font-size:22px;
-color:#22c55e;
-text-shadow:0 0 10px #22c55e;
-font-family:'Orbitron',sans-serif;
-}
-
-/* ========================= */
 /* MURAL */
-/* ========================= */
 
 .mural{
 margin-top:50px;
@@ -327,10 +269,6 @@ font-size:40px;
 text-align:center;
 margin-bottom:25px;
 color:#22c55e;
-
-text-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e;
 }
 
 input,
@@ -370,8 +308,6 @@ button:hover{
 transform:scale(1.03);
 }
 
-/* POSTS */
-
 .post{
 background:#0f172a;
 padding:18px;
@@ -398,39 +334,15 @@ font-size:15px;
 border-radius:10px;
 }
 
-.delete-btn:hover{
-background:#b91c1c;
-}
-
-/* FOOTER */
-
 .footer{
 text-align:center;
 margin-top:40px;
 font-size:22px;
 font-family:'Orbitron',sans-serif;
 color:#22c55e;
-
-text-shadow:
-0 0 10px #22c55e,
-0 0 20px #22c55e;
 }
-
-/* RESPONSIVO */
 
 @media(max-width:768px){
-
-.loader h1{
-font-size:50px;
-}
-
-.loader p{
-font-size:18px;
-}
-
-.loading-bar{
-width:230px;
-}
 
 header h1{
 font-size:50px;
@@ -440,26 +352,12 @@ header h2{
 font-size:24px;
 }
 
-.team{
-font-size:22px;
-}
-
-.team img{
-width:45px;
-height:32px;
-}
-
-.vs{
+.group-title{
 font-size:28px;
 }
 
-.time{
-font-size:18px;
-}
-
-td{
+.team-card span{
 font-size:20px;
-padding:25px 10px;
 }
 
 }
@@ -469,7 +367,7 @@ padding:25px 10px;
 
 <body>
 
-<!-- LOADER NEON -->
+<!-- LOADER -->
 
 <div class="loader">
 
@@ -478,9 +376,7 @@ padding:25px 10px;
 <p>CARREGANDO...</p>
 
 <div class="loading-bar">
-
 <div class="loading-fill"></div>
-
 </div>
 
 </div>
@@ -491,94 +387,103 @@ padding:25px 10px;
 
 <h1>🏆 COPA 2026</h1>
 
-<h2>CONFRONTOS</h2>
+<h2>GRUPOS A • B • C</h2>
 
 </header>
 
-<!-- TABELA -->
+<!-- GRUPO A -->
 
-<div class="table-box">
+<div class="group">
 
-<table>
+<h2 class="group-title">GRUPO A</h2>
 
-<tr>
-<th>JOGO</th>
-<th>CONFRONTO</th>
-</tr>
+<div class="teams-grid">
 
-<tr>
+<div class="team-card">
+<img src="https://flagcdn.com/w320/us.png">
+<span>ESTADOS UNIDOS</span>
+</div>
 
-<td>1</td>
+<div class="team-card">
+<img src="https://flagcdn.com/w320/mx.png">
+<span>MÉXICO</span>
+</div>
 
-<td>
+<div class="team-card">
+<img src="https://flagcdn.com/w320/cr.png">
+<span>COSTA RICA</span>
+</div>
 
-<div class="match">
+<div class="team-card">
+<img src="https://flagcdn.com/w320/ca.png">
+<span>CANADÁ</span>
+</div>
 
-<div class="team">
+</div>
 
+</div>
+
+<!-- GRUPO B -->
+
+<div class="group">
+
+<h2 class="group-title">GRUPO B</h2>
+
+<div class="teams-grid">
+
+<div class="team-card">
 <img src="https://flagcdn.com/w320/br.png">
-
 <span>BRASIL</span>
-
 </div>
 
-<div class="vs">VS</div>
-
-<div class="team">
-
+<div class="team-card">
 <img src="https://flagcdn.com/w320/ma.png">
-
 <span>MARROCOS</span>
-
 </div>
 
+<div class="team-card">
+<img src="https://flagcdn.com/w320/jp.png">
+<span>JAPÃO</span>
 </div>
 
-<div class="time">
-🕖 19:00
+<div class="team-card">
+<img src="https://flagcdn.com/w320/rs.png">
+<span>SÉRVIA</span>
 </div>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>2</td>
-
-<td>
-
-<div class="match">
-
-<div class="team">
-
-<img src="https://flagcdn.com/w320/ht.png">
-
-<span>HAITI</span>
-
-</div>
-
-<div class="vs">VS</div>
-
-<div class="team">
-
-<img src="https://flagcdn.com/w320/gb-sct.png">
-
-<span>ESCÓCIA</span>
 
 </div>
 
 </div>
 
-<div class="time">
-🕙 22:00
+<!-- GRUPO C -->
+
+<div class="group">
+
+<h2 class="group-title">GRUPO C</h2>
+
+<div class="teams-grid">
+
+<div class="team-card">
+<img src="https://flagcdn.com/w320/ar.png">
+<span>ARGENTINA</span>
 </div>
 
-</td>
+<div class="team-card">
+<img src="https://flagcdn.com/w320/fr.png">
+<span>FRANÇA</span>
+</div>
 
-</tr>
+<div class="team-card">
+<img src="https://flagcdn.com/w320/de.png">
+<span>ALEMANHA</span>
+</div>
 
-</table>
+<div class="team-card">
+<img src="https://flagcdn.com/w320/pt.png">
+<span>PORTUGAL</span>
+</div>
+
+</div>
 
 </div>
 
@@ -678,4 +583,3 @@ addComment();
 
 </body>
 </html>
-faça esse codigo de novo so que coloque nele todos os 48 times 
