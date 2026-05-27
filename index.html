@@ -32,7 +32,7 @@ background-attachment:fixed;
 }
 
 /* ========================= */
-/* LOADER NEON */
+/* LOADER */
 /* ========================= */
 
 .loader{
@@ -97,6 +97,8 @@ width:0%;
 background:linear-gradient(90deg,#22c55e,#facc15);
 animation:load 4s forwards;
 }
+
+/* ANIMAÇÕES */
 
 @keyframes neon{
 
@@ -169,7 +171,7 @@ visibility:hidden;
 
 .container{
 width:95%;
-max-width:1000px;
+max-width:1200px;
 margin:auto;
 padding:30px 0;
 }
@@ -220,6 +222,12 @@ border:2px solid rgba(34,197,94,0.4);
 border-radius:25px;
 padding:25px;
 backdrop-filter:blur(5px);
+transition:0.4s;
+}
+
+.group-card:hover{
+transform:scale(1.03);
+box-shadow:0 0 25px rgba(34,197,94,0.5);
 }
 
 .group-card h3{
@@ -240,6 +248,12 @@ background:#0f172a;
 border-radius:14px;
 font-size:22px;
 font-weight:bold;
+transition:0.3s;
+}
+
+.group-team:hover{
+background:#1e293b;
+transform:scale(1.02);
 }
 
 .group-team img{
@@ -331,6 +345,8 @@ width:auto;
 font-size:15px;
 border-radius:10px;
 }
+
+/* FOOTER */
 
 .footer{
 text-align:center;
@@ -507,6 +523,34 @@ font-size:24px;
 <div class="group-team">
 <img src="https://flagcdn.com/w320/tr.png">
 <span>TURQUIA</span>
+</div>
+
+</div>
+
+<!-- GRUPO E -->
+
+<div class="group-card">
+
+<h3>GRUPO E</h3>
+
+<div class="group-team">
+<img src="https://flagcdn.com/w320/de.png">
+<span>ALEMANHA</span>
+</div>
+
+<div class="group-team">
+<img src="https://flagcdn.com/w320/cw.png">
+<span>CURAÇAU</span>
+</div>
+
+<div class="group-team">
+<img src="https://flagcdn.com/w320/ci.png">
+<span>COSTA DO MARFIM</span>
+</div>
+
+<div class="group-team">
+<img src="https://flagcdn.com/w320/ec.png">
+<span>EQUADOR</span>
 </div>
 
 </div>
