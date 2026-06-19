@@ -36,6 +36,19 @@ background-attachment:fixed;
 /* ========================= */
 
 .loader{
+  .loader-img{
+width:300px;
+height:auto;
+border-radius:20px;
+margin-bottom:25px;
+
+box-shadow:
+0 0 15px white,
+0 0 30px #22c55e,
+0 0 60px #22c55e;
+
+animation:girar 4s linear infinite;
+}
 position:fixed;
 top:0;
 left:0;
@@ -99,7 +112,17 @@ animation:load 4s forwards;
 }
 
 /* ANIMAÇÕES */
+@keyframes girar{
 
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
 @keyframes neon{
 
 from{
@@ -390,8 +413,9 @@ font-size:18px;
 </head>
 
 <body>
-
 <div class="loader">
+
+<img src="bola.jpg" class="loader-img" alt="Bola de Futebol">
 
 <h1>🏆 COPA 2026</h1>
 
